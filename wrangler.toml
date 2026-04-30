@@ -11,12 +11,12 @@ SITE_URL = "https://footbridge.hu"
 
 [[kv_namespaces]]
 binding = "CONTENT"
-id = "REPLACE_WITH_CONTENT_KV_ID"
+id = "a76c118ae5f04024974f55447a85c256"
 
 [[kv_namespaces]]
 binding = "LEADS"
-id = "REPLACE_WITH_LEADS_KV_ID"
+id = "48747eb263e14c54a3b740ea7d83469b"
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "REPLACE_WITH_RATE_LIMIT_KV_ID"
+id = "5d5d8af00d5547a4b5bbc528d6f4b5bb"
