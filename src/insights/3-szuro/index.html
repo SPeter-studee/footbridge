@@ -1,42 +1,199 @@
 <!DOCTYPE html>
-<html lang="hu"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A 3 sz&uuml;r&odblac;, ami megsp&oacute;rol 6 h&oacute;napot &mdash; Footbridge Insights</title>
-<link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/styles/main.css"></head><body>
-<header class="site-header" role="banner"><div class="container"><div class="site-header-inner">
-<a href="/" class="site-logo" aria-label="Footbridge"><svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg><span>Footbridge</span></a>
-<nav class="site-nav" id="mobile-nav" aria-label="Nav"><a href="/megoldasok">Megold&aacute;sok</a><a href="/eszkozok">Eszk&ouml;z&ouml;k</a><a href="/munkaink">Munk&aacute;ink</a><a href="/insights" aria-current="page">Insights</a><a href="/rolunk">R&oacute;lunk</a><a href="/kapcsolat" class="btn btn-primary">Besz&eacute;lj&uuml;nk</a><button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvas&aacute;si m&oacute;d">Aa</button></nav>
-<button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Men&uuml;"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg></button>
-</div></div></header>
-<main id="main-content"><section class="section" style="padding-top:var(--space-20);"><div class="container" style="max-width:680px;">
-<a href="/insights" class="btn btn-ghost" style="margin-bottom:var(--space-8);display:inline-flex;">&larr; Insights</a>
-<p class="eyebrow" style="margin-bottom:var(--space-3);">5 perc &middot; M&oacute;dszertan</p>
-<h1 style="margin-bottom:var(--space-6);">A 3 sz&uuml;r&odblac;, ami megsp&oacute;rol 6 h&oacute;napot</h1>
-<p class="lead" style="margin-bottom:var(--space-12);">Hogyan cs&ouml;kkenti az 1 napos workshop a 6 h&oacute;napos discovery-f&aacute;zist.</p>
-<div style="display:flex;flex-direction:column;gap:var(--space-6);">
-<p style="color:var(--color-muted);">A "digitaliz&aacute;ci&oacute; discovery-f&aacute;zis" &aacute;tlagos id&odblac;tartama 3-6 h&oacute;nap. Ez nem sz&uuml;ks&eacute;ges. Egy j&oacute;l tervezett 1 napos workshop ugyanezt el&eacute;ri.</p>
-<h2 style="font-size:var(--text-xl);">Mi a probl&eacute;ma a hosszú discovery-vel</h2>
-<p style="color:var(--color-muted);">6 h&oacute;napos discovery ut&aacute;n a szervezet f&aacute;radt, a vezet&eacute;s elveszti a projekt ir&aacute;nti bizalm&aacute;t, &eacute;s a mire elkezdj&uuml;k, a priorit&aacute;sok m&aacute;r v&aacute;ltoztak. A discovery &ouml;nmaga &aacute;ltal&aacute;noss&aacute; v&aacute;lik, sz&eacute;les &eacute;s sekély marad.</p>
-<h2 style="font-size:var(--text-xl);">A 3 sz&uuml;r&odblac;s workshop</h2>
-<p style="color:var(--color-muted);">Az 1 napos workshop nem helyettes&iacute;ti a teljes discovery-t &mdash; de kider&iacute;ti, hogy kell-e egy&aacute;ltalán. A workshop v&eacute;g&eacute;re megvan:</p>
-<ul style="padding-left:var(--space-5);color:var(--color-muted);display:flex;flex-direction:column;gap:var(--space-2);list-style:disc;">
-<li>A 3 legk&ouml;lts&eacute;gesebb folyamat (id&odblac;ben &eacute;s p&eacute;nzben)</li>
-<li>Mindh&aacute;romra a 3 sz&uuml;r&odblac; eredm&eacute;nye</li>
-<li>Egy konkr&eacute;t els&odblac; h&iacute;d javaslattal, fix &aacute;rral &eacute;s scope-pal</li>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A 3 szűrő, ami megspórol 6 hónapot — Footbridge Insights</title>
+  <meta name="description" content="Nem a discovery-fázis a probléma. A probléma az, hogy a discovery-fázis az egyetlen módszer, amit ismerünk. Egy 1 napos workshop ugyanazokat a kérdéseket teszi ">
+  <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .article-body h2 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; margin: var(--space-12) 0 var(--space-4); line-height: var(--leading-snug); }
+    .article-body h3 { font-size: var(--text-lg); font-weight: 500; margin: var(--space-8) 0 var(--space-3); }
+    .article-body p { margin-bottom: var(--space-5); color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 68ch; }
+    .article-body strong { color: var(--color-text); font-weight: 500; }
+    .article-body blockquote { border-left: 2px solid var(--color-green); padding-left: var(--space-6); margin: var(--space-8) 0; font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-green); line-height: var(--leading-relaxed); }
+    .article-body ul { margin: 0 0 var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); list-style: disc; }
+    .article-body ul li { color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 62ch; }
+    .article-body .callout { background: var(--color-surface); padding: var(--space-6); margin: var(--space-8) 0; border-left: 2px solid var(--color-green); }
+    .article-body .callout p { margin: 0; }
+    .article-body .number-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-8) 0; }
+    .article-body .number-card { padding: var(--space-5); background: var(--color-surface); }
+    .article-body .number-card .num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; color: var(--color-text); margin-bottom: 4px; }
+    .article-body .number-card .num-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); }
+    .progress-bar { position: fixed; top: 64px; left: 0; right: 0; height: 2px; background: var(--color-border); z-index: 99; }
+    .progress-fill { height: 100%; background: var(--color-green); width: 0%; transition: width 100ms linear; }
+  </style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <span>Footbridge</span>
+      </a>
+      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
+        <a href="/megoldasok">Megoldások</a>
+        <a href="/eszkozok">Eszközök</a>
+        <a href="/munkaink">Munkáink</a>
+        <a href="/insights" aria-current="page">Insights</a>
+        <a href="/rolunk">Rólunk</a>
+        <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
+        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+<main id="main-content">
+  <article style="padding-top: var(--space-20); padding-bottom: var(--space-24);">
+    <div class="container" style="max-width: 740px;">
+
+      <nav aria-label="Visszanavigáció" style="margin-bottom: var(--space-8);">
+        <a href="/insights" class="btn btn-ghost" style="font-size: var(--text-sm);">← Insights</a>
+      </nav>
+
+      <header style="margin-bottom: var(--space-12);">
+        <p class="eyebrow" style="margin-bottom: var(--space-4);">5 perc olvasás · AI-asszisztált, ember által szerkesztett</p>
+        <h1 style="margin-bottom: var(--space-6); font-size: clamp(var(--text-2xl), 4vw, 42px);">A 3 szűrő, ami megspórol 6 hónapot</h1>
+        <p style="font-size: var(--text-xl); line-height: 1.5; color: var(--color-muted); max-width: 60ch; margin-bottom: var(--space-8);">Nem a discovery-fázis a probléma. A probléma az, hogy a discovery-fázis az egyetlen módszer, amit ismerünk. Egy 1 napos workshop ugyanazokat a kérdéseket teszi fel, mint egy 6 hónapos elemzés — csak gyorsabban, és az ügyfél is benne van a teremben.</p>
+        <div style="width: 48px; height: 1px; background: var(--color-green);"></div>
+      </header>
+
+      <div class="article-body">
+        
+<p>Egy tipikus digitalizációs projekt így indul: discovery. Interjúk a stakeholderekkel. Folyamat-feltérképezés. Jelenlegi állapot dokumentálása. Jövőkép-workshopok. Stratégiai értékelés. Hat hónap múlva: 200 oldalas dokumentum és egy ajánlás, aminek a megvalósítása 18 hónap és 80 millió forint.</p>
+
+<p>Ezzel három probléma van.</p>
+
+<p>Első: hat hónap alatt a piac, a szervezet és a prioritások változnak. A dokumentum, amire a stratégia épül, mire elkészül, részben már elavult.</p>
+
+<p>Második: a 200 oldalból 20 oldal az, ami valóban döntést befolyásol. A többi kontextus, háttér, metodológiai leírás — amit senki nem olvas el.</p>
+
+<p>Harmadik: a discovery-fázis az ügyfelet kívülre helyezi. Megkérdezik, de nem gondolkodnak együtt. Az eredmény egy külső elemzés a saját szervezetükről — amit aztán el kell adni belülre.</p>
+
+<h2>Mi az alternatíva?</h2>
+
+<p>A Footbridge 1 napos workshopja ugyanazokat a kérdéseket teszi fel, mint egy 6 hónapos discovery. De felgyorsítja a folyamatot azzal, hogy <strong>a legfontosabb döntési pontokra fókuszál</strong>, és az ügyfél is benne van a teremben, nem csak interjúalany.</p>
+
+<p>A workshop nem helyettesíti a mélyebb elemzést minden esetben. De a legtöbb esetben elegendő ahhoz, hogy megtudjuk: <strong>mi az, amit nem kellene megcsinálni</strong>.</p>
+
+<blockquote>A legjobb discovery-fázis az, amelyik megmutatja, mire nincs szükség.</blockquote>
+
+<h2>A 3 szűrő logikája</h2>
+
+<p>A workshop motorja a 3 szűrő. Minden folyamatra, minden problémára, minden "automatizáljuk" gondolatra ugyanaz a három kérdés — ebben a sorrendben.</p>
+
+<h3>1. szűrő: Megszüntethető?</h3>
+
+<p>Ez a legkellemetlenebb kérdés, mert a válasz sokszor igen. Folyamatok azért léteznek, mert valaha létrehozták őket — de az az ok, ami miatt létrehozták, már régen nem áll fenn. A folyamat él tovább, mert senki nem kérdőjelezte meg.</p>
+
+<p>Néhány jellemző eset:</p>
+
+<ul>
+  <li>Jóváhagyási kör, ami soha nem módosított semmit az elmúlt 24 hónapban — de mindenki kitölti, mert "ez a szabály".</li>
+  <li>Heti riport, amit az egyetlen befogadó saját bevallása szerint nem olvas el, mert "úgyis megkérdezem, ha kell valamit".</li>
+  <li>Adatbekérés az ügyféltől, ami az esetek 90%-ában ugyanaz — de egyedi formban kérik be minden alkalommal.</li>
+  <li>Párhuzamos rendszerkarbantartás, ami azért maradt fenn, mert a migráció "folyamatban van" — öt éve.</li>
 </ul>
-<p style="color:var(--color-muted);">Ez nem 6 h&oacute;nap &mdash; hanem 1 nap + 1 h&eacute;t ajánlat-kidolgozás. Az els&odblac; h&iacute;d m&aacute;r 3 h&eacute;t múlva m&eacute;rhető eredményt ad.</p>
-<blockquote>A j&oacute; discovery nem az, ami mindent felt&aacute;r &mdash; hanem az, ami a legfontosabb d&ouml;nt&eacute;seket teszi meg.</blockquote>
+
+<p>Ha egy folyamat megszüntethető, az nem technikai kérdés. Szervezeti döntés, amit a workshop napján meg lehet hozni — és meg kell hozni, mielőtt bármit automatizálnánk.</p>
+
+<h3>2. szűrő: Áttervezhető?</h3>
+
+<p>Ha nem szüntethető meg, lehet-e <strong>egyszerűsíteni anélkül, hogy automatizálnánk</strong>? Ez a szűrő a legkevésbé glamúros — nincs benne technológia, nincs AI, nincs Make-flow. De ez hozza a legtöbb eredményt a legkevesebb befektetéssel.</p>
+
+<p>Három klasszikus átszervezési minta:</p>
+
+<p><strong>Párhuzamosítás.</strong> Soros folyamatoknál, ahol több ember egymás után lát rá ugyanarra a dokumentumra, az egyidejű hozzáférés felére csökkenti az átfutási időt. Ez nem automatizáció — ez Google Docs a SharePoint helyett, vagy egyszerűen egy e-mail több címzettel egy lánc helyett.</p>
+
+<p><strong>Egypontos adatbevitel.</strong> Ha ugyanazt az adatot három helyre viszik be kézzel, az nem háromszori munka — az háromszori hibalehetőség is. Az átszervezés itt nem az adatbevitel automatizálása, hanem annak eldöntése: <em>melyik rendszer az egyetlen forrás az igazságnak</em>? A többi automatikusan kapja, vagy egyáltalán nem kapja.</p>
+
+<p><strong>Kivétel-alapú kezelés.</strong> A legtöbb folyamatban az esetek 80-90%-a standard. A fennmaradó 10-20% kivétel. Ha a folyamatot az összes kivételre méretezik, a standard esetek is bonyolultabbak lesznek, mint kellene. Az átszervezés: külön vonal a standardnak, külön a kivételnek.</p>
+
+<h3>3. szűrő: Automatizálható?</h3>
+
+<p>Csak ami az első két szűrőn átment. De ekkor már egy sokkal kisebb, egyszerűbb, logikusabb folyamatra kerül az automatizáció. Az eredmény tartós lesz, mert a folyamat maga is helyes — nem csak gyorsabb.</p>
+
+<p>A három szűrő sorrendje nem véletlen. Ha a harmadikkal kezdünk — ami a reflex —, a gyors győzelmek gyorsan megérkeznek, de a mélyebb problémák megmaradnak. Hat hónap múlva a szervezet ugyanazokkal a kérdésekkel találja magát szemben, csak most egy automatizált rendszer körül.</p>
+
+<div class="number-row">
+  <div class="number-card"><div class="num">1 nap</div><div class="num-label">Workshop időtartama</div></div>
+  <div class="number-card"><div class="num">3–5</div><div class="num-label">Konkrét döntés a nap végén</div></div>
+  <div class="number-card"><div class="num">350–450 eFt</div><div class="num-label">Workshop ára + ÁFA</div></div>
 </div>
-<p style="font-size:var(--text-xs);color:var(--color-muted);border-top:0.5px solid var(--color-border);padding-top:var(--space-4);margin-top:var(--space-12);">Ez a cikk AI-assziszt&aacute;lt elj&aacute;r&aacute;ssal k&eacute;sz&uuml;lt: a v&aacute;zlatot AI seg&iacute;tette, a tartalmat ember szerkesztette &eacute;s v&eacute;gleges&iacute;tette.</p>
-<div class="card-surface" style="padding:var(--space-8);margin-top:var(--space-12);">
-<h2 style="font-size:var(--text-xl);margin-bottom:var(--space-3);">Besz&eacute;lj&uuml;nk r&oacute;la</h2>
-<p style="color:var(--color-muted);margin-bottom:var(--space-5);">Ha a cikk releváns a c&eacute;ged hely. zet&eacute;re, egy 30 perces h&iacute;v&aacute;ssal kider&iacute;tj&uuml;k, tudunk-e seg&iacute;teni.</p>
-<a href="/kapcsolat" class="btn btn-primary">Kapcsolat &rarr;</a>
-</div>
-</div></section></main>
-<footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-bottom">
-<p class="footer-coffee">Ahogy a Te id&odblac;d, a mi id&odblac;nk is dr&aacute;ga.</p>
-<a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
-</div></div></footer>
+
+<h2>Mi történik a workshop napján</h2>
+
+<p>A workshop nem prezentáció. Nem a Footbridge mutatja be, hogyan kellene csinálni. Közös munka — a folyamat tulajdonosai és a Footbridge együtt mennek végig a 3 szűrőn.</p>
+
+<p>A délelőtt a jelenlegi állapot feltérképezésével telik — de nem minden részlet rögzítésével. Az 5 Whys módszerrel a tünetek mögé nézünk: <em>miért van ez a folyamat? Mi történik, ha nem csináljuk meg? Ki döntötte el, hogy így kell?</em></p>
+
+<p>A délután a 3 szűrő alkalmazásával: mit szüntetünk meg, mit tervezünk át, mit automatizálunk. A nap végén nem dokumentum születik — döntések születnek. Rögtön megvalósítható lépések, felelősökkel és határidőkkel.</p>
+
+<p>Az egyik leggyakoribb visszajelzés: "Korábban el kellett volna jönni." Nem azért, mert a Footbridge okosabb. Azért, mert egy külső szem és egy strukturált kérdéssor olyan kérdéseket hoz be, amiket belülről nehéz feltenni. Nem politikailag, nem intellektuálisan — csak azért, mert aki benne van a folyamatban, azt természetesnek veszi.</p>
+
+<h2>Mikor nem elég a workshop?</h2>
+
+<p>Vannak helyzetek, ahol az 1 napos workshop valóban csak az első lépés, és mélyebb elemzés szükséges. Például:</p>
+
+<ul>
+  <li>Ha a szervezet több tucat összekapcsolt folyamatát egyszerre kell megérteni — ERP-bevezetés, szervezeti átalakítás.</li>
+  <li>Ha a szabályozói környezet (GDPR, NIS2, pénzügyi audit) külső dokumentációt igényel.</li>
+  <li>Ha a projekt döntése politikailag érzékeny, és a belső konszenzushoz formálisabb elemzési folyamat szükséges.</li>
+</ul>
+
+<p>Ezekben az esetekben a Footbridge nem azt mondja, hogy az 1 napos workshop elég. De azt sem mondja, hogy 6 hónap szükséges. A kérdés mindig: <em>mi a minimális elemzés, ami alapján biztonságos döntést lehet hozni?</em></p>
+
+<p>A legtöbb esetben ez jóval kevesebb, mint amit az iparági szokások előírnak.</p>
+
+<h2>Egy záró gondolat</h2>
+
+<p>A 6 hónapos discovery nem azért vált szabvánnyá, mert mindig szükséges. Azért vált szabvánnyá, mert kényelmes — az elemző számára és a megrendelő számára egyaránt. Az elemző időt és pénzt kap. A megrendelő érzetet kap, hogy "most komolyan foglalkozunk a kérdéssel".</p>
+
+<p>De az érzet és az eredmény nem ugyanaz. Az 1 napos workshop kényelmetlenebb — gyorsabb döntéseket kér, rögtön. Nincs hat hónap a döntés előkészítésére. Ez felelősséget tesz a teremben lévő emberekre.</p>
+
+<p>Pontosan ezért hatékonyabb.</p>
+
+      </div>
+
+      <footer style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 0.5px solid var(--color-border);">
+        <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-8);">Ez a cikk AI-asszisztált eljárással készült: a vázlatot és az első változatot AI segítette, az ember szerkesztette és véglegesítette.</p>
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+          <a href="/eszkozok" class="btn btn-primary">Próbáld ki az eszközöket →</a>
+          <a href="/kapcsolat" class="btn btn-ghost">Vagy beszéljünk →</a>
+        </div>
+      </footer>
+
+    </div>
+  </article>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-coffee">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <nav style="display:flex;gap:24px;" aria-label="Jogi linkek">
+        <a href="/adatvedelem" style="font-size:13px;color:var(--color-muted);text-decoration:none;">Adatvédelem</a>
+        <a href="/aszf" style="font-size:13px;color:var(--color-muted);text-decoration:none;">ÁSZF</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 <script src="/scripts/main.js"></script>
-</body></html>
+<script>
+const fill = document.getElementById('progress');
+if (fill) {
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    fill.style.width = (scrolled / total * 100).toFixed(1) + '%';
+  }, { passive: true });
+}
+</script>
+</body>
+</html>

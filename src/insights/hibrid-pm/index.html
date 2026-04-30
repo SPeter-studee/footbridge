@@ -1,41 +1,194 @@
 <!DOCTYPE html>
-<html lang="hu"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hibrid PM: kis d&ouml;nt&eacute;s, nagy k&uuml;l&ouml;nbs&eacute;g &mdash; Footbridge Insights</title>
-<link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/styles/main.css"></head><body>
-<header class="site-header" role="banner"><div class="container"><div class="site-header-inner">
-<a href="/" class="site-logo" aria-label="Footbridge"><svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg><span>Footbridge</span></a>
-<nav class="site-nav" id="mobile-nav" aria-label="Nav"><a href="/megoldasok">Megold&aacute;sok</a><a href="/eszkozok">Eszk&ouml;z&ouml;k</a><a href="/munkaink">Munk&aacute;ink</a><a href="/insights" aria-current="page">Insights</a><a href="/rolunk">R&oacute;lunk</a><a href="/kapcsolat" class="btn btn-primary">Besz&eacute;lj&uuml;nk</a><button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvas&aacute;si m&oacute;d">Aa</button></nav>
-<button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Men&uuml;"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg></button>
-</div></div></header>
-<main id="main-content"><section class="section" style="padding-top:var(--space-20);"><div class="container" style="max-width:680px;">
-<a href="/insights" class="btn btn-ghost" style="margin-bottom:var(--space-8);display:inline-flex;">&larr; Insights</a>
-<p class="eyebrow" style="margin-bottom:var(--space-3);">8 perc &middot; Projektmenedzsment</p>
-<h1 style="margin-bottom:var(--space-6);">Hibrid PM: kis d&ouml;nt&eacute;s, nagy k&uuml;l&ouml;nbs&eacute;g</h1>
-<p class="lead" style="margin-bottom:var(--space-12);">Mi&eacute;rt dolgozik a Footbridge agile + predikt&iacute;v + iterative egy&uuml;tt egy projekten bel&uuml;l.</p>
-<div style="display:flex;flex-direction:column;gap:var(--space-6);">
-<p style="color:var(--color-muted);">A "agilis vagy waterfall?" k&eacute;rd&eacute;s hamis dichotómia. A val&oacute;s&aacute;gban minden projekt egy kombin&aacute;ci&oacute;t k&iacute;v&aacute;n.</p>
-<h2 style="font-size:var(--text-xl);">A 4 megk&ouml;zel&iacute;t&eacute;s</h2>
-<div style="display:flex;flex-direction:column;gap:var(--space-3);">
-<div class="card-surface" style="padding:var(--space-4) var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Predikt&iacute;v</p><p style="color:var(--color-muted);font-size:var(--text-sm);">Stabil, j&oacute;l &eacute;rtett terep. Szerz&odblac;d&eacute;se, hat&aacute;rid&odblac;je, b&uuml;dzs&eacute;je fix. Pl. infrastrukt&uacute;ra-migr&aacute;ci&oacute;.</p></div>
-<div class="card-surface" style="padding:var(--space-4) var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Agilis</p><p style="color:var(--color-muted);font-size:var(--text-sm);">Innovat&iacute;v, bizonytalan terep. Scope rug&aacute;lmas, iteráci&oacute;kban tanulunk. Pl. &uacute;j term&eacute;k fejleszt&eacute;se.</p></div>
-<div class="card-surface" style="padding:var(--space-4) var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Iterative</p><p style="color:var(--color-muted);font-size:var(--text-sm);">Ism&eacute;tl&odblac;d&odblac;, finomand&oacute;. Minden ciklus jobb mint az el&odblac;z&odblac;. Pl. UX-tesztel&eacute;ssel finomított interfész.</p></div>
-<div class="card-surface" style="padding:var(--space-4) var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Incremental</p><p style="color:var(--color-muted);font-size:var(--text-sm);">Fokozatos bevezet&eacute;s. Minden sprint szállítható értéket ad. Pl. m&oacute;dulos ERP-bevezetés.</p></div>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hibrid PM: kis döntés, nagy különbség — Footbridge Insights</title>
+  <meta name="description" content="Az agilis-prediktív vita meddő. Egy projekt nem agilis vagy prediktív — egy projekt egyszerre lehet mindkettő, különböző részein. Az a kérdés, hogy mikor melyik">
+  <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .article-body h2 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; margin: var(--space-12) 0 var(--space-4); line-height: var(--leading-snug); }
+    .article-body h3 { font-size: var(--text-lg); font-weight: 500; margin: var(--space-8) 0 var(--space-3); }
+    .article-body p { margin-bottom: var(--space-5); color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 68ch; }
+    .article-body strong { color: var(--color-text); font-weight: 500; }
+    .article-body blockquote { border-left: 2px solid var(--color-green); padding-left: var(--space-6); margin: var(--space-8) 0; font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-green); line-height: var(--leading-relaxed); }
+    .article-body ul { margin: 0 0 var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); list-style: disc; }
+    .article-body ul li { color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 62ch; }
+    .article-body .callout { background: var(--color-surface); padding: var(--space-6); margin: var(--space-8) 0; border-left: 2px solid var(--color-green); }
+    .article-body .callout p { margin: 0; }
+    .article-body .number-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-8) 0; }
+    .article-body .number-card { padding: var(--space-5); background: var(--color-surface); }
+    .article-body .number-card .num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; color: var(--color-text); margin-bottom: 4px; }
+    .article-body .number-card .num-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); }
+    .progress-bar { position: fixed; top: 64px; left: 0; right: 0; height: 2px; background: var(--color-border); z-index: 99; }
+    .progress-fill { height: 100%; background: var(--color-green); width: 0%; transition: width 100ms linear; }
+  </style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <span>Footbridge</span>
+      </a>
+      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
+        <a href="/megoldasok">Megoldások</a>
+        <a href="/eszkozok">Eszközök</a>
+        <a href="/munkaink">Munkáink</a>
+        <a href="/insights" aria-current="page">Insights</a>
+        <a href="/rolunk">Rólunk</a>
+        <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
+        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+<main id="main-content">
+  <article style="padding-top: var(--space-20); padding-bottom: var(--space-24);">
+    <div class="container" style="max-width: 740px;">
+
+      <nav aria-label="Visszanavigáció" style="margin-bottom: var(--space-8);">
+        <a href="/insights" class="btn btn-ghost" style="font-size: var(--text-sm);">← Insights</a>
+      </nav>
+
+      <header style="margin-bottom: var(--space-12);">
+        <p class="eyebrow" style="margin-bottom: var(--space-4);">8 perc olvasás · AI-asszisztált, ember által szerkesztett</p>
+        <h1 style="margin-bottom: var(--space-6); font-size: clamp(var(--text-2xl), 4vw, 42px);">Hibrid PM: kis döntés, nagy különbség</h1>
+        <p style="font-size: var(--text-xl); line-height: 1.5; color: var(--color-muted); max-width: 60ch; margin-bottom: var(--space-8);">Az agilis-prediktív vita meddő. Egy projekt nem agilis vagy prediktív — egy projekt egyszerre lehet mindkettő, különböző részein. Az a kérdés, hogy mikor melyiket választjuk. És ez egy nagyon kis döntés, amelynek nagyon nagy következményei vannak.</p>
+        <div style="width: 48px; height: 1px; background: var(--color-green);"></div>
+      </header>
+
+      <div class="article-body">
+        
+<p>2019-ben egy 300 fős magyar pénzügyi szolgáltató ERP-bevezetésébe csöppentem bele félúton. A projekt 14 hónapja futott, és elakadt. A csapat agilis volt — sprintek, daily standup, backlog. Az infrastruktúra-csapat vízesés-módszertanban dolgozott — Gantt-chart, fáziskapuk, milestone-jelentések. A kettő között volt egy légüres tér, ahol senki nem tudta, mi az aktuális állapot.</p>
+
+<p>A probléma nem az volt, hogy az egyik módszertan rossz. A probléma az volt, hogy senki nem döntötte el, <strong>melyik rész kér melyik módszertant</strong>.</p>
+
+<h2>A hamis dichotómia</h2>
+
+<p>Az agilis-prediktív vita az IT-projektmenedzsment egyik legmeddőbb vitája. Az egyik oldal szerint minden Scrum-ban van az igazság: rövid sprintek, folyamatos visszajelzés, alkalmazkodó tervezés. A másik oldal szerint a Gantt-chart, a fáziskapuk és a részletes projekt-terv az egyetlen profi megközelítés.</p>
+
+<p>Mindkét oldal részben igaza van. Mindkét oldal ugyanabban hibázik: azt gondolják, hogy <strong>egy egész projekt egyféle módszertant kíván</strong>.</p>
+
+<p>A valóság más. Egy összetett projekt különböző részei különböző természetűek. Vannak kiszámítható részek és bizonytalan részek. Vannak részek, ahol a visszajelzés döntő, és vannak, ahol a tervtől való eltérés katasztrofális. Ezekre más módszertant kell alkalmazni.</p>
+
+<blockquote>Egy projekt nem agilis vagy prediktív. Egy projekt egyszerre lehet mindkettő — különböző részein, különböző időpontokban.</blockquote>
+
+<h2>A négy módszertan, amit valójában kombinálunk</h2>
+
+<p>A PMBOK 7. kiadása négy fő megközelítést különböztet meg. A gyakorlatban ezek nem versengenek egymással — kiegészítik egymást.</p>
+
+<h3>Prediktív (vízesés)</h3>
+
+<p>Akkor hatékony, ha a követelmények stabilak és részletesen ismertek, a megoldás jól bevált, és a változás költséges vagy kockázatos. Klasszikus példa: adatmigráció, infrastruktúra-konfiguráció, GDPR-megfelelőségi audit, pénzügyi riportálási rendszer bevezetése.</p>
+
+<p>Ezeken a területeken a Scrum sprintek értelmetlen rugalmasságot visznek be. "Az adatbázis-szerver telepítési folyamatának sprint-visszatekintője" — ez nem agilitás, ez overhead.</p>
+
+<h3>Agile (iteratív-inkrementális)</h3>
+
+<p>Akkor hatékony, ha a követelmények bizonytalanok vagy változnak, a megoldás új és ismeretlen, és a korai visszajelzés értékes. Klasszikus példa: UX-tervezés, AI-prototípus fejlesztés, új ügyfél-folyamat kialakítása, mobilalkalmazás MVP-je.</p>
+
+<p>Ezeken a területeken a részletes projekt-terv hazugság. Senki nem tudja előre, hogy a harmadik sprint végén pontosan mi lesz a képernyőn. A tervtől való eltérés nem hiba — ez a folyamat lényege.</p>
+
+<h3>Iteratív</h3>
+
+<p>Akkor hatékony, ha a megoldás alapja ismert, de a részletek finomításra szorulnak valós használat alapján. Klasszikus példa: riport-rendszer kiépítése, belső adminisztrációs felület fejlesztése, folyamatos tréning-program finomítása.</p>
+
+<p>Az iteratív megközelítés fix scope-pal dolgozik, de a kivitelezés körökben finomodik. Ez nem agile — nincs önálló sprint backlog és product owner. Ez egy fokozatos közelítés a célhoz.</p>
+
+<h3>Inkrementális</h3>
+
+<p>Akkor hatékony, ha a teljes rendszer egyszerre nem vezethető be, de a részek önállóan is értéket adnak. Klasszikus példa: legacy-rendszer modernizáció Strangler Fig pattern-nel, modul-onkénti ERP-bevezetés, fokozatos folyamat-átállás.</p>
+
+<div class="callout">
+  <p><strong>A hibrid PM lényege</strong> nem az, hogy "rugalmasak vagyunk." A lényege, hogy minden projekt-résznél feltesszük: <em>ez a rész kiszámítható vagy bizonytalan?</em> — és a válasz alapján választunk módszertant.</p>
 </div>
-<h2 style="font-size:var(--text-xl);">A d&ouml;nt&eacute;si elv</h2>
-<p style="color:var(--color-muted);">Egy ERP-projekten bel&uuml;l a migrációs r&eacute;sz lehet predikt&iacute;v, a reportok agilis, az integr&aacute;ci&oacute;k incremental. Nem kell eg&eacute;szet v&aacute;lasztani.</p>
-<blockquote>A metodol&oacute;gia a kontextust k&ouml;veti, nem fordítva.</blockquote>
+
+<h2>Egy konkrét projekt anatómiája</h2>
+
+<p>Nézzük meg, hogyan nézett ki a fent említett pénzügyi ERP-projekt, miután a hibrid keretet bevezettük. 8 hónapos projekt, 12 stakeholder, 35 millió forint.</p>
+
+<p><strong>Infrastruktúra és adatmigráció → Prediktív.</strong> A szerver-konfiguráció, az adatbázis-migráció és az integrációs tesztelés fix tervvel, fix határidőkkel, fáziskapukkal. Minden változtatás formális change request-et igényelt. Ez nem merevség — ez felelősség. Ha az adatmigráció elcsúszik, az a teljes projekt-ütemtervet érinti.</p>
+
+<p><strong>Raktárvezető-felület UX-tervezése → Agile.</strong> Kéthetente prototípus a valódi raktárvezetőkkel. Az első sprint végén kiderült, hogy a mobilra tervezett felület az üzemcsarnok fényviszonyai között használhatatlan. Ez nem hiba volt — ez agile. A harmadik sprint végén volt egy olyan felület, amit a raktárvezetők valóban használni akartak.</p>
+
+<p><strong>Riport-rendszer → Iteratív.</strong> Az első riport-csomag az induló igényekre épült, majd két körben finomult a valós használat alapján. A scope nem változott — de a részletek igen. Ez nem agile volt, mert a product backlog és a sprint-struktúra overhead lett volna. Ez fokozatos közelítés volt a célhoz.</p>
+
+<p><strong>Legacy-adatok migrációja → Inkrementális.</strong> A régi rendszer nem kapcsolt le egyik napról a másikra. Modul-onként vette át az új rendszer a funkciókat, párhuzamos üzemmel. A párhuzamos üzem extra terhet jelent — ez az inkrementális megközelítés ára. De a big-bang csere kockázata ennek sokszorosát tette volna ki.</p>
+
+<div class="number-row">
+  <div class="number-card"><div class="num">4</div><div class="num-label">Módszertan egy projekten belül</div></div>
+  <div class="number-card"><div class="num">−11 hét</div><div class="num-label">Csúszás az újratervezés előtthez képest</div></div>
+  <div class="number-card"><div class="num">1</div><div class="num-label">Döntési pont, ami mindent megváltoztatott</div></div>
 </div>
-<p style="font-size:var(--text-xs);color:var(--color-muted);border-top:0.5px solid var(--color-border);padding-top:var(--space-4);margin-top:var(--space-12);">Ez a cikk AI-assziszt&aacute;lt elj&aacute;r&aacute;ssal k&eacute;sz&uuml;lt: a v&aacute;zlatot AI seg&iacute;tette, a tartalmat ember szerkesztette &eacute;s v&eacute;gleges&iacute;tette.</p>
-<div class="card-surface" style="padding:var(--space-8);margin-top:var(--space-12);">
-<h2 style="font-size:var(--text-xl);margin-bottom:var(--space-3);">Besz&eacute;lj&uuml;nk r&oacute;la</h2>
-<p style="color:var(--color-muted);margin-bottom:var(--space-5);">Ha a cikk releváns a c&eacute;ged hely. zet&eacute;re, egy 30 perces h&iacute;v&aacute;ssal kider&iacute;tj&uuml;k, tudunk-e seg&iacute;teni.</p>
-<a href="/kapcsolat" class="btn btn-primary">Kapcsolat &rarr;</a>
-</div>
-</div></section></main>
-<footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-bottom">
-<p class="footer-coffee">Ahogy a Te id&odblac;d, a mi id&odblac;nk is dr&aacute;ga.</p>
-<a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
-</div></div></footer>
+
+<h2>A "kis döntés" pillanata</h2>
+
+<p>A hibrid PM legnagyobb értéke nem az, hogy rugalmas — hanem az, hogy minden projekt-résznél van egy kis döntési pont: <em>ez a rész kiszámítható, vagy bizonytalan?</em></p>
+
+<p>Ha kiszámítható: prediktív. Ha bizonytalan: agile. Ha fokozatosan finomodik: iteratív. Ha modul-onként épül: inkrementális.</p>
+
+<p>Ez a döntés pillanata valójában nagyon egyszerű. De meghozni kell. A legtöbb projektnél senki nem hozza meg — az egész projekt egy módszertanra van kényszerítve, ami a részek felénél nem megfelelő.</p>
+
+<p>Az a PM, aki minden projektrésznél felteszi ezt a kérdést, és tudatosan választ, <strong>3-4 héttel csökkenti az átlagos projekt-csúszást</strong>. Nem jobb eszközökkel, nem több erőforrással — egyetlen, tudatos döntéssel.</p>
+
+<h2>Ami ebből a gyakorlatban következik</h2>
+
+<p>Ha most egy projekten dolgozol, tedd fel minden egyes munkacsomagnál: mi a természete? Kiszámítható-e, vagy bizonytalan? Van-e valós visszajelzési ciklus, vagy a terv önmagában elég?</p>
+
+<p>Ha nem tudsz válaszolni — ha "nem tudod, mennyire bizonytalan" — ez önmagában egy válasz. Az ismeretlen bizonytalanság agile-t kér. Kezdj el prototipizálni.</p>
+
+<p>Ha a projekt-tervedben minden munkacsomagnak ugyanolyan típusa van — mind prediktív vagy mind agile — ez figyelmeztető jel. A valós projektek ritkán homogének. Ha a tiéd az, valószínűleg nem a projektet látod, hanem azt a képet, amit az egyik módszertan-tábor mutat róla.</p>
+
+<h2>Egy záró megjegyzés az eszközökről</h2>
+
+<p>A Jira agile-t csinál. A Microsoft Project prediktívet. A Notion bármit. Az eszköz nem a módszertan — az eszköz csak eszköz.</p>
+
+<p>Az a PM, aki a Jirát használja, mert "agile vagyunk", de az összes sprint fixed-scope prediktív munkát tartalmaz, nem agilis. Az a PM, aki Microsoft Projectben vezet egy UX-tervezési projektet Gantt-charttal, nem rosszabb PM-et csinál a szoftvertől.</p>
+
+<p>A módszertan döntés. Az eszköz implementáció. A kettőt össze szokták keverni — és ez önmagában elvesz néhány hetet a projekt végéből.</p>
+
+      </div>
+
+      <footer style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 0.5px solid var(--color-border);">
+        <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-8);">Ez a cikk AI-asszisztált eljárással készült: a vázlatot és az első változatot AI segítette, az ember szerkesztette és véglegesítette.</p>
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+          <a href="/eszkozok" class="btn btn-primary">Próbáld ki az eszközöket →</a>
+          <a href="/kapcsolat" class="btn btn-ghost">Vagy beszéljünk →</a>
+        </div>
+      </footer>
+
+    </div>
+  </article>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-coffee">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <nav style="display:flex;gap:24px;" aria-label="Jogi linkek">
+        <a href="/adatvedelem" style="font-size:13px;color:var(--color-muted);text-decoration:none;">Adatvédelem</a>
+        <a href="/aszf" style="font-size:13px;color:var(--color-muted);text-decoration:none;">ÁSZF</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 <script src="/scripts/main.js"></script>
-</body></html>
+<script>
+const fill = document.getElementById('progress');
+if (fill) {
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    fill.style.width = (scrolled / total * 100).toFixed(1) + '%';
+  }, { passive: true });
+}
+</script>
+</body>
+</html>

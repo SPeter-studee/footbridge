@@ -1,42 +1,195 @@
 <!DOCTYPE html>
-<html lang="hu"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mikor ne automatiz&aacute;lj &mdash; Footbridge Insights</title>
-<link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/styles/main.css"></head><body>
-<header class="site-header" role="banner"><div class="container"><div class="site-header-inner">
-<a href="/" class="site-logo" aria-label="Footbridge"><svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg><span>Footbridge</span></a>
-<nav class="site-nav" id="mobile-nav" aria-label="Nav"><a href="/megoldasok">Megold&aacute;sok</a><a href="/eszkozok">Eszk&ouml;z&ouml;k</a><a href="/munkaink">Munk&aacute;ink</a><a href="/insights" aria-current="page">Insights</a><a href="/rolunk">R&oacute;lunk</a><a href="/kapcsolat" class="btn btn-primary">Besz&eacute;lj&uuml;nk</a><button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvas&aacute;si m&oacute;d">Aa</button></nav>
-<button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Men&uuml;"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg></button>
-</div></div></header>
-<main id="main-content"><section class="section" style="padding-top:var(--space-20);"><div class="container" style="max-width:680px;">
-<a href="/insights" class="btn btn-ghost" style="margin-bottom:var(--space-8);display:inline-flex;">&larr; Insights</a>
-<p class="eyebrow" style="margin-bottom:var(--space-3);">7 perc &middot; M&oacute;dszertan</p>
-<h1 style="margin-bottom:var(--space-6);">Mikor ne automatiz&aacute;lj</h1>
-<p class="lead" style="margin-bottom:var(--space-12);">Amikor egy 4 milli&oacute;s automatiz&aacute;ci&oacute;s projekt megsp&oacute;rol heti 2 &oacute;r&aacute;t &mdash; az nem rossz, de nem j&oacute;.</p>
-<div style="display:flex;flex-direction:column;gap:var(--space-6);">
-<p style="color:var(--color-muted);">Amikor egy automatiz&aacute;ci&oacute;s projekt 4 milli&oacute; forintba ker&uuml;l &eacute;s heti 2 &oacute;r&aacute;t sp&oacute;rol meg, az nem felt&eacute;tlen&uuml;l rossz d&ouml;nt&eacute;s. De tudatos volt-e?</p>
-<h2 style="font-size:var(--text-xl);">A 3 sz&uuml;r&odblac;</h2>
-<p style="color:var(--color-muted);">A Footbridge minden digitaliz&aacute;ci&oacute;s d&ouml;nt&eacute;sn&eacute;l ugyanolyan 3 k&eacute;rd&eacute;st tesz fel, ebben a sorrendben:</p>
-<ol style="padding-left:var(--space-6);color:var(--color-muted);display:flex;flex-direction:column;gap:var(--space-3);list-style:decimal;">
-<li><strong style="color:var(--color-text);">Megsz&uuml;ntethet&odblac;?</strong> K&eacute;l-e ez a folyamat egyáltalán? A legt&ouml;bb magyarázatok szerint 30-40 sz&aacute;zal&eacute;ka a manu&aacute;lis munkának eleve felesleges.</li>
-<li><strong style="color:var(--color-text);">&Aacute;ttervezhet&odblac;?</strong> Ha kell, lehet-e egyszer&uuml;bb, p&aacute;rhuzamosabb? Ez &ouml;nmagában 30-50 sz&aacute;zal&eacute;kot vesz le.</li>
-<li><strong style="color:var(--color-text);">Csak ami marad: automatiz&aacute;lhat&oacute;.</strong> A marad&eacute;kra k&eacute;rd&uuml;nk: &eacute;rdemes-e &eacute;s megtér-e?</li>
-</ol>
-<h2 style="font-size:var(--text-xl);">Mikor NEM kell automatiz&aacute;lni</h2>
-<p style="color:var(--color-muted);">Ha az automatiz&aacute;ci&oacute; heti 2 &oacute;r&aacute;t sp&oacute;rol, &eacute;s 4 milli&oacute; forintba ker&uuml;l, a payback 38 &eacute;v. Az &eacute;szszer&uuml; hat&aacute;r a mi tapasztalatunk szerint: 12-18 h&oacute;napos payback felett &eacute;rdemes el gondolkodni.</p>
-<p style="color:var(--color-muted);">Nem sp&oacute;rol egy folyamat le, ha valakinek az ellenőrzése sz&uuml;ks&eacute;ges, politikai oka van, vagy az automatiz&aacute;ci&oacute; maga s&eacute;r&uuml;l&eacute;kenyebb mint a k&eacute;zi folyamat.</p>
-<blockquote>Az automatiz&aacute;ci&oacute; nem c&eacute;l, hanem eszk&ouml;z. A k&eacute;rd&eacute;s nem az, hogy lehet-e &mdash; hanem hogy &eacute;rdemes-e.</blockquote>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mikor ne automatizálj — Footbridge Insights</title>
+  <meta name="description" content="Az automatizáció reflex lett. Ha valami lassú, automatizáljuk. Ha valami hibás, automatizáljuk. De a legtöbb digitalizációs projekt nem azért bukik el, mert ros">
+  <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .article-body h2 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; margin: var(--space-12) 0 var(--space-4); line-height: var(--leading-snug); }
+    .article-body h3 { font-size: var(--text-lg); font-weight: 500; margin: var(--space-8) 0 var(--space-3); }
+    .article-body p { margin-bottom: var(--space-5); color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 68ch; }
+    .article-body strong { color: var(--color-text); font-weight: 500; }
+    .article-body blockquote { border-left: 2px solid var(--color-green); padding-left: var(--space-6); margin: var(--space-8) 0; font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-green); line-height: var(--leading-relaxed); }
+    .article-body ul { margin: 0 0 var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); list-style: disc; }
+    .article-body ul li { color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 62ch; }
+    .article-body .callout { background: var(--color-surface); padding: var(--space-6); margin: var(--space-8) 0; border-left: 2px solid var(--color-green); }
+    .article-body .callout p { margin: 0; }
+    .article-body .number-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-8) 0; }
+    .article-body .number-card { padding: var(--space-5); background: var(--color-surface); }
+    .article-body .number-card .num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; color: var(--color-text); margin-bottom: 4px; }
+    .article-body .number-card .num-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); }
+    .progress-bar { position: fixed; top: 64px; left: 0; right: 0; height: 2px; background: var(--color-border); z-index: 99; }
+    .progress-fill { height: 100%; background: var(--color-green); width: 0%; transition: width 100ms linear; }
+  </style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <span>Footbridge</span>
+      </a>
+      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
+        <a href="/megoldasok">Megoldások</a>
+        <a href="/eszkozok">Eszközök</a>
+        <a href="/munkaink">Munkáink</a>
+        <a href="/insights" aria-current="page">Insights</a>
+        <a href="/rolunk">Rólunk</a>
+        <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
+        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+<main id="main-content">
+  <article style="padding-top: var(--space-20); padding-bottom: var(--space-24);">
+    <div class="container" style="max-width: 740px;">
+
+      <nav aria-label="Visszanavigáció" style="margin-bottom: var(--space-8);">
+        <a href="/insights" class="btn btn-ghost" style="font-size: var(--text-sm);">← Insights</a>
+      </nav>
+
+      <header style="margin-bottom: var(--space-12);">
+        <p class="eyebrow" style="margin-bottom: var(--space-4);">7 perc olvasás · AI-asszisztált, ember által szerkesztett</p>
+        <h1 style="margin-bottom: var(--space-6); font-size: clamp(var(--text-2xl), 4vw, 42px);">Mikor ne automatizálj</h1>
+        <p style="font-size: var(--text-xl); line-height: 1.5; color: var(--color-muted); max-width: 60ch; margin-bottom: var(--space-8);">Az automatizáció reflex lett. Ha valami lassú, automatizáljuk. Ha valami hibás, automatizáljuk. De a legtöbb digitalizációs projekt nem azért bukik el, mert rossz eszközt választottak — hanem mert a problémát sem értették meg rendesen.</p>
+        <div style="width: 48px; height: 1px; background: var(--color-green);"></div>
+      </header>
+
+      <div class="article-body">
+        
+<p>Volt egy ügyfelünk — 180 fős magyar gyártó cég — aki azzal jött, hogy automatizálni szeretné a rendelés-feldolgozását. Heti 22 órát töltöttek kézi adatbeírással, Excel-táblák másolásával, e-mailek váltásával. Az ajánlatok, amiket bekértek, 18 és 45 millió forint között mozogtak. Hat hónaptól egy évig tartó projektek.</p>
+
+<p>Mi mást csináltunk. Nem ajánlatot adtunk, hanem kérdéseket tettünk fel. Egy napot töltöttünk velük — a folyamatot értve, nem a megoldást tervezve. És amit találtunk, az tipikus volt.</p>
+
+<h2>A tünet és az ok különbsége</h2>
+
+<p>A heti 22 óra valódi volt. De <strong>miért</strong> tartott 22 óráig? Az első válasz: "mert minden manuális." Ez tünet. A második válasz: "mert az ERP-ből ki kell exportálni, át kell másolni a CRM-be, onnan az ügyfélnek küldött táblázatba." Ez is tünet. A harmadik válasz után — miért kell háromfelé vinni ugyanazt az adatot? — jött az igazi ok: mert a három rendszer soha nem volt összekapcsolva, és senki nem döntötte el, melyik az egyetlen forrás az igazságnak.</p>
+
+<p>Ez nem technikai probléma. Ez szervezeti döntés hiánya.</p>
+
+<p>Ha ezt automatizáljuk — ahogy az összes ajánlat javasolta —, az eredmény egy automatikus pipeline lesz, ami ugyanazt a hibás adatstruktúrát három helyre másolja, gépi sebességgel. A hibák nem tűnnek el, csak gyorsabban terjednek.</p>
+
+<blockquote>Az automatizáció a legjobb esetben megoldja a problémát. A legrosszabb esetben gyorsabban csinálja azt, ami egyébként sem kellene.</blockquote>
+
+<h2>A 3 szűrő — sorrendben</h2>
+
+<p>A Footbridge minden folyamatra három kérdést tesz fel, ebben a sorrendben. Az első kérdés megválaszolása nélkül nem megyünk a másodikra.</p>
+
+<h3>1. Megszüntethető?</h3>
+
+<p>Ez a legkellemetlenebb kérdés, mert sokszor kiderül, hogy a folyamat fele felesleges. Nem azért létezik, mert szükséges — hanem azért, mert valaha valaki így csinálta, és aztán senki nem kérdőjelezte meg.</p>
+
+<p>A fenti gyártó cégnél: a CRM-be való másolás csak azért történt, mert régen a sales csapat ott követte nyomon az ajánlatokat. De két éve bevezettek egy projektmenedzsment-eszközt, ami ezt átvette. A CRM-be való másolás automatikusan, reflexből ment tovább — heti 6 óra munkával.</p>
+
+<p>Ez a 6 óra nem volt automatizálható. Meg kellett szüntetni.</p>
+
+<h3>2. Áttervezhető?</h3>
+
+<p>Ha nem szüntethető meg, lehet-e egyszerűsíteni — nem automatizálással, hanem újratervezéssel? Párhuzamosítással? A soros folyamat párhuzamossá tételével?</p>
+
+<p>A leggyakoribb eset: jóváhagyási körök. Egy ajánlat kiment az ügyfelnek, visszajött módosítással, elment a pénzügynek, visszajött, elment a vezetőnek, visszajött. Négy-öt kör, mindegyik 1-2 napos várakozással. Ha ezek párhuzamosak — pénzügy és vezető egyszerre látja — az átfutási idő a felére csökken. Automatizáció nélkül.</p>
+
+<p>A gyártó cégnél: az ERP-exportálás manuális volt, mert az ERP nem tudott automatikusan exportálni — de tudott e-mailt küldeni. Egy egyszerű szabálybeállítással az export reggel 7-kor automatikusan megérkezett a pénzügyi asszisztens postaládájába. Ez nem automatizáció volt — csak okosabb folyamat.</p>
+
+<h3>3. Automatizálható?</h3>
+
+<p>Csak ami az első két szűrőn átment, az kap automatizációt. De ekkor már egy sokkal egyszerűbb, logikusabb folyamatra kerül az eszköz — és az eredmény tartós lesz.</p>
+
+<p>A gyártó cégnél: ami maradt, az egy konkrét adattranszfer volt — az ERP-ből a számlázórendszerbe. Ez valóban automatizálható volt. Egy Make-flow, néhány webhook, egy nap munka. Nem hat hónap, nem 18 millió forint.</p>
+
+<div class="number-row">
+  <div class="number-card"><div class="num">22 → 9</div><div class="num-label">Heti óra</div></div>
+  <div class="number-card"><div class="num">1 nap</div><div class="num-label">Implementáció</div></div>
+  <div class="number-card"><div class="num">3,8M Ft</div><div class="num-label">Projekt-költség</div></div>
 </div>
-<p style="font-size:var(--text-xs);color:var(--color-muted);border-top:0.5px solid var(--color-border);padding-top:var(--space-4);margin-top:var(--space-12);">Ez a cikk AI-assziszt&aacute;lt elj&aacute;r&aacute;ssal k&eacute;sz&uuml;lt: a v&aacute;zlatot AI seg&iacute;tette, a tartalmat ember szerkesztette &eacute;s v&eacute;gleges&iacute;tette.</p>
-<div class="card-surface" style="padding:var(--space-8);margin-top:var(--space-12);">
-<h2 style="font-size:var(--text-xl);margin-bottom:var(--space-3);">Besz&eacute;lj&uuml;nk r&oacute;la</h2>
-<p style="color:var(--color-muted);margin-bottom:var(--space-5);">Ha a cikk releváns a c&eacute;ged hely. zet&eacute;re, egy 30 perces h&iacute;v&aacute;ssal kider&iacute;tj&uuml;k, tudunk-e seg&iacute;teni.</p>
-<a href="/kapcsolat" class="btn btn-primary">Kapcsolat &rarr;</a>
+
+<h2>Mikor <em>érdemes</em> automatizálni</h2>
+
+<p>Automatizáció akkor hatékony, ha a folyamat:</p>
+
+<ul>
+  <li><strong>Ismétlődő és kiszámítható</strong> — ugyanaz a lépéssor, ugyanazok az adatok, minden alkalommal.</li>
+  <li><strong>Volumenproblémás</strong> — nem az egyszeri elvégzés a nehéz, hanem a sok ismétlés.</li>
+  <li><strong>Emberi hibára érzékeny</strong> — ahol a kézi másolás rendszeresen hibát okoz, és a hiba következménye komoly.</li>
+  <li><strong>Már egyszerű</strong> — az első két szűrőn átment, nincs benne felesleges lépés, az ok-okozati lánc tiszta.</li>
+</ul>
+
+<p>Ha ezek közül bármelyik hiányzik, az automatizáció valószínűleg idő előtti — vagy a rossz problémára megy rá.</p>
+
+<h2>A ROI-csapda</h2>
+
+<p>Sok automatizációs projekt a ROI-számítással adja el magát. "Heti 14 óra megtakarítás, 12.000 Ft terhelt órabér, évi 8,7 millió forint megtakarítás." Ez matematikailag igaz lehet — de van benne három rejtett feltételezés.</p>
+
+<p>Első: a 14 óra valóban felszabadul. A valóságban az automatizált folyamat karbantartást igényel, a kivételkezelés manuális marad, és az emberek az "megspórolt" időt más adminisztrációval töltik.</p>
+
+<p>Második: a folyamat nem változik. Az automatizáció egy adott pillanatban érvényes folyamatot rögzít. Ha a folyamat változik — új ügyfél-típus, új szabályozás, új rendszer — az automatizáció törékeny lesz.</p>
+
+<p>Harmadik: a 3 szűrőt már alkalmazták. Ha nem, a 14 óra lehet, hogy 6 órára csökkenthető lett volna átszervezéssel — és az automatizáció csak 8 órát spórol, nem 14-et.</p>
+
+<div class="callout">
+  <p><strong>Egy gyors önellenőrzés:</strong> Ha az automatizálni tervezett folyamat dokumentálása során derülnek ki eddig ismeretlen kivételek, párhuzamos verzió, vagy "ez így van mert régen így volt" lépések — ez az első szűrő jelzése. Álljatok meg, és először értsétek meg a folyamatot.</p>
 </div>
-</div></section></main>
-<footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-bottom">
-<p class="footer-coffee">Ahogy a Te id&odblac;d, a mi id&odblac;nk is dr&aacute;ga.</p>
-<a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
-</div></div></footer>
+
+<h2>Mi a különbség a sikeres és sikertelen projektek között</h2>
+
+<p>Az elmúlt évek során az a minta rajzolódott ki, hogy a sikeres automatizációs projektek nem attól sikeresek, hogy jobb eszközt választottak. Attól sikeresek, hogy <strong>a megvalósítás előtt kérdeztek</strong>.</p>
+
+<p>Kérdeztek arról, hogy ez a folyamat miért létezik. Kérdeztek arról, hogy ki használja és mire. Kérdeztek arról, hogy mi történik, ha kivétel van. Kérdeztek arról, hogy mi változna, ha a folyamat el is tűnne.</p>
+
+<p>A sikertelen projektek általában a "hogyan automatizáljuk?" kérdéssel indultak. A sikeresek a "szükséges-e egyáltalán?" kérdéssel.</p>
+
+<p>Ez nem pesszimizmus az automatizációval szemben. Ez pragmatizmus. Az automatizáció erős eszköz — de csak a jó helyen alkalmazva.</p>
+
+<h2>Egy záró gondolat</h2>
+
+<p>A digitalizáció nem technológiai kérdés. Technológiai megoldása van — de maga a kérdés szervezeti. Azt, hogy mit érdemes automatizálni, nem a Make vagy a Zapier dönti el. Azt az emberek döntik el, akik értik a folyamatot, az okot, és a célt.</p>
+
+<p>A Footbridge 3 szűrője nem azért létezik, mert mi szkeptikusak vagyunk a technológiával szemben. Azért létezik, mert a legtöbb szervezetben az automatizáció reflex — és a reflexek ritkán optimálisak.</p>
+
+      </div>
+
+      <footer style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 0.5px solid var(--color-border);">
+        <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-8);">Ez a cikk AI-asszisztált eljárással készült: a vázlatot és az első változatot AI segítette, az ember szerkesztette és véglegesítette.</p>
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+          <a href="/eszkozok" class="btn btn-primary">Próbáld ki az eszközöket →</a>
+          <a href="/kapcsolat" class="btn btn-ghost">Vagy beszéljünk →</a>
+        </div>
+      </footer>
+
+    </div>
+  </article>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-coffee">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <nav style="display:flex;gap:24px;" aria-label="Jogi linkek">
+        <a href="/adatvedelem" style="font-size:13px;color:var(--color-muted);text-decoration:none;">Adatvédelem</a>
+        <a href="/aszf" style="font-size:13px;color:var(--color-muted);text-decoration:none;">ÁSZF</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 <script src="/scripts/main.js"></script>
-</body></html>
+<script>
+const fill = document.getElementById('progress');
+if (fill) {
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    fill.style.width = (scrolled / total * 100).toFixed(1) + '%';
+  }, { passive: true });
+}
+</script>
+</body>
+</html>
