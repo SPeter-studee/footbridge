@@ -1,108 +1,222 @@
-/* Footbridge — McKinsey 7S önértékelő */
-(function() {
-  const container = document.getElementById('tool-container');
-  if (!container) return;
+/* Footbridge — McKinsey 7S önértékelő
+   Interaktív pókháló + AI elemzés Anthropic API-n keresztül */
 
-  const dimensions = [
-    { key: 'strategy', label: 'Stratégia', desc: 'Mennyire világos és dokumentált a céged stratégiája?' },
-    { key: 'structure', label: 'Struktúra', desc: 'Mennyire átlátható a szervezeti felépítés és a felelősségi körök?' },
-    { key: 'systems', label: 'Rendszerek', desc: 'Mennyire támogatják a belső folyamatok és szoftverek a munkát?' },
-    { key: 'shared_values', label: 'Megosztott értékek', desc: 'Mennyire osztják a munkatársak a cég értékeit és kultúráját?' },
-    { key: 'skills', label: 'Képességek', desc: 'Mennyire rendelkezik a csapat a szükséges kompetenciákkal?' },
-    { key: 'style', label: 'Stílus', desc: 'Mennyire hatékony a vezetési és kommunikációs stílus?' },
-    { key: 'staff', label: 'Munkatársak', desc: 'Mennyire elégedett a csapat, és mennyire alacsony a fluktuáció?' }
+(function () {
+  const DIMS = [
+    { key: 'strategy',     hu: 'Stratégia',      en: 'Strategy',      sub: 'Víziód és versenyelőnyöd tisztasága' },
+    { key: 'structure',    hu: 'Struktúra',       en: 'Structure',     sub: 'Szervezeti felépítés, felelősségi körök' },
+    { key: 'systems',      hu: 'Rendszerek',      en: 'Systems',       sub: 'Folyamatok, szoftverek, automatizáció' },
+    { key: 'shared_values',hu: 'Közös értékek',   en: 'Shared Values', sub: 'Kultúra, misszió, amit mindenki vall' },
+    { key: 'skills',       hu: 'Kompetenciák',    en: 'Skills',        sub: 'Csapat tudása, fejlesztési igények' },
+    { key: 'style',        hu: 'Vezetési stílus', en: 'Style',         sub: 'Hogyan vezetnek, hogyan döntenek' },
+    { key: 'staff',        hu: 'Emberek',         en: 'Staff',         sub: 'Tehetség, motiváció, fluktuáció' }
   ];
 
   let scores = {};
-  let phase = 'questions';
+  DIMS.forEach(d => scores[d.key] = 3);
 
-  function renderQuestions() {
-    container.innerHTML = `
-      <div style="display:flex;flex-direction:column;gap:20px;" id="7s-questions">
-        ${dimensions.map(d => `
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
-              <label style="font-weight:500;">${d.label}</label>
-              <span id="score-${d.key}" style="font-size:13px;color:var(--color-green);font-weight:500;">—</span>
-            </div>
-            <p style="font-size:13px;color:var(--color-muted);margin-bottom:10px);">${d.desc}</p>
-            <div style="display:flex;gap:6px;">
-              ${[1,2,3,4,5].map(n => `
-                <button
-                  onclick="window._7s_score('${d.key}', ${n}, this)"
-                  data-key="${d.key}" data-val="${n}"
-                  style="width:44px;height:44px;border:0.5px solid var(--color-border);background:var(--color-bg);font-family:var(--font-body);font-size:15px;cursor:pointer;transition:all 150ms;"
-                  onmouseover="this.style.background='var(--color-surface)'"
-                  onmouseout="if(!this.classList.contains('selected'))this.style.background='var(--color-bg)'"
-                >${n}</button>
-              `).join('')}
-              <span style="font-size:12px;color:var(--color-muted);align-self:center;margin-left:4px;">1=gyenge · 5=kiváló</span>
-            </div>
+  // ── Pókháló rajzoló ──────────────────────────────────────
+  function drawRadar(canvasId, vals, size) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const n = DIMS.length;
+    const cx = size / 2, cy = size / 2;
+    const maxR = size * 0.36;
+    const labelR = size * 0.46;
+
+    ctx.clearRect(0, 0, size, size);
+
+    // Háttér rácsvonalak
+    for (let level = 1; level <= 5; level++) {
+      ctx.beginPath();
+      for (let i = 0; i < n; i++) {
+        const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+        const r = (maxR * level) / 5;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = level === 5 ? '#E8E3D4' : '#F0EDE6';
+      ctx.lineWidth = level === 5 ? 1 : 0.5;
+      ctx.stroke();
+      if (level === 5) {
+        ctx.fillStyle = 'rgba(250,248,243,0.0)';
+        ctx.fill();
+      }
+    }
+
+    // Sugarak
+    for (let i = 0; i < n; i++) {
+      const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + maxR * Math.cos(angle), cy + maxR * Math.sin(angle));
+      ctx.strokeStyle = '#E8E3D4';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    }
+
+    // Adat-terület
+    ctx.beginPath();
+    DIMS.forEach((d, i) => {
+      const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+      const r = (maxR * (vals[d.key] || 1)) / 5;
+      const x = cx + r * Math.cos(angle);
+      const y = cy + r * Math.sin(angle);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(31,77,58,0.12)';
+    ctx.fill();
+    ctx.strokeStyle = '#1F4D3A';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Pontok
+    DIMS.forEach((d, i) => {
+      const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+      const r = (maxR * (vals[d.key] || 1)) / 5;
+      ctx.beginPath();
+      ctx.arc(cx + r * Math.cos(angle), cy + r * Math.sin(angle), 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#1F4D3A';
+      ctx.fill();
+    });
+
+    // Feliratok
+    ctx.font = `500 ${size < 300 ? 10 : 11}px Inter, sans-serif`;
+    ctx.fillStyle = '#888781';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    DIMS.forEach((d, i) => {
+      const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+      const x = cx + labelR * Math.cos(angle);
+      const y = cy + labelR * Math.sin(angle);
+      ctx.fillText(d.en.toUpperCase(), x, y);
+    });
+  }
+
+  // ── Csúszkák renderelése ──────────────────────────────────
+  function renderSliders() {
+    const container = document.getElementById('sliders');
+    if (!container) return;
+    container.innerHTML = DIMS.map(d => `
+      <div class="slider-row">
+        <label class="slider-label" for="s-${d.key}">
+          ${d.hu}
+          <span class="slider-sub">${d.sub}</span>
+        </label>
+        <input type="range" id="s-${d.key}" min="1" max="5" step="1" value="${scores[d.key]}"
+          oninput="window._7s_update('${d.key}', this.value)">
+        <span class="score-val" id="v-${d.key}">${scores[d.key]}</span>
+      </div>
+    `).join('');
+  }
+
+  window._7s_update = function (key, val) {
+    scores[key] = parseInt(val);
+    document.getElementById('v-' + key).textContent = val;
+    const avg = (Object.values(scores).reduce((a, b) => a + b, 0) / DIMS.length).toFixed(1);
+    document.getElementById('avg-score').textContent = avg + '/5';
+    // Frissítjük a /5 szövegét
+    document.getElementById('avg-score').innerHTML = avg + '<span style="font-size:16px;color:var(--color-muted)">/5</span>';
+    drawRadar('radar-canvas', scores, 320);
+  };
+
+  // ── Fázisváltás ───────────────────────────────────────────
+  function showPhase(n) {
+    document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+    document.getElementById('phase-' + n).classList.add('active');
+  }
+
+  document.getElementById('to-phase-2')?.addEventListener('click', () => {
+    showPhase(2);
+    window.fbAnalytics?.track('tool_started', { tool_name: '7s' });
+  });
+
+  document.getElementById('back-to-1')?.addEventListener('click', () => showPhase(1));
+
+  document.getElementById('restart-7s')?.addEventListener('click', () => {
+    DIMS.forEach(d => scores[d.key] = 3);
+    renderSliders();
+    drawRadar('radar-canvas', scores, 320);
+    document.getElementById('avg-score').innerHTML = '3.0<span style="font-size:16px;color:var(--color-muted)">/5</span>';
+    showPhase(1);
+  });
+
+  // ── AI elemzés kérése ─────────────────────────────────────
+  document.getElementById('submit-analysis')?.addEventListener('click', async () => {
+    const email = document.getElementById('user-email').value.trim();
+    const company = document.getElementById('company-name').value.trim();
+    const errEl = document.getElementById('email-error');
+
+    if (!email || !email.includes('@')) {
+      errEl.textContent = 'Kérlek, adj meg érvényes e-mail-címet.';
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    showPhase(3);
+
+    try {
+      const res = await fetch('/api/analyze-7s', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scores, email, company })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Hiba');
+
+      // Eredmény megjelenítése
+      renderResult(data.analysis, data.scores);
+      showPhase(4);
+      drawRadar('result-radar', scores, 280);
+      window.fbAnalytics?.track('tool_completed', { tool_name: '7s' });
+
+    } catch (err) {
+      showPhase(2);
+      document.getElementById('email-error').textContent = 'Valami nem ment jól: ' + err.message + '. Próbáld újra.';
+      document.getElementById('email-error').style.display = 'block';
+    }
+  });
+
+  function renderResult(analysis, scoresData) {
+    // Score összefoglaló
+    const sortedDims = [...DIMS].sort((a, b) => scores[b.key] - scores[a.key]);
+    const summaryEl = document.getElementById('score-summary');
+    summaryEl.innerHTML = sortedDims.map(d => `
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:3px;">
+            <span style="font-size:13px;font-weight:500;">${d.hu}</span>
+            <span style="font-size:13px;color:${scores[d.key]<=2?'var(--color-coral)':scores[d.key]>=4?'var(--color-green)':'var(--color-muted)'};">${scores[d.key]}/5</span>
           </div>
-        `).join('')}
-        <button onclick="window._7s_submit()" id="7s-submit" style="margin-top:8px;" class="btn btn-primary" disabled>Eredmény megtekintése →</button>
+          <div style="height:3px;background:var(--color-border);border-radius:2px;">
+            <div style="height:3px;background:${scores[d.key]<=2?'var(--color-coral)':scores[d.key]>=4?'var(--color-green)':'var(--color-muted)'};border-radius:2px;width:${scores[d.key]*20}%;transition:width 500ms;"></div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // AI elemzés
+    const aiEl = document.getElementById('ai-result');
+    aiEl.innerHTML = `
+      <div style="border:0.5px solid var(--color-border);padding:28px;">
+        <p class="eyebrow" style="margin-bottom:12px;">AI elemzés</p>
+        <div style="font-size:15px;line-height:1.7;color:var(--color-text);white-space:pre-wrap;">${analysis}</div>
+        <p style="font-size:11px;color:var(--color-muted);margin-top:16px;padding-top:12px;border-top:0.5px solid var(--color-border);">
+          AI-asszisztált elemzés — Footbridge módszertanon alapulva. Az elemzést emberi szem is átnézi, mielőtt felvesszük veled a kapcsolatot.
+        </p>
       </div>
     `;
   }
 
-  window._7s_score = function(key, val, btn) {
-    scores[key] = val;
-    // Vizuális visszajelzés
-    document.querySelectorAll(`[data-key="${key}"]`).forEach(b => {
-      b.classList.remove('selected');
-      b.style.background = 'var(--color-bg)';
-      b.style.borderColor = 'var(--color-border)';
-    });
-    btn.classList.add('selected');
-    btn.style.background = 'var(--color-green)';
-    btn.style.borderColor = 'var(--color-green)';
-    btn.style.color = '#FAF8F3';
-    document.getElementById(`score-${key}`).textContent = val + '/5';
+  // ── Init ──────────────────────────────────────────────────
+  renderSliders();
+  drawRadar('radar-canvas', scores, 320);
 
-    // Submit engedélyezése ha mind megvan
-    if (Object.keys(scores).length === dimensions.length) {
-      document.getElementById('7s-submit').disabled = false;
-    }
-  };
-
-  window._7s_submit = function() {
-    const avg = Object.values(scores).reduce((a,b) => a+b, 0) / dimensions.length;
-    const weak = dimensions.filter(d => scores[d.key] <= 2).map(d => d.label);
-    const strong = dimensions.filter(d => scores[d.key] >= 4).map(d => d.label);
-
-    container.innerHTML = `
-      <div style="display:flex;flex-direction:column;gap:24px;">
-        <div style="padding:24px;border:0.5px solid var(--color-green);text-align:center;">
-          <p class="eyebrow" style="margin-bottom:8px;">Összesített eredmény</p>
-          <p style="font-size:48px;font-weight:500;color:var(--color-green);">${avg.toFixed(1)}<span style="font-size:20px;color:var(--color-muted)">/5</span></p>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          ${dimensions.map(d => `
-            <div style="padding:14px 16px;background:var(--color-surface);">
-              <p style="font-size:12px;color:var(--color-muted);margin-bottom:4px;">${d.label}</p>
-              <div style="height:4px;background:var(--color-border);border-radius:2px;margin-bottom:4px;">
-                <div style="height:4px;background:${scores[d.key]<=2?'var(--color-coral)':scores[d.key]>=4?'var(--color-green)':'var(--color-muted)'};width:${scores[d.key]*20}%;border-radius:2px;"></div>
-              </div>
-              <p style="font-size:13px;font-weight:500;">${scores[d.key]}/5</p>
-            </div>
-          `).join('')}
-        </div>
-        ${weak.length > 0 ? `<div style="padding:16px;border-left:2px solid var(--color-coral);"><p style="font-weight:500;margin-bottom:4px;">Fejlesztési területek</p><p style="font-size:13px;color:var(--color-muted);">${weak.join(', ')}</p></div>` : ''}
-        ${strong.length > 0 ? `<div style="padding:16px;border-left:2px solid var(--color-green);"><p style="font-weight:500;margin-bottom:4px;">Erős területek</p><p style="font-size:13px;color:var(--color-muted);">${strong.join(', ')}</p></div>` : ''}
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="/kapcsolat" class="btn btn-primary">Beszéljünk az eredményről →</a>
-          <button onclick="window._7s_restart()" class="btn btn-secondary">Újrakezdés</button>
-        </div>
-      </div>
-    `;
-    window.fbAnalytics?.track('tool_completed', { tool_name: '7s', result_score: Math.round(avg * 10) });
-  };
-
-  window._7s_restart = function() {
-    scores = {};
-    renderQuestions();
-  };
-
-  window.fbAnalytics?.track('tool_started', { tool_name: '7s' });
-  renderQuestions();
 })();

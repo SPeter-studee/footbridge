@@ -4,9 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>McKinsey 7S önértékelő — Footbridge</title>
-  <meta name="description" content="Interaktív 7S keretrendszer radar-chart vizualizációval.">
+  <meta name="description" content="Interaktív 7S önértékelő radar-chart vizualizációval és AI-elemzéssel.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .slider-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 32px;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .slider-label { font-size: 13px; font-weight: 500; }
+    .slider-sub { font-size: 11px; color: var(--color-muted); display: block; }
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 3px;
+      background: var(--color-border);
+      border-radius: 2px;
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--color-green);
+      cursor: pointer;
+      border: 2px solid var(--color-bg);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      transition: transform 150ms;
+    }
+    input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    .score-val { font-size: 15px; font-weight: 500; color: var(--color-green); text-align: right; }
+    #radar-canvas { display: block; margin: 0 auto; }
+    .phase { display: none; }
+    .phase.active { display: block; }
+    .ai-thinking { display: flex; align-items: center; gap: 10px; color: var(--color-muted); font-size: 14px; }
+    .dot-pulse { display: flex; gap: 4px; }
+    .dot-pulse span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--color-green);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .dot-pulse span:nth-child(2) { animation-delay: 0.2s; }
+    .dot-pulse span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%,80%,100% { opacity: 0.2; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1); } }
+  </style>
 </head>
 <body>
 <header class="site-header" role="banner">
@@ -31,64 +75,120 @@
     </div>
   </div>
 </header>
+
 <main id="main-content">
-  <section class="section" style="padding-top:var(--space-20);">
-    <div class="container" style="max-width:800px;">
-      <nav aria-label="Visszanavigáció" style="margin-bottom:var(--space-8);">
-        <a href="/eszkozok" class="btn btn-ghost" style="font-size:var(--text-sm);">← Összes eszköz</a>
-      </nav>
-      <p class="eyebrow" style="margin-bottom:var(--space-4);">7S önértékelő · 2-5 perc</p>
-      <h1 style="margin-bottom:var(--space-4);">McKinsey 7S keretrendszer</h1>
-      <p style="color:var(--color-muted);margin-bottom:var(--space-12);">Hét szervezeti dimenzió interaktív értékelése. Megmutatja, hol van egyensúlyhiány a cégedben.</p>
-      <div id="tool-container"></div>
+<section class="section" style="padding-top:var(--space-20);">
+<div class="container" style="max-width:900px;">
+
+  <nav aria-label="Visszanavigáció" style="margin-bottom:var(--space-8);">
+    <a href="/eszkozok" class="btn btn-ghost" style="font-size:var(--text-sm);">← Összes eszköz</a>
+  </nav>
+
+  <!-- FÁZIS 1: Értékelés -->
+  <div id="phase-1" class="phase active">
+    <p class="eyebrow" style="margin-bottom:var(--space-3);">7S önértékelő · 2-3 perc</p>
+    <h1 style="margin-bottom:var(--space-3);">Mennyire egyensúlyban van<br>a szervezeted hét dimenziója?</h1>
+    <p style="color:var(--color-muted);margin-bottom:var(--space-12);">Húzd a csúszkákat 1-től 5-ig minden dimenzióban. A pókháló és az értékelés azonnal frissül.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start;">
+
+      <!-- Bal: pókháló -->
+      <div style="position:sticky;top:80px;">
+        <canvas id="radar-canvas" width="320" height="320" aria-label="7S radar diagram" role="img"></canvas>
+        <div style="text-align:center;margin-top:16px;">
+          <p style="font-size:11px;color:var(--color-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Átlagos egyensúly</p>
+          <p id="avg-score" style="font-size:36px;font-weight:500;color:var(--color-green);">3.0<span style="font-size:16px;color:var(--color-muted)">/5</span></p>
+        </div>
+      </div>
+
+      <!-- Jobb: csúszkák -->
+      <div>
+        <div id="sliders"></div>
+        <button id="to-phase-2" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
+          AI elemzés kérése →
+        </button>
+        <p style="font-size:12px;color:var(--color-muted);margin-top:8px;text-align:center;">Az elemzést e-mailben küldjük el neked és a Footbridge-nek.</p>
+      </div>
     </div>
-  </section>
+  </div>
+
+  <!-- FÁZIS 2: E-mail kérés -->
+  <div id="phase-2" class="phase">
+    <p class="eyebrow" style="margin-bottom:var(--space-3);">Utolsó lépés</p>
+    <h2 style="margin-bottom:var(--space-4);">Hova küldjük az elemzést?</h2>
+    <p style="color:var(--color-muted);margin-bottom:var(--space-8);">Az AI-elemzés személyre szabott, a te értékelésed alapján készül. Küldünk egy példányt neked és a Footbridge-nek.</p>
+
+    <div style="max-width:480px;">
+      <div class="form-group">
+        <label class="form-label" for="user-email">E-mail-cím</label>
+        <input class="form-input" type="email" id="user-email" placeholder="te@cegnev.hu" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="company-name">Cégnév <span style="color:var(--color-muted);font-weight:400;">(opcionális)</span></label>
+        <input class="form-input" type="text" id="company-name" placeholder="Pl. Kovács Logisztika Kft.">
+      </div>
+      <div style="display:flex;gap:12px;">
+        <button id="back-to-1" class="btn btn-secondary">← Vissza</button>
+        <button id="submit-analysis" class="btn btn-primary" style="flex:1;justify-content:center;">Elemzés kérése →</button>
+      </div>
+      <p id="email-error" style="display:none;color:var(--color-coral);font-size:13px;margin-top:8px;"></p>
+    </div>
+  </div>
+
+  <!-- FÁZIS 3: AI gondolkodik -->
+  <div id="phase-3" class="phase">
+    <div style="min-height:400px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:24px;">
+      <div class="ai-thinking">
+        <div class="dot-pulse"><span></span><span></span><span></span></div>
+        <span id="thinking-text">Az AI elemzi a szervezeted 7 dimenzióját...</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-muted);max-width:40ch;text-align:center;">Ez 15-20 másodpercet vesz igénybe.</p>
+    </div>
+  </div>
+
+  <!-- FÁZIS 4: Eredmény -->
+  <div id="phase-4" class="phase">
+    <p class="eyebrow" style="margin-bottom:var(--space-3);">AI elemzés kész</p>
+    <h2 style="margin-bottom:var(--space-8);">A szervezeted 7S profilja</h2>
+
+    <!-- Mini radar az eredményen -->
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:var(--space-10);margin-bottom:var(--space-10);">
+      <div>
+        <canvas id="result-radar" width="280" height="280" aria-label="Eredmény radar"></canvas>
+      </div>
+      <div>
+        <div id="score-summary"></div>
+      </div>
+    </div>
+
+    <div id="ai-result" style="margin-bottom:var(--space-10);"></div>
+
+    <div style="padding:20px;background:var(--color-surface);border-radius:4px;margin-bottom:var(--space-8);">
+      <p style="font-size:13px;color:var(--color-muted);">Az elemzést elküldtük a megadott e-mail-címre. A Footbridge-csapat 1 munkanapon belül felveszi veled a kapcsolatot, ha érdemes mélyebbre menni.</p>
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="/kapcsolat" class="btn btn-primary">Személyes konzultáció →</a>
+      <button id="restart-7s" class="btn btn-secondary">Újrakezdés</button>
+    </div>
+  </div>
+
+</div>
+</section>
 </main>
+
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="site-footer-grid">
-      <div>
-        <a href="/" class="site-logo" style="margin-bottom:16px;display:inline-flex;" aria-label="Footbridge főoldal">
-          <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-          <span>Footbridge</span>
-        </a>
-        <p style="font-size:13px;color:var(--color-muted);max-width:30ch;margin-top:8px;line-height:1.6;">Magyar B2B digitalizációs tanácsadás. 100-500 fős középvállalkozásoknak.</p>
-        <div class="cookie-free-badge" style="margin-top:16px;"><span class="cookie-free-dot" aria-hidden="true"></span><span>Cookie-mentes mérés · EU-szerver</span></div>
-      </div>
-      <div>
-        <p class="footer-col-label">Megoldások</p>
-        <nav class="footer-links" aria-label="Megoldások">
-          <a href="/megoldasok/manualis-folyamatok">Manuális folyamatok</a>
-          <a href="/megoldasok/adatok-szettagoltsaga">Adatok széttagoltsága</a>
-          <a href="/megoldasok/regi-rendszerek">Régi rendszerek</a>
-          <a href="/megoldasok/egyedi-szoftver">Egyedi szoftver</a>
-        </nav>
-      </div>
-      <div>
-        <p class="footer-col-label">Footbridge</p>
-        <nav class="footer-links" aria-label="Footbridge oldalak">
-          <a href="/eszkozok">Eszközök</a>
-          <a href="/munkaink">Munkáink</a>
-          <a href="/insights">Insights</a>
-          <a href="/rolunk">Rólunk</a>
-          <a href="/kapcsolat">Kapcsolat</a>
-        </nav>
-      </div>
-      <div>
-        <p class="footer-col-label">Jogi</p>
-        <nav class="footer-links" aria-label="Jogi oldalak">
-          <a href="/adatvedelem">Adatvédelem</a>
-          <a href="/aszf">ÁSZF</a>
-          <a href="/akadalymentesseg">Akadálymentesség</a>
-        </nav>
-      </div>
-    </div>
     <div class="footer-bottom">
-      <p class="footer-coffee">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk. Egy kávéra pedig bármikor a vendégünk vagy. Még ha nem is leszel partnerünk.</p>
-      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
+      <p class="footer-coffee">hello@footbridge.hu · footbridge.hu</p>
+      <nav style="display:flex;gap:var(--space-6);" aria-label="Jogi linkek">
+        <a href="/adatvedelem" style="font-size:13px;color:var(--color-muted);text-decoration:none;">Adatvédelem</a>
+        <a href="/aszf" style="font-size:13px;color:var(--color-muted);text-decoration:none;">ÁSZF</a>
+      </nav>
     </div>
   </div>
 </footer>
+
 <script src="/scripts/main.js"></script>
 <script src="/scripts/tools/7s.js"></script>
 </body>
