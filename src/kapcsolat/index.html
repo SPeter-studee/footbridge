@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapcsolat — Footbridge</title>
+  <meta name="description" content="30 perces hívással eldönthetjük, hogy tudunk-e segíteni. Vagy egy kávé bárkinek.">
+  <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true">
+          <circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/>
+          <circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/>
+          <path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span>Footbridge</span>
+      </a>
+      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
+        <a href="/megoldasok">Megoldások</a>
+        <a href="/eszkozok">Eszközök</a>
+        <a href="/munkaink">Munkáink</a>
+        <a href="/insights">Insights</a>
+        <a href="/rolunk">Rólunk</a>
+        <a href="/kapcsolat" class="btn btn-primary" aria-current="page">Beszéljünk</a>
+        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+          <rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/>
+          <rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/>
+          <rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section" style="padding-top: var(--space-20);">
+    <div class="container" style="max-width: 880px;">
+
+      <p class="eyebrow" style="margin-bottom: var(--space-4);">Kapcsolat</p>
+      <h1 style="margin-bottom: var(--space-4);">Beszéljünk róla</h1>
+      <p class="lead" style="margin-bottom: var(--space-16);">
+        Egy 30 perces hívással eldönthetjük, hogy tudunk-e segíteni — vagy másfelé küldünk.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-16); align-items: start;">
+
+        <!-- Bal: Form -->
+        <div>
+          <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">Strukturált megkeresés</h2>
+          <p style="color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-8);">
+            Egy munkanapon belül jelentkezünk személyesen — nem automatizált válasszal.
+          </p>
+
+          <!-- Sikerüzenet (rejtett) -->
+          <div id="form-success" class="form-success" style="display: none;" role="alert" aria-live="polite">
+            <h3>Megkaptuk.</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-muted); margin-top: var(--space-3);">
+              Egy munkanapon belül jelentkezünk személyesen. Ha sürgős a helyzet, írj most:
+              <a href="mailto:hello@footbridge.hu" style="color: var(--color-green);">hello@footbridge.hu</a>
+            </p>
+            <p style="font-size: var(--text-sm); color: var(--color-muted); margin-top: var(--space-3);">
+              Addig is: <a href="/munkaink/szamlafeldolgozas-sample" style="color: var(--color-green);">olvasd el a sample case study-t →</a>
+            </p>
+          </div>
+
+          <!-- Form -->
+          <form id="contact-form" novalidate>
+
+            <div class="form-group">
+              <label class="form-label" for="challenge">
+                Mi a kihívás, amit megoldanál? <span aria-hidden="true" style="color: var(--color-coral);">*</span>
+              </label>
+              <textarea
+                class="form-textarea"
+                id="challenge"
+                name="challenge"
+                placeholder="Pl. heti 14 órás manuális számlafeldolgozás, ami sok hibát okoz..."
+                required
+                minlength="10"
+                aria-describedby="challenge-error"
+              ></textarea>
+              <span class="form-error" id="challenge-error" role="alert" aria-live="polite" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="company_size">
+                A céged mérete <span aria-hidden="true" style="color: var(--color-coral);">*</span>
+              </label>
+              <select class="form-select" id="company_size" name="company_size" required aria-describedby="size-error">
+                <option value="">Válassz...</option>
+                <option value="1-50">1–50 fő</option>
+                <option value="50-100">50–100 fő</option>
+                <option value="100-300">100–300 fő</option>
+                <option value="300-500">300–500 fő</option>
+                <option value="500+">500+ fő</option>
+              </select>
+              <span class="form-error" id="size-error" role="alert" aria-live="polite" style="display:none;"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="timeline">
+                Mikor szeretnéd elindítani? <span aria-hidden="true" style="color: var(--color-coral);">*</span>
+              </label>
+              <select class="form-select" id="timeline" name="timeline" required>
+                <option value="">Válassz...</option>
+                <option value="1_honap">1 hónapon belül</option>
+                <option value="1_3_honap">1–3 hónap</option>
+                <option value="3_plusz_honap">3+ hónap</option>
+                <option value="gondolkodom">Még csak gondolkodom</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">
+                E-mail-cím <span aria-hidden="true" style="color: var(--color-coral);">*</span>
+              </label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="te@cegnev.hu"
+                required
+                autocomplete="email"
+                aria-describedby="email-error"
+              >
+              <span class="form-error" id="email-error" role="alert" aria-live="polite" style="display:none;"></span>
+            </div>
+
+            <div style="margin-top: var(--space-2); margin-bottom: var(--space-6);">
+              <label style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--color-muted); cursor: pointer;">
+                <input type="checkbox" id="is_urgent" name="is_urgent" style="width: 16px; height: 16px;">
+                Sürgető helyzet (4 órán belül visszahívást kérek)
+              </label>
+            </div>
+
+            <span class="form-error" id="general-error" role="alert" aria-live="polite" style="display:none; margin-bottom: var(--space-4);"></span>
+
+            <button type="submit" class="btn btn-primary" id="submit-btn" style="width: 100%; justify-content: center;">
+              <span id="btn-text">Üzenet küldése</span>
+              <span id="btn-loading" style="display: none;" aria-hidden="true">Küldés...</span>
+            </button>
+
+            <p style="font-size: var(--text-xs); color: var(--color-muted); margin-top: var(--space-4);">
+              Az adataidat csak a kapcsolat-felvételhez használjuk.
+              <a href="/adatvedelem" style="color: var(--color-green);">Adatvédelem →</a>
+            </p>
+
+          </form>
+        </div>
+
+        <!-- Jobb: Alternatívák -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-8);">
+
+          <div class="card-surface" style="padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-3);">Vagy egyszerűen kávézzunk</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-4);">
+              Nincs intake-form, nincs Calendly. Egy e-mailre személyesen válaszolunk.
+            </p>
+            <a href="mailto:hello@footbridge.hu" class="btn btn-ghost">
+              hello@footbridge.hu <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="card-surface" style="padding: var(--space-6);">
+            <h3 style="margin-bottom: var(--space-3);">PM-keresgélő?</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-4);">
+              Ha egy projekted elindult, de elakadt — a healthcheck az első lépés.
+            </p>
+            <a href="/eszkozok/healthcheck" class="btn btn-ghost">
+              Projekt healthcheck <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div style="padding: var(--space-6) 0; border-top: 0.5px solid var(--color-border);">
+            <p class="footer-coffee" style="font-size: var(--text-sm);">
+              Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk. Egy kávéra pedig bármikor a vendégünk vagy. Még ha nem is leszel partnerünk.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-coffee">hello@footbridge.hu · footbridge.hu</p>
+      <nav style="display: flex; gap: var(--space-6);" aria-label="Jogi linkek">
+        <a href="/adatvedelem" style="font-size: 13px; color: var(--color-muted); text-decoration: none;">Adatvédelem</a>
+        <a href="/aszf" style="font-size: 13px; color: var(--color-muted); text-decoration: none;">ÁSZF</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="/scripts/main.js"></script>
+<script>
+  // --- Kapcsolat-form kezelése ---
+  const form = document.getElementById('contact-form');
+  const successBox = document.getElementById('form-success');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnLoading = document.getElementById('btn-loading');
+
+  function showError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = msg; el.style.display = 'block'; }
+  }
+  function clearErrors() {
+    ['challenge-error','size-error','email-error','general-error'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.textContent = ''; el.style.display = 'none'; }
+    });
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const data = {
+      challenge: form.challenge.value.trim(),
+      company_size: form.company_size.value,
+      timeline: form.timeline.value,
+      email: form.email.value.trim(),
+      is_urgent: form.is_urgent.checked,
+      source_url: window.location.pathname
+    };
+
+    // Kliens-oldali validáció
+    let hasError = false;
+    if (!data.challenge || data.challenge.length < 10) {
+      showError('challenge-error', 'A "kihívás" mezőt nem hagytuk üresen — pár szó is elég, hogy értsük, miről van szó.');
+      hasError = true;
+    }
+    if (!data.company_size) {
+      showError('size-error', 'Válaszd ki a céged méretét a listából.');
+      hasError = true;
+    }
+    if (!data.email || !data.email.includes('@')) {
+      showError('email-error', 'Hopp, az e-mail-cím nem teljes — ellenőrizd, hogy van-e benne kukac.');
+      hasError = true;
+    }
+    if (hasError) return;
+
+    // Küldés
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+
+      if (res.status === 429) {
+        showError('general-error', 'Túl sok küldést észleltünk. Várj egy percet, és próbáld újra. Ha sürgős: hello@footbridge.hu');
+      } else if (!res.ok) {
+        showError('general-error', json.error || 'Valami nem ment jól nálunk. Írj nekünk: hello@footbridge.hu');
+      } else {
+        form.style.display = 'none';
+        successBox.style.display = 'block';
+        successBox.focus();
+        window.fbAnalytics?.track('contact_form_submitted', {
+          company_size: data.company_size,
+          timeline: data.timeline,
+          is_urgent: data.is_urgent
+        });
+      }
+    } catch {
+      showError('general-error', 'Most nem érjük el a szerverünket. Kérlek, próbáld újra egy perc múlva, vagy írj: hello@footbridge.hu');
+    } finally {
+      submitBtn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

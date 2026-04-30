@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Megoldások — Footbridge</title>
+  <meta name="description" content="Négy probléma-típus, amivel rendszerint találkozunk. Manuális folyamatok, adat-széttagoltság, régi rendszerek, egyedi szoftver.">
+  <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <span>Footbridge</span>
+      </a>
+      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
+        <a href="/megoldasok" aria-current="page">Megoldások</a>
+        <a href="/eszkozok">Eszközök</a>
+        <a href="/munkaink">Munkáink</a>
+        <a href="/insights">Insights</a>
+        <a href="/rolunk">Rólunk</a>
+        <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
+        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section" style="padding-top: var(--space-20);">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom: var(--space-4);">Megoldások</p>
+      <h1 style="margin-bottom: var(--space-4);">Négy probléma-típus, amivel rendszerint találkozunk</h1>
+      <p class="lead" style="margin-bottom: var(--space-16);">Mindegyikre van Footbridge-megközelítésünk — 3 szűrőn átmenve, fix scope-pal, mérhető eredménnyel.</p>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+
+        <a href="/megoldasok/manualis-folyamatok" style="text-decoration: none; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-8);" class="card" onmouseover="this.style.borderColor='var(--color-text)'" onmouseout="this.style.borderColor='var(--color-border)'">
+          <div>
+            <p class="eyebrow" style="margin-bottom: var(--space-2);">01</p>
+            <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Manuális folyamatok</h2>
+            <p style="color: var(--color-muted); font-size: var(--text-sm);">Heti óraszámok, ismétlődő munkák, kézi átírás. Ezek nem mindig automatizálandók — előbb meg kell érteni, miért keletkeznek.</p>
+          </div>
+          <span style="color: var(--color-green); font-size: var(--text-2xl); flex-shrink: 0;" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/megoldasok/adatok-szettagoltsaga" style="text-decoration: none; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-8);" class="card" onmouseover="this.style.borderColor='var(--color-text)'" onmouseout="this.style.borderColor='var(--color-border)'">
+          <div>
+            <p class="eyebrow" style="margin-bottom: var(--space-2);">02</p>
+            <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Adatok széttagoltsága</h2>
+            <p style="color: var(--color-muted); font-size: var(--text-sm);">Több rendszer, kézi átírás, hosszú riport-előkészítés. Az integráció vagy az új rendszer nem mindig a megoldás.</p>
+          </div>
+          <span style="color: var(--color-green); font-size: var(--text-2xl); flex-shrink: 0;" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/megoldasok/regi-rendszerek" style="text-decoration: none; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-8);" class="card" onmouseover="this.style.borderColor='var(--color-text)'" onmouseout="this.style.borderColor='var(--color-border)'">
+          <div>
+            <p class="eyebrow" style="margin-bottom: var(--space-2);">03</p>
+            <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Régi rendszerek</h2>
+            <p style="color: var(--color-muted); font-size: var(--text-sm);">Egy 15 éves ERP, ami még működik, de nehezen. A teljes újraírás ritkán a legjobb választás — a fokozatos modernizálás gyakran jobb.</p>
+          </div>
+          <span style="color: var(--color-green); font-size: var(--text-2xl); flex-shrink: 0;" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/megoldasok/egyedi-szoftver" style="text-decoration: none; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-8);" class="card" onmouseover="this.style.borderColor='var(--color-text)'" onmouseout="this.style.borderColor='var(--color-border)'">
+          <div>
+            <p class="eyebrow" style="margin-bottom: var(--space-2);">04</p>
+            <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Egyedi szoftver</h2>
+            <p style="color: var(--color-muted); font-size: var(--text-sm);">Specifikus belső tool, saját app, custom backend. Csak akkor érdemes építeni, ha tényleg nincs jobb alternatíva.</p>
+          </div>
+          <span style="color: var(--color-green); font-size: var(--text-2xl); flex-shrink: 0;" aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-coffee">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <a href="mailto:hello@footbridge.hu" style="font-size: 13px; color: var(--color-muted); text-decoration: none;">hello@footbridge.hu</a>
+    </div>
+  </div>
+</footer>
+<script src="/scripts/main.js"></script>
+</body>
+</html>
