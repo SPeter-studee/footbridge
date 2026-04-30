@@ -1,0 +1,86 @@
+/* ============================================================
+   Footbridge — Design Tokens
+   Brand-rendszer: 4 szín, 2 font, 4px spacing-egység
+   ============================================================ */
+
+:root {
+  /* --- Színek --- */
+  --color-bg:        #FAF8F3; /* tört fehér alap (60%) */
+  --color-text:      #1A1A1A; /* antracit szöveg (30%) */
+  --color-green:     #1F4D3A; /* erdei zöld accent (8%) */
+  --color-coral:     #C4622D; /* terrakotta akció (2%) */
+  --color-border:    #E8E3D4; /* halvány keret */
+  --color-muted:     #888781; /* másodlagos szöveg */
+  --color-surface:   #F2EFE8; /* kártyák, szekciók */
+
+  /* --- Fontok --- */
+  --font-display:    'Fraunces', 'Georgia', serif;
+  --font-body:       'Inter', 'Helvetica Neue', sans-serif;
+
+  /* --- Tipográfia --- */
+  --text-xs:     11px;
+  --text-sm:     13px;
+  --text-base:   15px;
+  --text-lg:     18px;
+  --text-xl:     22px;
+  --text-2xl:    28px;
+  --text-3xl:    38px;
+  --text-4xl:    52px;
+
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.75;
+
+  /* --- Spacing (4px egység) --- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* --- Saroksugar --- */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-none: 0px;
+
+  /* --- Animáció --- */
+  --ease-footbridge: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --duration-fast:   150ms;
+  --duration-base:   300ms;
+  --duration-slow:   500ms;
+
+  /* --- Konténer --- */
+  --container-max:  1120px;
+  --container-pad:  var(--space-6);
+}
+
+/* --- Reading mode --- */
+:root.reading-mode {
+  --color-bg:    #FFFFFF;
+  --color-text:  #000000;
+  --text-base:   18px;
+  --leading-normal: 1.85;
+}
+
+:root.reading-mode * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* --- Prefers-reduced-motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

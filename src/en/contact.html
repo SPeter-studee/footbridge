@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Footbridge — Footbridge</title>
+  <meta name="description" content="A 30-minute call is enough to decide whether we can help. Or just coffee.">
+  <link rel="canonical" href="https://footbridge.hu/en/">
+  <link rel="alternate" hreflang="hu" href="https://footbridge.hu/">
+  <link rel="alternate" hreflang="en" href="https://footbridge.hu/en/">
+  <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header-inner">
+      <a href="/en/" class="site-logo" aria-label="Footbridge - home">
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <span>Footbridge</span>
+      </a>
+      <nav class="site-nav" id="mobile-nav" aria-label="Main navigation">
+        <a href="/en/approach">Approach</a>
+        <a href="/en/contact" class="btn btn-primary">Let's talk</a>
+        <a href="/" style="font-size:13px;color:var(--color-muted);text-decoration:none;" aria-label="Switch to Hungarian">HU</a>
+        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Toggle reading mode">Aa</button>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main-content">
+  <section class="section" style="padding-top:var(--space-20);">
+    <div class="container" style="max-width:880px;">
+      <p class="eyebrow" style="margin-bottom:var(--space-4);">Contact</p>
+      <h1 style="margin-bottom:var(--space-4);">Let's talk about it</h1>
+      <p class="lead" style="margin-bottom:var(--space-16);">A 30-minute call is enough to decide if we can help — or point you in the right direction.</p>
+
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:var(--space-16);align-items:start;">
+        <div>
+          <h2 style="font-size:var(--text-xl);margin-bottom:var(--space-2);">Structured enquiry</h2>
+          <p style="color:var(--color-muted);font-size:var(--text-sm);margin-bottom:var(--space-8);">We'll respond personally within one business day — not with an automated reply.</p>
+
+          <div id="en-form-success" class="form-success" style="display:none;" role="alert" aria-live="polite">
+            <h3>Got it.</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-top:var(--space-3);">We'll be in touch personally within one business day. If it's urgent: <a href="mailto:hello@footbridge.hu" style="color:var(--color-green);">hello@footbridge.hu</a></p>
+          </div>
+
+          <form id="en-contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="en-challenge">What challenge would you like to solve? <span aria-hidden="true" style="color:var(--color-coral);">*</span></label>
+              <textarea class="form-textarea" id="en-challenge" name="challenge" placeholder="e.g. 14 hours per week of manual invoice processing causing frequent errors..." required minlength="10" aria-describedby="en-challenge-error"></textarea>
+              <span class="form-error" id="en-challenge-error" role="alert" aria-live="polite" style="display:none;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="en-size">Company size <span aria-hidden="true" style="color:var(--color-coral);">*</span></label>
+              <select class="form-select" id="en-size" name="company_size" required>
+                <option value="">Select...</option>
+                <option value="1-50">1–50 people</option>
+                <option value="50-100">50–100 people</option>
+                <option value="100-300">100–300 people</option>
+                <option value="300-500">300–500 people</option>
+                <option value="500+">500+ people</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="en-timeline">When would you like to start?</label>
+              <select class="form-select" id="en-timeline" name="timeline">
+                <option value="">Select...</option>
+                <option value="1_honap">Within 1 month</option>
+                <option value="1_3_honap">1–3 months</option>
+                <option value="3_plusz_honap">3+ months</option>
+                <option value="gondolkodom">Still exploring</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="en-email">Email address <span aria-hidden="true" style="color:var(--color-coral);">*</span></label>
+              <input class="form-input" type="email" id="en-email" name="email" placeholder="you@company.com" required autocomplete="email" aria-describedby="en-email-error">
+              <span class="form-error" id="en-email-error" role="alert" aria-live="polite" style="display:none;"></span>
+            </div>
+            <span class="form-error" id="en-general-error" role="alert" aria-live="polite" style="display:none;margin-bottom:var(--space-4);"></span>
+            <button type="submit" class="btn btn-primary" id="en-submit-btn" style="width:100%;justify-content:center;">
+              <span id="en-btn-text">Send message</span>
+              <span id="en-btn-loading" style="display:none;" aria-hidden="true">Sending...</span>
+            </button>
+            <p style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-4);">Your data is only used for this conversation. <a href="/adatvedelem" style="color:var(--color-green);">Privacy policy →</a></p>
+          </form>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-8);">
+          <div class="card-surface" style="padding:var(--space-6);">
+            <h3 style="margin-bottom:var(--space-3);">Or simply email us</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">No intake form, no Calendly. A direct email gets a personal reply.</p>
+            <a href="mailto:hello@footbridge.hu" class="btn btn-ghost">hello@footbridge.hu <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <div style="padding:var(--space-6) 0;border-top:0.5px solid var(--color-border);">
+            <p class="footer-coffee" style="font-size:var(--text-sm);">Your time is valuable. So is ours — we keep that in mind. Coffee is on us, whether or not you become a client.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-coffee">Your time is valuable. So is ours — we keep that in mind. Coffee is on us, whether or not you become a client.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
+        <a href="/" style="font-size:13px;color:var(--color-muted);text-decoration:none;">Magyar →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="/scripts/main.js"></script>
+<script>
+  const form = document.getElementById('en-contact-form');
+  const successBox = document.getElementById('en-form-success');
+  const submitBtn = document.getElementById('en-submit-btn');
+  const btnText = document.getElementById('en-btn-text');
+  const btnLoading = document.getElementById('en-btn-loading');
+
+  function showError(id, msg) { const el = document.getElementById(id); if(el){el.textContent=msg;el.style.display='block';} }
+  function clearErrors() { ['en-challenge-error','en-email-error','en-general-error'].forEach(id => { const el = document.getElementById(id); if(el){el.textContent='';el.style.display='none';} }); }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+    const data = {
+      challenge: form.challenge.value.trim(),
+      company_size: form.company_size.value,
+      timeline: form.timeline.value,
+      email: form.email.value.trim(),
+      source_url: '/en/contact'
+    };
+    let hasError = false;
+    if (!data.challenge || data.challenge.length < 10) { showError('en-challenge-error', 'Please describe your challenge in a few words.'); hasError = true; }
+    if (!data.email || !data.email.includes('@')) { showError('en-email-error', 'Please enter a valid email address.'); hasError = true; }
+    if (hasError) return;
+    submitBtn.disabled = true; btnText.style.display = 'none'; btnLoading.style.display = 'inline';
+    try {
+      const res = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+      const json = await res.json();
+      if (res.status === 429) { showError('en-general-error', 'Too many requests. Please wait a moment and try again.'); }
+      else if (!res.ok) { showError('en-general-error', json.error || 'Something went wrong. Please email us: hello@footbridge.hu'); }
+      else { form.style.display='none'; successBox.style.display='block'; successBox.focus(); window.fbAnalytics?.track('contact_form_submitted',{company_size:data.company_size,timeline:data.timeline}); }
+    } catch { showError('en-general-error', 'Network error. Please try again or email: hello@footbridge.hu'); }
+    finally { submitBtn.disabled=false; btnText.style.display='inline'; btnLoading.style.display='none'; }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 64" width="360" height="64">
+  <title>Footbridge - teljes logó</title>
+  <desc>Két parti pont és egy összekötő ív, mellette a "Footbridge" felirat Inter sans-serif betűvel.</desc>
+  <g>
+    <path d="M 8 50 Q 32 26, 56 50" stroke="#1A1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="8" cy="50" r="4.5" fill="#1A1A1A"/>
+    <circle cx="56" cy="50" r="4.5" fill="#1A1A1A"/>
+  </g>
+  <text x="80" y="44" fill="#1A1A1A" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="32" font-weight="500" letter-spacing="-0.4">Footbridge</text>
+</svg>

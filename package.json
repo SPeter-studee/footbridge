@@ -1,0 +1,13 @@
+{
+  "name": "footbridge",
+  "version": "1.0.0",
+  "description": "Footbridge - Magyar B2B digitalizációs tanácsadás",
+  "scripts": {
+    "dev": "wrangler pages dev src",
+    "deploy": "wrangler pages deploy src --commit-dirty=true --project-name=footbridge",
+    "deploy:preview": "wrangler pages deploy src --branch preview --commit-dirty=true --project-name=footbridge"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

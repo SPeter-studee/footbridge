@@ -1,0 +1,22 @@
+name = "footbridge"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "src"
+
+[vars]
+ENVIRONMENT = "production"
+RESEND_FROM_EMAIL = "noreply@footbridge.hu"
+RESEND_TO_EMAIL = "hello@footbridge.hu"
+ANALYTICS_DOMAIN = "footbridge.hu"
+SITE_URL = "https://footbridge.hu"
+
+[[kv_namespaces]]
+binding = "CONTENT"
+id = "REPLACE_WITH_CONTENT_KV_ID"
+
+[[kv_namespaces]]
+binding = "LEADS"
+id = "REPLACE_WITH_LEADS_KV_ID"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_RATE_LIMIT_KV_ID"

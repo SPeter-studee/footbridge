@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Footbridge - favicon</title>
+  <desc>Footbridge favicon: kerek antracit háttér, világos ív és parti pontok.</desc>
+  <rect x="0" y="0" width="64" height="64" rx="12" ry="12" fill="#1A1A1A"/>
+  <path d="M 14 44 Q 32 22, 50 44" stroke="#FAF8F3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <circle cx="14" cy="44" r="4" fill="#FAF8F3"/>
+  <circle cx="50" cy="44" r="4" fill="#FAF8F3"/>
+</svg>

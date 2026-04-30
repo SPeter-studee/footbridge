@@ -1,0 +1,11 @@
+name = "footbridge-analytics"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "REPLACE_WITH_ANALYTICS_KV_ID"
+
+[[routes]]
+pattern = "analytics.footbridge.hu/*"
+zone_name = "footbridge.hu"

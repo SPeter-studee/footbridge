@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Footbridge - akadálymentességi jelvény</title>
+  <desc>A Footbridge akadálymentességi jelvénye: két parti pont, ív, középen zöld pillér jelzi a WCAG-megfelelést.</desc>
+  <path d="M 8 50 Q 32 26, 56 50" stroke="#1A1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="8" cy="50" r="4.5" fill="#1A1A1A"/>
+  <circle cx="56" cy="50" r="4.5" fill="#1A1A1A"/>
+  <circle cx="32" cy="32" r="3.5" fill="#1F4D3A"/>
+</svg>
