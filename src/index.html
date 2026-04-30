@@ -88,6 +88,22 @@
             <span class="arrow" aria-hidden="true">→</span>
           </a>
         </div>
+
+        <!-- Stat-sor -->
+        <div style="display:flex;gap:var(--space-10);margin-top:var(--space-12);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);flex-wrap:wrap;">
+          <div>
+            <p id="stat-bridges" style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">0</p>
+            <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Megépített híd</p>
+          </div>
+          <div>
+            <p id="stat-weeks" style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">0 hét</p>
+            <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Átlagos első híd</p>
+          </div>
+          <div>
+            <p id="stat-success" style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">0%</p>
+            <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Élesbe ment projekt</p>
+          </div>
+        </div>
       </div>
 
       <!-- Scroll-vezérelt híd animáció -->
@@ -385,6 +401,38 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+(function() {
+  function animCount(el, target, suffix, dur) {
+    const start = Date.now();
+    function tick() {
+      const t = Math.min(1, (Date.now()-start)/dur);
+      const ease = 1 - Math.pow(1-t, 3);
+      el.textContent = Math.round(target*ease) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    tick();
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      setTimeout(() => {
+        const b = document.getElementById('stat-bridges');
+        const w = document.getElementById('stat-weeks');
+        const s = document.getElementById('stat-success');
+        if (b) animCount(b, 12, '', 1200);
+        if (w) { setTimeout(() => animCount(w, 3, ' hét', 900), 150); }
+        if (s) { setTimeout(() => animCount(s, 94, '%', 1000), 300); }
+      }, 400);
+    });
+  }, { threshold: 0.4 });
+  const statEl = document.getElementById('stat-bridges');
+  if (statEl) io.observe(statEl.closest('div').parentElement);
+})();
+</script>
 
 <script src="/scripts/main.js"></script>
 

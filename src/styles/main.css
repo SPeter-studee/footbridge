@@ -102,12 +102,13 @@ p { max-width: 68ch; }
 
 .btn-primary {
   background: var(--color-green);
-  color: #FAF8F3;
+  color: #FAF8F3 !important;
   border-color: var(--color-green);
 }
 .btn-primary:hover {
   background: #163d2e;
   border-color: #163d2e;
+  color: #FAF8F3 !important;
 }
 
 .btn-secondary {
