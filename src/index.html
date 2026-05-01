@@ -54,9 +54,9 @@
         </svg>
       </div>
 
-      <!-- Scroll-vezérelt híd animáció -->
-      <div aria-hidden="true" style="position:absolute;right:0;top:0;bottom:0;width:45%;pointer-events:none;overflow:hidden;">
-        <canvas id="bridge-canvas" style="width:100%;height:100%;display:block;"></canvas>
+      <!-- Scroll-vezérelt híd animáció (oldalsó háttér - megtartjuk halványan) -->
+      <div aria-hidden="true" style="position:absolute;right:0;top:0;bottom:0;width:45%;pointer-events:none;overflow:hidden;opacity:0.3;">
+        <canvas id="bridge-canvas-bg" style="width:100%;height:100%;display:block;"></canvas>
       </div>
 
       <div style="max-width: 680px; position: relative;">
@@ -111,6 +111,16 @@
           <div>
             <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">94%</p>
             <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Élesbe ment projekt</p>
+          </div>
+        </div>
+
+        <!-- Híd animáció — szöveg alatt, középre igazítva -->
+        <div style="margin-top:var(--space-12);width:100%;max-width:560px;">
+          <canvas id="bridge-canvas" width="560" height="110" style="width:100%;height:auto;display:block;" aria-label="Footbridge — üzleti stratégia és IT megvalósítás között"></canvas>
+          <div id="bridge-labels" style="display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-2);opacity:0;transition:opacity 600ms ease;">
+            <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);">Üzleti stratégia</span>
+            <span style="font-family:var(--font-display);font-size:var(--text-sm);font-style:italic;color:var(--color-green);">Footbridge</span>
+            <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);">IT megvalósítás</span>
           </div>
         </div>
 
@@ -360,48 +370,166 @@
 
 <script>
 (function() {
+  // ── Fő híd (szöveg alatt, középre) ──────────────────────
   const canvas = document.getElementById('bridge-canvas');
+  const labels = document.getElementById('bridge-labels');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const wrap = canvas.parentElement;
-  function resize() {
-    canvas.width = wrap.offsetWidth * devicePixelRatio;
-    canvas.height = wrap.offsetHeight * devicePixelRatio;
+  let dpr = window.devicePixelRatio || 1;
+
+  function resizeMain() {
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
     ctx.setTransform(1,0,0,1,0,0);
-    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.scale(dpr, dpr);
   }
-  resize();
-  const W = () => canvas.width / devicePixelRatio;
-  const H = () => canvas.height / devicePixelRatio;
+
   function bezier(t, lx, ly, cx, cy, rx, ry) {
-    const mt = 1-t;
-    return { x: mt*mt*lx+2*mt*t*cx+t*t*rx, y: mt*mt*ly+2*mt*t*cy+t*t*ry };
+    const mt = 1 - t;
+    return { x: mt*mt*lx + 2*mt*t*cx + t*t*rx, y: mt*mt*ly + 2*mt*t*cy + t*t*ry };
   }
-  function draw(p) {
-    const w=W(),h=H();
-    ctx.clearRect(0,0,w,h);
-    if(p<=0) return;
-    const lx=w*0.05,ly=h*0.65,rx=w*0.95,ry=h*0.65,cx=w*0.5,cy=h*0.1;
-    const steps=120,drawSteps=Math.floor(steps*p);
-    if(drawSteps<2) return;
-    ctx.strokeStyle='rgba(31,77,58,0.04)';ctx.lineWidth=0.5;
-    for(let i=0;i<7;i++){ctx.beginPath();ctx.moveTo(0,h*0.08+i*h*0.13);ctx.lineTo(w,h*0.08+i*h*0.13);ctx.stroke();}
-    ctx.beginPath();ctx.arc(lx,ly,5,0,Math.PI*2);ctx.fillStyle='rgba(31,77,58,'+Math.min(1,p*3)+')';ctx.fill();
-    const ra=Math.min(1,Math.max(0,(p-0.7)*3.3));
-    ctx.beginPath();ctx.arc(rx,ry,5,0,Math.PI*2);ctx.fillStyle='rgba(31,77,58,'+ra+')';ctx.fill();
-    if(p>0.3){const sp=Math.min(1,(p-0.3)/0.7);const ss=Math.floor(drawSteps*sp);ctx.beginPath();let started=false;for(let i=0;i<=ss;i++){const t=i/steps;const pt=bezier(t,lx,ly,cx,cy,rx,ry);const pt2=bezier(t+0.01,lx,ly,cx,cy,rx,ry);const dx=pt2.x-pt.x,dy=pt2.y-pt.y;const len=Math.sqrt(dx*dx+dy*dy)||1;const nx=-dy/len,ny=dx/len;if(!started){ctx.moveTo(pt.x+nx*8,pt.y+ny*8);started=true;}else ctx.lineTo(pt.x+nx*8,pt.y+ny*8);}ctx.strokeStyle='rgba(31,77,58,'+(0.07*sp)+')';ctx.lineWidth=8;ctx.stroke();}
-    ctx.beginPath();ctx.moveTo(lx,ly);for(let i=1;i<=drawSteps;i++){const pt=bezier(i/steps,lx,ly,cx,cy,rx,ry);ctx.lineTo(pt.x,pt.y);}ctx.strokeStyle='#1F4D3A';ctx.lineWidth=1.5;ctx.stroke();
-    if(p>0.5){const pp=Math.min(1,(p-0.5)/0.5);[0.25,0.5,0.75].forEach((t,i)=>{const pt=bezier(t,lx,ly,cx,cy,rx,ry);const pa=Math.min(1,pp*1.5-i*0.15);if(pa<=0)return;ctx.beginPath();ctx.moveTo(pt.x,pt.y);ctx.lineTo(pt.x,pt.y+(ly-pt.y)*pp);ctx.strokeStyle='rgba(31,77,58,'+(0.2*pa)+')';ctx.lineWidth=0.5;ctx.setLineDash([2,3]);ctx.stroke();ctx.setLineDash([]);});}
-    if(p>0.85){const bp=Math.min(1,(p-0.85)/0.15);ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(lx+(rx-lx)*bp,ly);ctx.strokeStyle='rgba(31,77,58,'+(0.12*bp)+')';ctx.lineWidth=0.5;ctx.stroke();}
+
+  function drawMain(p) {
+    const w = canvas.width / dpr;
+    const h = canvas.height / dpr;
+    ctx.clearRect(0, 0, w, h);
+    if (p <= 0) return;
+
+    const lx = w * 0.02, ly = h * 0.88;
+    const rx = w * 0.98, ry = h * 0.88;
+    const cx = w * 0.5,  cy = h * 0.05;
+    const steps = 140;
+    const drawSteps = Math.floor(steps * p);
+    if (drawSteps < 2) return;
+
+    // Halvány árnyék-ív
+    if (p > 0.2) {
+      const sp = Math.min(1, (p - 0.2) / 0.8);
+      const ss = Math.floor(drawSteps * sp);
+      ctx.beginPath();
+      let started = false;
+      for (let i = 0; i <= ss; i++) {
+        const t = i / steps;
+        const pt = bezier(t, lx, ly, cx, cy, rx, ry);
+        const pt2 = bezier(Math.min(t + 0.01, 1), lx, ly, cx, cy, rx, ry);
+        const dx = pt2.x - pt.x, dy = pt2.y - pt.y;
+        const len = Math.sqrt(dx*dx + dy*dy) || 1;
+        const nx = -dy/len, ny = dx/len;
+        if (!started) { ctx.moveTo(pt.x + nx*10, pt.y + ny*10); started = true; }
+        else ctx.lineTo(pt.x + nx*10, pt.y + ny*10);
+      }
+      ctx.strokeStyle = 'rgba(31,77,58,' + (0.08 * sp) + ')';
+      ctx.lineWidth = 10;
+      ctx.stroke();
+    }
+
+    // Bal parti pont
+    ctx.beginPath();
+    ctx.arc(lx, ly, 4, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(31,77,58,' + Math.min(1, p * 4) + ')';
+    ctx.fill();
+
+    // Jobb parti pont — csak ha az ív majdnem kész
+    const ra = Math.min(1, Math.max(0, (p - 0.85) * 6.7));
+    ctx.beginPath();
+    ctx.arc(rx, ry, 4, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(31,77,58,' + ra + ')';
+    ctx.fill();
+
+    // Fő ív
+    ctx.beginPath();
+    ctx.moveTo(lx, ly);
+    for (let i = 1; i <= drawSteps; i++) {
+      const pt = bezier(i / steps, lx, ly, cx, cy, rx, ry);
+      ctx.lineTo(pt.x, pt.y);
+    }
+    ctx.strokeStyle = '#1F4D3A';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Tartóoszlopok
+    if (p > 0.5) {
+      const pp = Math.min(1, (p - 0.5) / 0.5);
+      [0.25, 0.5, 0.75].forEach((t, i) => {
+        const pt = bezier(t, lx, ly, cx, cy, rx, ry);
+        const pa = Math.min(1, pp * 1.5 - i * 0.1);
+        if (pa <= 0) return;
+        ctx.beginPath();
+        ctx.moveTo(pt.x, pt.y);
+        ctx.lineTo(pt.x, pt.y + (ly - pt.y) * pp);
+        ctx.strokeStyle = 'rgba(31,77,58,' + (0.18 * pa) + ')';
+        ctx.lineWidth = 0.5;
+        ctx.setLineDash([2, 3]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+    }
+
+    // Alap vonal
+    if (p > 0.9) {
+      const bp = Math.min(1, (p - 0.9) / 0.1);
+      ctx.beginPath();
+      ctx.moveTo(lx, ly);
+      ctx.lineTo(lx + (rx - lx) * bp, ly);
+      ctx.strokeStyle = 'rgba(31,77,58,' + (0.1 * bp) + ')';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    }
+
+    // Feliratok megjelenítése ha az ív zárul (p > 0.88)
+    if (labels) {
+      labels.style.opacity = p > 0.88 ? Math.min(1, (p - 0.88) / 0.12).toFixed(3) : '0';
+    }
   }
-  let current=0,target=0;
-  function onScroll(){const rect=wrap.getBoundingClientRect();const vh=window.innerHeight;const start=vh*0.8;const end=vh*0.1;if(rect.top<start&&rect.bottom>end){target=Math.min(1,Math.max(0,(start-rect.top)/(start-end)));}}
-  window.addEventListener('scroll',onScroll,{passive:true});
-  setTimeout(()=>{if(target<0.1)target=1;},800);
-  onScroll();
-  function loop(){current+=(target-current)*0.04;draw(current);requestAnimationFrame(loop);}
+
+  // ── Háttér animáció (jobbra lebegő, halvány) ──────────────
+  const bgCanvas = document.getElementById('bridge-canvas-bg');
+  if (bgCanvas) {
+    const bgCtx = bgCanvas.getContext('2d');
+    const bgWrap = bgCanvas.parentElement;
+    function resizeBg() {
+      bgCanvas.width = bgWrap.offsetWidth * dpr;
+      bgCanvas.height = bgWrap.offsetHeight * dpr;
+      bgCtx.setTransform(1,0,0,1,0,0);
+      bgCtx.scale(dpr, dpr);
+    }
+    resizeBg();
+    function drawBg(p) {
+      const w = bgCanvas.width / dpr, h = bgCanvas.height / dpr;
+      bgCtx.clearRect(0, 0, w, h);
+      if (p <= 0) return;
+      const lx=w*0.05, ly=h*0.65, rx=w*0.95, ry=h*0.65, cx=w*0.5, cy=h*0.1;
+      const steps=120, ds=Math.floor(steps*p);
+      if(ds<2) return;
+      bgCtx.beginPath(); bgCtx.arc(lx,ly,5,0,Math.PI*2); bgCtx.fillStyle='rgba(31,77,58,'+Math.min(1,p*3)+')'; bgCtx.fill();
+      const ra=Math.min(1,Math.max(0,(p-0.7)*3.3));
+      bgCtx.beginPath(); bgCtx.arc(rx,ry,5,0,Math.PI*2); bgCtx.fillStyle='rgba(31,77,58,'+ra+')'; bgCtx.fill();
+      bgCtx.beginPath(); bgCtx.moveTo(lx,ly);
+      for(let i=1;i<=ds;i++){const pt=bezier(i/steps,lx,ly,cx,cy,rx,ry);bgCtx.lineTo(pt.x,pt.y);}
+      bgCtx.strokeStyle='#1F4D3A'; bgCtx.lineWidth=1; bgCtx.stroke();
+    }
+    let bgCurrent=0, bgTarget=0;
+    const bgIo = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)bgTarget=1;});},{threshold:0.2});
+    bgIo.observe(bgWrap);
+    setTimeout(()=>{if(bgTarget<0.1)bgTarget=1;},900);
+    function bgLoop(){bgCurrent+=(bgTarget-bgCurrent)*0.035;drawBg(bgCurrent);requestAnimationFrame(bgLoop);}
+    bgLoop();
+    window.addEventListener('resize',()=>{resizeBg();drawBg(bgCurrent);});
+  }
+
+  // ── Fő animáció indítása ───────────────────────────────────
+  resizeMain();
+  let current = 0, target = 0;
+  setTimeout(() => { target = 1; }, 600);
+
+  function loop() {
+    current += (target - current) * 0.032;
+    drawMain(current);
+    requestAnimationFrame(loop);
+  }
   loop();
-  window.addEventListener('resize',()=>{resize();draw(current);});
+  window.addEventListener('resize', () => { resizeMain(); drawMain(current); });
 })();
 </script>
 <script src="/scripts/main.js"></script>
