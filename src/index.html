@@ -54,9 +54,15 @@
         </svg>
       </div>
 
-      <!-- Scroll-vezérelt híd animáció (oldalsó háttér - megtartjuk halványan) -->
-      <div aria-hidden="true" style="position:absolute;right:0;top:0;bottom:0;width:45%;pointer-events:none;overflow:hidden;opacity:0.3;">
-        <canvas id="bridge-canvas-bg" style="width:100%;height:100%;display:block;"></canvas>
+      <!-- Oldalsó híd animáció feliratozással -->
+      <div aria-hidden="false" style="position:absolute;right:0;top:0;bottom:0;width:45%;pointer-events:none;overflow:hidden;">
+        <canvas id="bridge-canvas" style="width:100%;height:100%;display:block;" aria-label="Footbridge — üzleti stratégia és IT megvalósítás között"></canvas>
+        <!-- Feliratok: az ív zárulásakor jelennek meg -->
+        <div id="bridge-labels" style="position:absolute;bottom:18%;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:0 6%;opacity:0;transition:opacity 700ms ease;">
+          <span style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-muted);">Üzleti<br>stratégia</span>
+          <span style="font-family:var(--font-display);font-size:15px;font-style:italic;color:var(--color-green);">Footbridge</span>
+          <span style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-muted);text-align:right;">IT<br>megvalósítás</span>
+        </div>
       </div>
 
       <div style="max-width: 680px; position: relative;">
@@ -111,16 +117,6 @@
           <div>
             <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">94%</p>
             <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Élesbe ment projekt</p>
-          </div>
-        </div>
-
-        <!-- Híd animáció — szöveg alatt, középre igazítva -->
-        <div style="margin-top:var(--space-12);width:100%;max-width:560px;">
-          <canvas id="bridge-canvas" width="560" height="110" style="width:100%;height:auto;display:block;" aria-label="Footbridge — üzleti stratégia és IT megvalósítás között"></canvas>
-          <div id="bridge-labels" style="display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-2);opacity:0;transition:opacity 600ms ease;">
-            <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);">Üzleti stratégia</span>
-            <span style="font-family:var(--font-display);font-size:var(--text-sm);font-style:italic;color:var(--color-green);">Footbridge</span>
-            <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);">IT megvalósítás</span>
           </div>
         </div>
 
@@ -370,17 +366,16 @@
 
 <script>
 (function() {
-  // ── Fő híd (szöveg alatt, középre) ──────────────────────
   const canvas = document.getElementById('bridge-canvas');
   const labels = document.getElementById('bridge-labels');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  const wrap = canvas.parentElement;
   let dpr = window.devicePixelRatio || 1;
 
   function resizeMain() {
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    canvas.width = wrap.offsetWidth * dpr;
+    canvas.height = wrap.offsetHeight * dpr;
     ctx.setTransform(1,0,0,1,0,0);
     ctx.scale(dpr, dpr);
   }
@@ -483,42 +478,7 @@
     }
   }
 
-  // ── Háttér animáció (jobbra lebegő, halvány) ──────────────
-  const bgCanvas = document.getElementById('bridge-canvas-bg');
-  if (bgCanvas) {
-    const bgCtx = bgCanvas.getContext('2d');
-    const bgWrap = bgCanvas.parentElement;
-    function resizeBg() {
-      bgCanvas.width = bgWrap.offsetWidth * dpr;
-      bgCanvas.height = bgWrap.offsetHeight * dpr;
-      bgCtx.setTransform(1,0,0,1,0,0);
-      bgCtx.scale(dpr, dpr);
-    }
-    resizeBg();
-    function drawBg(p) {
-      const w = bgCanvas.width / dpr, h = bgCanvas.height / dpr;
-      bgCtx.clearRect(0, 0, w, h);
-      if (p <= 0) return;
-      const lx=w*0.05, ly=h*0.65, rx=w*0.95, ry=h*0.65, cx=w*0.5, cy=h*0.1;
-      const steps=120, ds=Math.floor(steps*p);
-      if(ds<2) return;
-      bgCtx.beginPath(); bgCtx.arc(lx,ly,5,0,Math.PI*2); bgCtx.fillStyle='rgba(31,77,58,'+Math.min(1,p*3)+')'; bgCtx.fill();
-      const ra=Math.min(1,Math.max(0,(p-0.7)*3.3));
-      bgCtx.beginPath(); bgCtx.arc(rx,ry,5,0,Math.PI*2); bgCtx.fillStyle='rgba(31,77,58,'+ra+')'; bgCtx.fill();
-      bgCtx.beginPath(); bgCtx.moveTo(lx,ly);
-      for(let i=1;i<=ds;i++){const pt=bezier(i/steps,lx,ly,cx,cy,rx,ry);bgCtx.lineTo(pt.x,pt.y);}
-      bgCtx.strokeStyle='#1F4D3A'; bgCtx.lineWidth=1; bgCtx.stroke();
-    }
-    let bgCurrent=0, bgTarget=0;
-    const bgIo = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)bgTarget=1;});},{threshold:0.2});
-    bgIo.observe(bgWrap);
-    setTimeout(()=>{if(bgTarget<0.1)bgTarget=1;},900);
-    function bgLoop(){bgCurrent+=(bgTarget-bgCurrent)*0.035;drawBg(bgCurrent);requestAnimationFrame(bgLoop);}
-    bgLoop();
-    window.addEventListener('resize',()=>{resizeBg();drawBg(bgCurrent);});
-  }
-
-  // ── Fő animáció indítása ───────────────────────────────────
+  // ── Animáció indítása ──────────────────────────────────────
   resizeMain();
   let current = 0, target = 0;
   setTimeout(() => { target = 1; }, 600);
