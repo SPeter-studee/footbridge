@@ -452,19 +452,19 @@
       const la = Math.min(1, (p - 0.88) / 0.12);
       ctx.save();
       ctx.globalAlpha = la;
-      // Pillér feliratok — pontok alatt, két sorban
-      ctx.font = '500 9px Inter, Arial, sans-serif';
+      // Pillér feliratok — pontok alatt, két sorban, nagyobb
+      ctx.font = '500 11px Inter, Arial, sans-serif';
       ctx.fillStyle = '#888781';
       ctx.textAlign = 'center';
-      ctx.fillText('ÜZLETI', lx, ly + 16);
-      ctx.fillText('STRATÉGIA', lx, ly + 27);
-      ctx.fillText('IT', rx, ly + 16);
-      ctx.fillText('MEGVALÓSÍTÁS', rx, ly + 27);
-      // Footbridge — az ív csúcsa felett, középen, nagyobb
-      ctx.font = 'italic 18px Georgia, serif';
+      ctx.fillText('ÜZLETI', lx, ly + 22);
+      ctx.fillText('STRATÉGIA', lx, ly + 36);
+      ctx.fillText('IT', rx, ly + 22);
+      ctx.fillText('MEGVALÓSÍTÁS', rx, ly + 36);
+      // Footbridge — ív csúcsa felett, középen
+      ctx.font = 'italic 20px Georgia, serif';
       ctx.fillStyle = '#1F4D3A';
       ctx.textAlign = 'center';
-      ctx.fillText('Footbridge', cx, cy - 8);
+      ctx.fillText('Footbridge', cx, cy - 10);
       ctx.restore();
     }
   }
