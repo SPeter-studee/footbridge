@@ -10,7 +10,7 @@
   --color-green:     #1F4D3A; /* erdei zöld accent (8%) */
   --color-coral:     #C4622D; /* terrakotta akció (2%) */
   --color-border:    #E8E3D4; /* halvány keret */
-  --color-muted:     #888781; /* másodlagos szöveg */
+  --color-muted:     #3A3935; /* másodlagos szöveg */
   --color-surface:   #F2EFE8; /* kártyák, szekciók */
 
   /* --- Fontok --- */
@@ -18,12 +18,12 @@
   --font-body:       'Inter', 'Helvetica Neue', sans-serif;
 
   /* --- Tipográfia --- */
-  --text-xs:     11px;
-  --text-sm:     13px;
-  --text-base:   15px;
-  --text-lg:     18px;
-  --text-xl:     22px;
-  --text-2xl:    28px;
+  --text-xs:     12px;
+  --text-sm:     14px;
+  --text-base:   16px;
+  --text-lg:     20px;
+  --text-xl:     24px;
+  --text-2xl:    32px;
   --text-3xl:    38px;
   --text-4xl:    52px;
 

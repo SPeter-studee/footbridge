@@ -920,3 +920,92 @@ p { color: #1A1A1A; }
     padding-right: var(--space-8) !important;
   }
 }
+
+/* ── NAV — fekete szöveg, nagyobb betű ─────────────────── */
+.site-nav a {
+  color: #1A1A1A !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+.site-nav a:hover {
+  color: var(--color-green) !important;
+}
+.site-logo span {
+  color: #1A1A1A !important;
+  font-size: 20px !important;
+}
+
+/* ── MOBIL NAV ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .site-nav {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg);
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-6) !important;
+    z-index: 999;
+  }
+  .site-nav.is-open {
+    display: flex !important;
+  }
+  .site-nav a {
+    font-size: 20px !important;
+  }
+  .mobile-nav-toggle {
+    display: flex !important;
+  }
+
+  /* Hero split → egymás alá */
+  .hero-split {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .hero-left {
+    padding: var(--space-12) var(--space-6) var(--space-10) var(--space-6) !important;
+  }
+  .hero-right {
+    min-height: 350px !important;
+  }
+
+  /* Pain point kártyák */
+  .pain-point {
+    padding: var(--space-4) var(--space-4) !important;
+    gap: var(--space-3) !important;
+  }
+
+  /* Stat sor */
+  .stat-row {
+    flex-direction: column !important;
+    gap: var(--space-4) !important;
+  }
+}
+
+/* ── TABLET ────────────────────────────────────────────── */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .hero-split {
+    grid-template-columns: 1.3fr 1fr !important;
+  }
+  .hero-left {
+    padding: var(--space-16) var(--space-8) var(--space-12) var(--space-8) !important;
+  }
+}
+
+/* ── MOBIL LANDSCAPE ──────────────────────────────────── */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero-split {
+    grid-template-columns: 1fr 1fr !important;
+    min-height: 100vh !important;
+  }
+  .hero-left {
+    padding: var(--space-8) var(--space-6) !important;
+  }
+  .hero-right {
+    min-height: auto !important;
+  }
+}
