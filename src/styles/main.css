@@ -1064,3 +1064,31 @@ button.btn-primary {
 .section-dark .btn-primary:hover {
   background: #FFFFFF !important;
 }
+
+/* ── Szolgáltatás aloldalak reszponzív ─────────────────── */
+@media (max-width: 640px) {
+  /* CTA gombok egymás alá */
+  [style*="text-align:center"] .btn {
+    display: block !important;
+    margin: 8px auto !important;
+    max-width: 280px;
+    text-align: center;
+  }
+  
+  /* Árazás kártyák — 1 oszlop */
+  .price-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    text-align: left !important;
+  }
+  
+  /* Hero h1 kisebb mobilon */
+  [style*="font-size:clamp(28px"] {
+    font-size: 28px !important;
+  }
+  
+  /* Stat grid 1 oszlop */
+  [style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
