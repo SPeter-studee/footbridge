@@ -659,7 +659,7 @@ blockquote {
 /* Oldal hero egységes padding */
 .page-hero {
   background: var(--color-text);
-  padding: var(--space-20) 0 var(--space-14);
+  padding: var(--space-20) 0 var(--space-20);
 }
 .page-hero-eyebrow {
   font-size: 10px;
@@ -785,7 +785,7 @@ blockquote {
 /* Page hero egységes dark sáv */
 .page-hero {
   background: var(--color-text);
-  padding: var(--space-20) 0 var(--space-14);
+  padding: var(--space-20) 0 var(--space-20);
 }
 .page-hero-eyebrow {
   font-size: 10px;
