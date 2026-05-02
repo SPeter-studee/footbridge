@@ -47,7 +47,7 @@
       <nav style="margin-bottom:var(--space-8);"><a href="/megoldasok" style="font-size:13px;color:rgba(250,248,243,0.5);text-decoration:none;">← Összes megoldás</a></nav>
       <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.4);margin-bottom:var(--space-5);">02 — Megoldás</p>
       <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Adatok széttagoltsága</h1>
-      <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.6);max-width:56ch;line-height:1.65;">Három rendszer, három igazság. Az integráció nem mindig megoldás — néha egyszerűbb eldönteni, melyik az egyetlen forrás.</p>
+      <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.75);max-width:56ch;line-height:1.65;">Három rendszer, három igazság. Az integráció nem mindig megoldás — néha egyszerűbb eldönteni, melyik az egyetlen forrás.</p>
     </div>
   </div>
 
@@ -58,8 +58,8 @@
         <!-- A probléma -->
         <div>
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A probléma</h2>
-          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Az ügyféladatok az ERP-ben, a CRM-ben és egy Excelben élnek — és <strong style="color:var(--color-text);">mind a három más számot mutat</strong>. A pénzügyi riportot az ERP-ből készítik, az ügyfélszolgálat a CRM-ből dolgozik, a vezető az Excelből olvas. Ha valaki megkérdezi, "mennyi az éves forgalmunk X ügyfélnél?", három különböző válasz jön.</p>
-    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;">Ez nem adatminőségi probléma — ez <strong style="color:var(--color-text);">döntéshiány</strong>. Senki nem mondta ki: "ez a rendszer az igazság forrása, a többi onnan kap adatot."</p>
+          <p style="color:#2A2A2A;line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Az ügyféladatok az ERP-ben, a CRM-ben és egy Excelben élnek — és <strong style="color:var(--color-text);">mind a három más számot mutat</strong>. A pénzügyi riportot az ERP-ből készítik, az ügyfélszolgálat a CRM-ből dolgozik, a vezető az Excelből olvas. Ha valaki megkérdezi, "mennyi az éves forgalmunk X ügyfélnél?", három különböző válasz jön.</p>
+    <p style="color:#2A2A2A;line-height:1.75;max-width:65ch;">Ez nem adatminőségi probléma — ez <strong style="color:var(--color-text);">döntéshiány</strong>. Senki nem mondta ki: "ez a rendszer az igazság forrása, a többi onnan kap adatot."</p>
         </div>
 
         <!-- Tanács 1 -->
@@ -70,28 +70,28 @@
         <!-- A tipikus tévút -->
         <div>
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A tipikus tévút</h2>
-          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">A tipikus reflex: <strong style="color:var(--color-text);">integráljuk a rendszereket</strong>. API-kapcsolatok, middleware, szinkronizációs pipeline. Ez sokszor drága (8-25M Ft), hosszú (6-12 hónap), és a végén a három rendszer szinkronban van — de <strong style="color:var(--color-text);">senki nem döntötte el, melyik az igazság</strong>. Ha az ERP-ben módosítanak, a CRM frissül — de ha a CRM-ben módosítanak, az ERP is frissül? Melyik nyer ütközésnél?</p>
-    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;">A másik tévút: <strong style="color:var(--color-text);">új rendszert veszünk, ami 'mindent tud'</strong>. De a régi rendszerek ritkán kapcsolnak le — párhuzamosan futnak, és a széttagoltság nem csökken, hanem nő.</p>
+          <p style="color:#2A2A2A;line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">A tipikus reflex: <strong style="color:var(--color-text);">integráljuk a rendszereket</strong>. API-kapcsolatok, middleware, szinkronizációs pipeline. Ez sokszor drága (8-25M Ft), hosszú (6-12 hónap), és a végén a három rendszer szinkronban van — de <strong style="color:var(--color-text);">senki nem döntötte el, melyik az igazság</strong>. Ha az ERP-ben módosítanak, a CRM frissül — de ha a CRM-ben módosítanak, az ERP is frissül? Melyik nyer ütközésnél?</p>
+    <p style="color:#2A2A2A;line-height:1.75;max-width:65ch;">A másik tévút: <strong style="color:var(--color-text);">új rendszert veszünk, ami 'mindent tud'</strong>. De a régi rendszerek ritkán kapcsolnak le — párhuzamosan futnak, és a széttagoltság nem csökken, hanem nő.</p>
         </div>
 
         <!-- A Footbridge-megközelítés -->
         <div>
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A Footbridge-megközelítés</h2>
-          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">1. Megszüntethető?</strong> — Van-e olyan rendszer, ami teljesen feleslegessé vált? Egy CRM, amit senki nem használ az ügyfélszolgálaton kívül — és az ügyfélszolgálat is inkább Excelben dolgozik? Akkor a CRM nem integrálásra szorul — hanem kikapcsolásra.</p>
-    <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">2. Áttervezhető?</strong> — Ha mindkét rendszer szükséges, <strong style="color:var(--color-text);">melyik az egyetlen forrás az igazságnak?</strong> Ez a legfontosabb döntés. Nem technikai — szervezeti. Ha az ERP az igazság, a CRM olvas belőle. Ha a CRM az igazság, az ERP olvas belőle. Nem mindkettő ír mindkettőbe.</p>
-    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;"><strong style="color:var(--color-text);">3. Automatizálható.</strong> — Ha az igazság-forrás eldőlt, a szinkronizáció egyszerű: egyirányú adatfolyam, webhook vagy ütemezett export. Nem kell middleware, nem kell komplex integráció.</p>
+          <p style="color:#2A2A2A;line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">1. Megszüntethető?</strong> — Van-e olyan rendszer, ami teljesen feleslegessé vált? Egy CRM, amit senki nem használ az ügyfélszolgálaton kívül — és az ügyfélszolgálat is inkább Excelben dolgozik? Akkor a CRM nem integrálásra szorul — hanem kikapcsolásra.</p>
+    <p style="color:#2A2A2A;line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">2. Áttervezhető?</strong> — Ha mindkét rendszer szükséges, <strong style="color:var(--color-text);">melyik az egyetlen forrás az igazságnak?</strong> Ez a legfontosabb döntés. Nem technikai — szervezeti. Ha az ERP az igazság, a CRM olvas belőle. Ha a CRM az igazság, az ERP olvas belőle. Nem mindkettő ír mindkettőbe.</p>
+    <p style="color:#2A2A2A;line-height:1.75;max-width:65ch;"><strong style="color:var(--color-text);">3. Automatizálható.</strong> — Ha az igazság-forrás eldőlt, a szinkronizáció egyszerű: egyirányú adatfolyam, webhook vagy ütemezett export. Nem kell middleware, nem kell komplex integráció.</p>
         </div>
 
         <!-- Anonim valódi példa -->
         <div>
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">Anonim valódi példa</h2>
           <div style="padding:var(--space-8);background:var(--color-surface);">
-            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Egy <strong style="color:var(--color-text);">220 fős kereskedelmi vállalat</strong> ERP-CRM-Excel hármasában a havi riport-készítés 3 napot vett igénybe — mert az adatokat három forrásból kellett összefésülni. A workshopon kiderült: a CRM-et 2 ember használta aktívan. A döntés: az ERP lett az egyetlen igazság-forrás, a CRM egy nézet lett belőle, az Excel megszűnt.</p>
+            <p style="color:#2A2A2A;line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Egy <strong style="color:var(--color-text);">220 fős kereskedelmi vállalat</strong> ERP-CRM-Excel hármasában a havi riport-készítés 3 napot vett igénybe — mert az adatokat három forrásból kellett összefésülni. A workshopon kiderült: a CRM-et 2 ember használta aktívan. A döntés: az ERP lett az egyetlen igazság-forrás, a CRM egy nézet lett belőle, az Excel megszűnt.</p>
     <p style="font-size:var(--text-sm);color:var(--color-muted);font-style:italic;line-height:1.65;">A riport-készítés 3 napról 4 órára csökkent — és a számok végre egyeztek minden prezentációban.</p>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-6);">
-              <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Riport-idő</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">3 nap → 4 óra</p></div>
-    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Projekt-költség</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">2,8M Ft</p></div>
-    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Payback</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">6 hónap</p></div>
+              <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#555;margin-bottom:4px;">Riport-idő</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">3 nap → 4 óra</p></div>
+    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#555;margin-bottom:4px;">Projekt-költség</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">2,8M Ft</p></div>
+    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#555;margin-bottom:4px;">Payback</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">6 hónap</p></div>
             </div>
           </div>
         </div>

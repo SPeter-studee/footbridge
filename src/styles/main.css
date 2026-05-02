@@ -780,3 +780,143 @@ blockquote {
     to   { opacity: 1; }
   }
 }
+
+/* ============================================================
+   KONTRASZT ÉS RESZPONZÍV JAVÍTÁSOK
+   ============================================================ */
+
+/* Alap szöveg kontraszt — fekete, nem szürke */
+body {
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bekezdések — fekete szöveg */
+p { color: #1A1A1A; }
+
+/* Muted szöveg — sötétebb mint eddig, de még megkülönböztethető */
+.lead { color: #2A2A2A; }
+
+/* Card leírások — olvasható */
+.card-interactive p { color: #333; }
+
+/* CTA gombok — brand színek, fekete szöveg */
+.btn-primary {
+  background: var(--color-green) !important;
+  color: #FAF8F3 !important;
+  border: none !important;
+}
+.btn-ghost {
+  color: #1A1A1A !important;
+  border-color: #1A1A1A !important;
+}
+.btn-ghost:hover {
+  background: rgba(26,26,26,0.06) !important;
+}
+
+/* Page hero sáv reszponzív */
+@media (max-width: 768px) {
+  .hero-split {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .hero-left {
+    padding: var(--space-12) var(--space-6) var(--space-10) !important;
+  }
+  .hero-right {
+    min-height: 320px !important;
+  }
+}
+
+/* Megoldások kártyák reszponzív */
+@media (max-width: 640px) {
+  .card-interactive[style*="grid-template-columns: 60px"] {
+    grid-template-columns: 40px 1fr auto !important;
+    padding: var(--space-5) var(--space-4) !important;
+    gap: var(--space-3) !important;
+  }
+}
+
+/* Grid reszponzív */
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Stat sor reszponzív */
+@media (max-width: 480px) {
+  [style*="display:flex;gap:var(--space-10)"] {
+    flex-direction: column !important;
+    gap: var(--space-6) !important;
+  }
+}
+
+/* Útválasztó sáv reszponzív */
+@media (max-width: 768px) {
+  [style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Footer reszponzív */
+@media (max-width: 768px) {
+  .footer-grid-new {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+  }
+  .footer-bottom-new {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}
+
+/* Hero sötét sáv reszponzív padding */
+@media (max-width: 768px) {
+  [style*="padding:var(--space-20) 0 var(--space-14)"] {
+    padding: var(--space-12) 0 var(--space-8) !important;
+  }
+  [style*="font-size:clamp(28px,4vw,48px)"] {
+    font-size: 28px !important;
+  }
+}
+
+/* Árazás sorok reszponzív */
+@media (max-width: 640px) {
+  .price-row,
+  [style*="grid-template-columns:1fr auto"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-2) !important;
+  }
+}
+
+/* 3-oszlopos stat grid reszponzív */
+@media (max-width: 640px) {
+  [style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3) !important;
+  }
+}
+
+/* Pain point kártyák reszponzív */
+@media (max-width: 640px) {
+  .pain-point {
+    padding: var(--space-4) !important;
+    gap: var(--space-3) !important;
+  }
+  .pain-num {
+    font-size: var(--text-lg) !important;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-split {
+    grid-template-columns: 1.2fr 1fr !important;
+  }
+  .container {
+    padding-left: var(--space-8) !important;
+    padding-right: var(--space-8) !important;
+  }
+}
