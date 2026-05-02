@@ -134,7 +134,7 @@ p { max-width: 68ch; }
 /* --- Kártyák --- */
 .card {
   background: var(--color-bg);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-none);
   padding: var(--space-8);
 }
@@ -203,7 +203,7 @@ p { max-width: 68ch; }
 
 .reading-mode-btn {
   background: none;
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
   font-size: var(--text-xs);
@@ -301,7 +301,7 @@ blockquote {
   font-size: var(--text-base);
   color: var(--color-text);
   background: var(--color-bg);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   transition: border-color var(--duration-fast);
   appearance: none;
@@ -359,7 +359,7 @@ blockquote {
 .mobile-nav-toggle {
   display: none;
   background: none;
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
   color: var(--color-text);
@@ -439,7 +439,7 @@ blockquote {
   text-decoration: none;
   color: inherit;
   padding: var(--space-8);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   background: var(--color-bg);
   transition: border-color 200ms var(--ease-footbridge),
               box-shadow 200ms var(--ease-footbridge),
@@ -696,7 +696,7 @@ blockquote {
 /* Alap kártya — NEM kattintható */
 .card {
   padding: var(--space-8);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   background: var(--color-bg);
 }
 
@@ -707,7 +707,7 @@ blockquote {
   color: inherit;
   cursor: pointer;
   padding: var(--space-8);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   background: var(--color-bg);
   transition: border-color 200ms, box-shadow 200ms, transform 150ms, background 200ms;
   position: relative;
@@ -760,7 +760,7 @@ blockquote {
 /* Árlistás kártya sor */
 .price-row {
   padding: var(--space-6);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--space-4);
@@ -804,7 +804,7 @@ blockquote {
 /* Price row */
 .price-row {
   padding: var(--space-6);
-  border: 0.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--space-4);
