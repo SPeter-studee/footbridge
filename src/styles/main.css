@@ -484,3 +484,299 @@ blockquote {
 .topic-strategy { color: var(--color-topic-strategy); }
 .topic-strategy-card { border-color: var(--color-topic-strategy) !important; background: var(--color-topic-strategy-bg) !important; }
 .topic-strategy-card:hover { box-shadow: 0 4px 16px rgba(91,78,140,0.12) !important; }
+
+/* ============================================================
+   HÍD ANIMÁCIÓ — tiszta CSS
+   ============================================================ */
+
+.bridge-anim {
+  position: relative;
+  width: 200px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+/* Bal és jobb pillér pontok */
+.bridge-anim::before,
+.bridge-anim::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(250,248,243,0.7);
+}
+.bridge-anim::before { left: 0; }
+.bridge-anim::after  { right: 0; }
+
+/* Az ív — CSS border-radius trükk */
+.bridge-arc {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 14px;
+  height: 60px;
+  border: 1.5px solid rgba(250,248,243,0.6);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  animation: bridge-draw 1.8s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* Tartóoszlopok */
+.bridge-pole {
+  position: absolute;
+  bottom: 14px;
+  width: 0.5px;
+  background: rgba(250,248,243,0.35);
+  animation: bridge-pole 0.4s ease both;
+}
+.bridge-pole:nth-child(1) { left: 25%;  height: 28px; animation-delay: 1.2s; }
+.bridge-pole:nth-child(2) { left: 50%;  height: 46px; animation-delay: 1.3s; }
+.bridge-pole:nth-child(3) { left: 75%;  height: 28px; animation-delay: 1.4s; }
+
+/* Alap vonal */
+.bridge-base {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  height: 0.5px;
+  background: rgba(250,248,243,0.2);
+  animation: bridge-base 0.5s ease 1.5s both;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@keyframes bridge-draw {
+  0%   { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+@keyframes bridge-pole {
+  from { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  to   { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+}
+@keyframes bridge-base {
+  to { transform: scaleX(1); }
+}
+
+/* Hero jobb oldal Footbridge felirat megjelenés */
+.bridge-label {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease 1.6s both;
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   EGYSÉGES TIPOGRÁFIA ÉS TÉRKÖZÖK — minden aloldalon
+   ============================================================ */
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* Lead bekezdés */
+.lead {
+  font-size: var(--text-xl);
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 62ch;
+}
+
+/* Szekció fejlécek következetes térközzel */
+.section-header {
+  margin-bottom: var(--space-12);
+}
+.section-header .eyebrow { margin-bottom: var(--space-3); }
+.section-header h2       { margin-bottom: var(--space-4); }
+.section-header .lead    { margin-bottom: 0; }
+
+/* Article body egységes stílus */
+.article-body > * + * { margin-top: var(--space-5); }
+.article-body h2 { margin-top: var(--space-12) !important; }
+.article-body h3 { margin-top: var(--space-8) !important; }
+.article-body p  { max-width: 68ch; }
+
+/* Oldal hero egységes padding */
+.page-hero {
+  background: var(--color-text);
+  padding: var(--space-20) 0 var(--space-14);
+}
+.page-hero-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,248,243,0.4);
+  margin-bottom: var(--space-5);
+}
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(28px,4vw,48px);
+  font-weight: 400;
+  color: #FAF8F3;
+  line-height: 1.15;
+  margin-bottom: var(--space-6);
+  max-width: 16ch;
+}
+.page-hero .lead {
+  color: rgba(250,248,243,0.65);
+  max-width: 56ch;
+}
+
+/* Tartalom szekció egységes padding */
+.page-content {
+  padding: var(--space-16) 0 var(--space-24);
+}
+.page-content > .container > * + * {
+  margin-top: var(--space-12);
+}
+
+/* ============================================================
+   KÁRTYA RENDSZER — csak kattintható kártyán legyen hatás
+   ============================================================ */
+
+/* Alap kártya — NEM kattintható */
+.card {
+  padding: var(--space-8);
+  border: 0.5px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+/* Kattintható kártya */
+.card-interactive {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  padding: var(--space-8);
+  border: 0.5px solid var(--color-border);
+  background: var(--color-bg);
+  transition: border-color 200ms, box-shadow 200ms, transform 150ms, background 200ms;
+  position: relative;
+}
+.card-interactive:hover {
+  border-color: var(--color-green);
+  box-shadow: 0 4px 20px rgba(31,77,58,0.10);
+  transform: translateY(-2px);
+}
+
+/* Kiemelt kártya — egy az aloldalon */
+.card-featured {
+  border-color: var(--color-green) !important;
+  background: rgba(31,77,58,0.04) !important;
+  box-shadow: 0 2px 12px rgba(31,77,58,0.08) !important;
+}
+.card-featured.card-interactive:hover {
+  box-shadow: 0 6px 24px rgba(31,77,58,0.16) !important;
+  transform: translateY(-2px);
+}
+
+/* Téma-alapú kiemelések */
+.card-featured-pm {
+  border-color: #2D5A8E !important;
+  background: rgba(45,90,142,0.04) !important;
+  box-shadow: 0 2px 12px rgba(45,90,142,0.08) !important;
+}
+.card-featured-pm.card-interactive:hover {
+  box-shadow: 0 6px 24px rgba(45,90,142,0.16) !important;
+}
+
+.card-featured-translation {
+  border-color: #7B4F2E !important;
+  background: rgba(123,79,46,0.04) !important;
+  box-shadow: 0 2px 12px rgba(123,79,46,0.08) !important;
+}
+.card-featured-translation.card-interactive:hover {
+  box-shadow: 0 6px 24px rgba(123,79,46,0.16) !important;
+}
+
+.card-featured-strategy {
+  border-color: #5B4E8C !important;
+  background: rgba(91,78,140,0.04) !important;
+  box-shadow: 0 2px 12px rgba(91,78,140,0.08) !important;
+}
+.card-featured-strategy.card-interactive:hover {
+  box-shadow: 0 6px 24px rgba(91,78,140,0.16) !important;
+}
+
+/* Árlistás kártya sor */
+.price-row {
+  padding: var(--space-6);
+  border: 0.5px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  transition: background 150ms;
+}
+.price-row:hover { background: var(--color-surface); }
+.price-row.price-featured { border-color: var(--color-green); background: rgba(31,77,58,0.03); }
+
+/* Info box (nem kattintható) */
+.info-box {
+  padding: var(--space-7);
+  background: var(--color-surface);
+  border-left: 2px solid var(--color-green);
+}
+.info-box.info-pm     { border-left-color: #2D5A8E; }
+.info-box.info-terra  { border-left-color: #7B4F2E; }
+.info-box.info-purple { border-left-color: #5B4E8C; }
+
+/* Page hero egységes dark sáv */
+.page-hero {
+  background: var(--color-text);
+  padding: var(--space-20) 0 var(--space-14);
+}
+.page-hero-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,248,243,0.4);
+  margin-bottom: var(--space-5);
+}
+
+/* Tartalom szekció */
+.page-content {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-24);
+}
+.page-content > * + * { margin-top: var(--space-12); }
+
+/* Price row */
+.price-row {
+  padding: var(--space-6);
+  border: 0.5px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  transition: background 150ms;
+}
+.price-row:hover { background: var(--color-surface); }
+.price-row.price-featured {
+  border-color: var(--color-green);
+  background: rgba(31,77,58,0.03);
+}
+
+/* Híd animáció clip-path fallback Safari-ra */
+@supports not (clip-path: inset(0 0 0 0)) {
+  .bridge-arc {
+    animation: bridge-draw-fallback 1.8s cubic-bezier(0.4,0,0.2,1) both;
+  }
+  @keyframes bridge-draw-fallback {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}

@@ -43,16 +43,16 @@
 </header>
 <main id="main-content">
   <article>
-    <div style="background:var(--color-text);padding:var(--space-20) 0 var(--space-12);">
+    <div class="page-hero">
       <div class="container" style="max-width:820px;">
         <nav style="margin-bottom:var(--space-8);"><a href="/szolgaltatasok" style="font-size:13px;color:rgba(250,248,243,0.5);text-decoration:none;" onmouseover="this.style.color='#FAF8F3'" onmouseout="this.style.color='rgba(250,248,243,0.5)'">← Szolgáltatások</a></nav>
-        <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.4);margin-bottom:var(--space-4);">03 — Elveszett fordítás</p>
+        <p class="page-hero-eyebrow">03 — Elveszett fordítás</p>
         <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Tudom, mit akarok — de amit<br>az IT árajánlatba írt, abból<br>semmi sem érthető.</h1>
         <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.65);max-width:56ch;line-height:1.65;">Ha az IT-től kapott ajánlatból nem derül ki, miért kerül annyiba — vagy ha a projekt scope-ját le sem tudod írni egyértelműen —, ez nem technológiai probléma. Ez fordítási probléma.</p>
       </div>
     </div>
 
-    <div class="container" style="max-width:820px;padding-top:var(--space-16);padding-bottom:var(--space-24);">
+    <div class="container" class="page-content" style="max-width:820px;">
       <div style="display:flex;flex-direction:column;gap:var(--space-12);">
 
         <div>
@@ -69,12 +69,12 @@
         <div>
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-6);">Három területen segítünk fordítani</h2>
           <div style="display:flex;flex-direction:column;gap:var(--space-4);">
-            <div class="card-interactive" style="padding:var(--space-7);">
+            <div class="card" style="padding:var(--space-7);">
               <h3 style="margin-bottom:var(--space-3);">Funkcionális specifikáció és scope-dokumentum</h3>
               <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Mielőtt az IT fejlesztésnek nekiállunk, pontosan le kell írni, mi épüljön meg. Nem PowerPoint-vázlat — precíz, fejlesztői szinten is érthető dokumentum, amely ugyanakkor üzleti döntéshozók számára is olvasható. Ez a scope-dokumentum a projekt alfája és omegája: ha jól van megírva, az ajánlatok összehasonlíthatók, a fejlesztők értik a feladatot, és a scope-creep elkerülhető.</p>
               <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);">A Footbridge scope-dokumentum tartalmaz: use case-eket és felhasználói sztorijkat, adatmodell-vázlatot, integrációs pontokat és API-követelményeket, elfogadási kritériumokat, és nem-funkcionális követelményeket (teljesítmény, biztonság, skálázhatóság).</p>
             </div>
-            <div class="card-interactive" style="padding:var(--space-7);">
+            <div class="card" style="padding:var(--space-7);">
               <h3 style="margin-bottom:var(--space-3);">EU-s pályázatok műszaki fejezete</h3>
               <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Az EU-s pályázatok — GINOP-PLUSZ, RRF, NTP — megkövetelik a digitalizációs fejlesztések részletes műszaki leírását. Ez az a rész, ahol a legtöbb pályázat elvérzik: vagy túl általános, nem tudja meggyőzni a bírálót; vagy technikai zsargonban van írva, ami nem illeszkedik a pályázat üzleti narratívájába.</p>
               <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);">A Footbridge ismeri a projektet — ha korábban workshopot vagy első hidat csináltunk, a műszaki tartalmat nem kell kitalálni, csak jó formába önteni. Ha önálló pályázati megbízásról van szó, egy rövid discovery-szeszszel megismerjük a projektet, és ez beépül az árba.</p>
@@ -96,15 +96,15 @@
         <div>
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-5);">Árazás</h2>
           <div style="display:flex;flex-direction:column;gap:var(--space-3);">
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center;">
+            <div class="price-row">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">Funkcionális specifikáció</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Scope-dokumentum, use case-ek, adatmodell-vázlat, elfogadási kritériumok.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);white-space:nowrap;">450 eFt–2M Ft</p>
             </div>
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center;">
+            <div class="price-row">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">EU-s pályázat műszaki fejezete</p><p style="font-size:var(--text-sm);color:var(--color-muted);">GINOP, RRF, NTP. Meglévő Footbridge-ügyfélnek kedvezményes.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);white-space:nowrap;">350 eFt–1,8M Ft</p>
             </div>
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-green);background:rgba(31,77,58,0.03);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center;">
+            <div class="price-row price-featured">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">Tender-dokumentáció (MKL)</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Közbeszerzési műszaki leírás, értékelési szempontrendszer, SLA-struktúra.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);white-space:nowrap;">600 eFt–2,5M Ft</p>
             </div>

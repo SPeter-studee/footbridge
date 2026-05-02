@@ -44,16 +44,16 @@
 <main id="main-content">
   <article>
     <!-- Hero sáv -->
-    <div style="background:var(--color-text);padding:var(--space-20) 0 var(--space-12);">
+    <div class="page-hero">
       <div class="container" style="max-width:820px;">
         <nav style="margin-bottom:var(--space-8);"><a href="/szolgaltatasok" style="font-size:13px;color:rgba(250,248,243,0.5);text-decoration:none;" onmouseover="this.style.color='#FAF8F3'" onmouseout="this.style.color='rgba(250,248,243,0.5)'">← Szolgáltatások</a></nav>
-        <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.4);margin-bottom:var(--space-4);">01 — Elcsúszott projekt</p>
+        <p class="page-hero-eyebrow">01 — Elcsúszott projekt</p>
         <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Az IT projekt drágább lett,<br>mint ígérték — és senki nem<br>tudja megmondani, miért.</h1>
         <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.65);max-width:56ch;line-height:1.65;">Ha felmerült benned ez a mondat, nem vagy egyedül. Ez az egyik leggyakoribb fájdalom, amivel hozzánk fordulnak. Nem azért, mert a fejlesztők rosszak — hanem mert hiányzik valaki, aki egyszerre érti az üzleti célt és az IT valóságot.</p>
       </div>
     </div>
 
-    <div class="container" style="max-width:820px;padding-top:var(--space-16);padding-bottom:var(--space-24);">
+    <div class="container" class="page-content" style="max-width:820px;">
 
       <div style="display:flex;flex-direction:column;gap:var(--space-12);">
 
@@ -118,15 +118,15 @@
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-5);">Árazás</h2>
           <p style="color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-6);">A PM-szolgáltatás három formában érhető el, az ügyfél igényétől és a projekt állapotától függően.</p>
           <div style="display:flex;flex-direction:column;gap:var(--space-3);">
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center;">
+            <div class="price-row">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">Projekt healthcheck (egyszeri)</p><p style="font-size:var(--text-sm);color:var(--color-muted);">7 kérdéses struktúrált felmérés, 4 órán belüli visszajelzéssel. Ha kritikus a helyzet, azonnal jelezzük.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);white-space:nowrap;">Ingyenes</p>
             </div>
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center;">
+            <div class="price-row">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">PM-coach (havi)</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Heti 1 strukturált call, ad-hoc Slack-elérhetőség, havi retrospektív. A belső PM mögé állunk.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);white-space:nowrap;">450–900 eFt/hó</p>
             </div>
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-green);background:rgba(31,77,58,0.03);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center;">
+            <div class="price-row price-featured">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">Felelős PM (havi, 3+ hónap)</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Teljes PM-felelősség átvétele. Stakeholder-kommunikáció, sprint-vezetés, scope-menedzsment, eszkaláció.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);white-space:nowrap;">1,8–3,6M Ft/hó</p>
             </div>
