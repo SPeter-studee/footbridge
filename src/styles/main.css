@@ -1092,3 +1092,9 @@ button.btn-primary {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Szekciók vizuális elválasztása */
+.page-content > .container > div + div {
+  padding-top: var(--space-14);
+  border-top: 1px solid var(--color-border);
+}
