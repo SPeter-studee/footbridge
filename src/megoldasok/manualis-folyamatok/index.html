@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manuális folyamatok — Footbridge</title>
-  <meta name="description" content="A 3 szűrős módszertan és anonim valódi példa manuális folyamatok automatizálásáról.">
+  <meta name="description" content="A heti óraszámok mögött ritkán a megoldás van — gyakran az ok. Mielőtt automatizálnánk, érdemes megérteni, miért keletkezik az a munka.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .site-footer-new{background:#111;color:#fff;padding:var(--space-16) 0 var(--space-8)}
+    .footer-grid-new{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-12);margin-bottom:var(--space-12)}
+    @media(max-width:768px){.footer-grid-new{grid-template-columns:1fr;gap:var(--space-8)}}
+    .footer-link-new{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 150ms}
+    .footer-link-new:hover{color:#fff}
+    .footer-col-label-new{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+    .footer-bottom-new{padding-top:var(--space-8);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+  </style>
 </head>
 <body>
 <header class="site-header" role="banner">
@@ -18,12 +27,11 @@
       </a>
       <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
         <a href="/megoldasok" aria-current="page">Megoldások</a>
-        <a href="/eszkozok">Eszközök</a>
+        <a href="/szolgaltatasok">Szolgáltatások</a>
         <a href="/munkaink">Munkáink</a>
         <a href="/insights">Insights</a>
         <a href="/rolunk">Rólunk</a>
         <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
-        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
       </nav>
       <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
@@ -32,56 +40,76 @@
   </div>
 </header>
 <main id="main-content">
-  <section class="section" style="padding-top:var(--space-20);">
-    <div class="container" style="max-width:800px;">
-      <nav aria-label="Visszanavigáció" style="margin-bottom:var(--space-8);">
-        <a href="/megoldasok" class="btn btn-ghost" style="font-size:var(--text-sm);">← Összes megoldás</a>
-      </nav>
-      <p class="eyebrow" style="margin-bottom:var(--space-4);">01 — Megoldás</p>
-      <h1 style="margin-bottom:var(--space-4);">Manuális folyamatok</h1>
-      <p class="lead" style="margin-bottom:var(--space-16);">A heti óraszámok mögött ritkán a megoldás van — gyakran az ok.</p>
 
-      <div style="display:flex;flex-direction:column;gap:var(--space-12);">
+  <!-- Hero sáv -->
+  <div style="background:var(--color-text);padding:var(--space-20) 0 var(--space-14);">
+    <div class="container" style="max-width:820px;">
+      <nav style="margin-bottom:var(--space-8);"><a href="/megoldasok" style="font-size:13px;color:rgba(250,248,243,0.5);text-decoration:none;">← Összes megoldás</a></nav>
+      <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.4);margin-bottom:var(--space-5);">01 — Megoldás</p>
+      <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Manuális folyamatok</h1>
+      <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.6);max-width:56ch;line-height:1.65;">A heti óraszámok mögött ritkán a megoldás van — gyakran az ok. Mielőtt automatizálnánk, érdemes megérteni, miért keletkezik az a munka.</p>
+    </div>
+  </div>
 
+  <section style="padding:var(--space-16) 0 var(--space-24);">
+    <div class="container" style="max-width:820px;">
+      <div style="display:flex;flex-direction:column;gap:var(--space-14);">
+
+        <!-- A probléma -->
         <div>
-          <h2 style="margin-bottom:var(--space-4);">A probléma</h2>
-          <p style="color:var(--color-muted);">A magyar középvállalatoknál egy közepes méretű csapat heti 10-20 órát tölt ismétlődő, manuális munkával. Számlázás kézi feldolgozása, HR-folyamatok papíron, riport-készítés Excel-másolásból. Ezek nem feltétlenül rosszak önmagukban — de ritkán mérik a valós idő- és pénzköltségüket.</p>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A probléma</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">A magyar középvállalatoknál egy közepes méretű csapat <strong style="color:var(--color-text);">heti 10-20 órát tölt ismétlődő, manuális munkával</strong>. Számlázás kézi feldolgozása, HR-folyamatok papíron, riport-készítés Excel-másolásból. Ezek nem feltétlenül rosszak önmagukban — de ritkán mérik a valós idő- és pénzköltségüket.</p>
+    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;">A probléma nem az, hogy manuális. A probléma az, hogy <strong style="color:var(--color-text);">senki nem kérdőjelezte meg, miért manuális</strong>. Sok folyamat azért létezik ebben a formában, mert valaha valaki így csinálta — és azóta senki nem állt meg kérdezni.</p>
         </div>
 
-        <div style="border-left:2px solid var(--color-border);padding-left:var(--space-6);">
-          <h2 style="margin-bottom:var(--space-4);">A tipikus tévút</h2>
-          <p style="color:var(--color-muted);">Amikor egy cég felismeri a problémát, a tipikus reflex: automatizáljuk. De az automatizáció a tünetre megy rá, nem az okra. Ha egy számlafeldolgozás 8 jóváhagyási körön megy keresztül, és ezt automatizáljuk, az eredmény 8 automatikus körrel működő számlafeldolgozás — gyorsabb, de ugyanolyan komplex.</p>
+        <!-- Tanács 1 -->
+        <div style="padding:var(--space-7);background:var(--color-surface);border-left:2px solid var(--color-green);">
+          <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-green);line-height:1.55;margin:0;">Ha az automatizálni tervezett folyamat dokumentálása során derülnek ki eddig ismeretlen kivételek vagy 'ez így van, mert régen így volt' lépések — ez az első szűrő jelzése. Álljatok meg, és először értsétek meg a folyamatot.</p>
         </div>
 
+        <!-- A tipikus tévút -->
         <div>
-          <h2 style="margin-bottom:var(--space-4);">A Footbridge-megközelítés</h2>
-          <p style="color:var(--color-muted);">A 3 szűrő sorrendben: <strong>Megszüntethető?</strong> — Lehet-e, hogy a folyamat fele felesleges? <strong>Áttervezhető?</strong> — Ha nem szüntethető meg, párhuzamosítható-e, egyszerűsíthető-e? <strong>Csak ami marad: automatizálható.</strong> — Itt jön a Make, a custom script, az AI — de már egy értelmes folyamatra.</p>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A tipikus tévút</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Amikor egy cég felismeri a problémát, a tipikus reflex: <strong style="color:var(--color-text);">automatizáljuk</strong>. De az automatizáció a tünetre megy rá, nem az okra. Ha egy számlafeldolgozás 8 jóváhagyási körön megy keresztül, és ezt automatizáljuk, az eredmény 8 automatikus körrel működő számlafeldolgozás — gyorsabb, de ugyanolyan komplex.</p>
+    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;">A másik tévút: <strong style="color:var(--color-text);">szoftvert veszünk rá</strong>. Egy SaaS megoldás, ami 'mindent megold' — de az implementáció 6-12 hónap, az ár évi milliók, és a végén az emberek továbbra is Excelben dolgoznak, mert a szoftver nem illeszkedik a valódi folyamathoz.</p>
         </div>
 
-        <div class="card-surface">
-          <h2 style="margin-bottom:var(--space-4);">Várható eredmény</h2>
-          <p style="color:var(--color-muted);">Egy tipikus 3 hetes Footbridge-híd ezen a területen 40-80% manuális munka-csökkenést hoz. Az ROI 4-8 hónap között térül vissza, fix árazással kiszámítva.</p>
-        </div>
-
+        <!-- A Footbridge-megközelítés -->
         <div>
-          <h2 style="margin-bottom:var(--space-6);">Anonim valódi példa</h2>
-          <div class="card" style="background:var(--color-surface);border:none;">
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Egy <strong>180 fős magyar középvállalat</strong> ügyfél-onboardingjánál heti 14 órát töltöttek manuális szerződés-előkészítéssel. A 3 szűrő után: a 4 aláírási kör 2-re szűkítése (megszüntetés) megspórolt heti 6 órát, a maradék 8 órát egy Make-flow + custom backend script kombinációval csökkentettük 2 órára.</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
-            <div><p class="eyebrow" style="margin-bottom:var(--space-1);">Megtakarítás</p><p style="font-size:var(--text-xl);font-weight:500;">6,2M Ft/év</p></div>
-            <div><p class="eyebrow" style="margin-bottom:var(--space-1);">Projekt-költség</p><p style="font-size:var(--text-xl);font-weight:500;">5,8M Ft</p></div>
-            <div><p class="eyebrow" style="margin-bottom:var(--space-1);">Payback</p><p style="font-size:var(--text-xl);font-weight:500;">11 hónap</p></div>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A Footbridge-megközelítés</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">A 3 szűrő sorrendben:</p>
+    <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">1. Megszüntethető?</strong> — Lehet-e, hogy a folyamat fele felesleges? Egy jóváhagyási kör, ami az elmúlt 24 hónapban egyszer sem hozott érdemi változtatást, az nem optimalizálandó — az törölhető. Egy heti riport, amit a befogadó bevallása szerint nem olvas el, az nem automatizálandó — az megszüntethető.</p>
+    <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">2. Áttervezhető?</strong> — Ha nem szüntethető meg, egyszerűsíthető-e automatizáció nélkül? A soros jóváhagyási folyamat párhuzamossá tétele — pénzügy és vezető egyszerre látja — önmagában felezi az átfutási időt. Ez nem szoftver, ez <strong style="color:var(--color-text);">szervezeti döntés</strong>.</p>
+    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;"><strong style="color:var(--color-text);">3. Csak ami marad: automatizálható.</strong> — Ami az első két szűrőn átment, az kap Make-flow-t, custom scriptet, AI-t — de már egy sokkal egyszerűbb, logikusabb folyamatra. Az eredmény tartós, mert a folyamat maga is helyes.</p>
+        </div>
+
+        <!-- Anonim valódi példa -->
+        <div>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">Anonim valódi példa</h2>
+          <div style="padding:var(--space-8);background:var(--color-surface);">
+            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Egy <strong style="color:var(--color-text);">180 fős magyar középvállalat</strong> ügyfél-onboardingjánál heti 14 órát töltöttek manuális szerződés-előkészítéssel. A 3 szűrő után: a 4 aláírási kör 2-re szűkítése (megszüntetés) megspórolt heti 6 órát. A maradék 8 órát egy Make-flow + custom backend script kombinációval csökkentettük 2 órára.</p>
+    <p style="font-size:var(--text-sm);color:var(--color-muted);font-style:italic;line-height:1.65;max-width:65ch;">Fontos: a Make-flow karbantartása heti 45 percet igényel, és a 2 aláírási kör maradéka még fennáll. Nem 100%-os automatizáció — de a heti 12 óra megtakarítás valós, mérhető érték.</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-6);">
+              <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Megtakarítás</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">6,2M Ft/év</p></div>
+    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Projekt-költség</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">5,8M Ft</p></div>
+    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Payback</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">11 hónap</p></div>
+            </div>
           </div>
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-top:var(--space-4);"><em>De: a Make-flow karbantartása heti 45 percet kíván, és a 2 aláírási kör maradéka még fennáll. Nem 100%-os automatizáció — de a heti 12 óra megspórolása valós érték.</em></p>
-        </div>
         </div>
 
-      </div>
+        <!-- Tanács 2 -->
+        <div style="padding:var(--space-7);background:var(--color-surface);border-left:2px solid #7B4F2E;">
+          <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-base);color:#7B4F2E;line-height:1.65;margin:0;">Tanács: mielőtt ajánlatot kérsz automatizációra, mérd fel a folyamat jelenlegi költségét — heti órák × terhelt órabér × 52 hét. Ha a megtakarítás nem éri el az automatizáció árának 1,5-szeresét az első évben, lehet, hogy nem itt van a legnagyobb értékteremtés.</p>
+        </div>
 
-      <div style="margin-top:var(--space-16);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);">
-        <h2 style="margin-bottom:var(--space-4);">Mi a következő lépés?</h2>
-        <a href="/eszkozok/vsm" class="btn btn-primary">VSM-eszköz indítása →</a>
-        <a href="/kapcsolat" class="btn btn-ghost" style="margin-left:var(--space-4);">Vagy beszéljünk róla →</a>
+        <!-- CTA -->
+        <div style="padding-top:var(--space-8);border-top:0.5px solid var(--color-border);">
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-4);">Mi a következő lépés?</h2>
+          <p style="color:var(--color-muted);margin-bottom:var(--space-6);">Próbáld ki az ingyenes eszközünket, vagy beszéljünk.</p>
+          <a href="/eszkozok/vsm" class="btn btn-primary">VSM-eszköz indítása →</a>
+          <a href="/kapcsolat" class="btn btn-ghost" style="margin-left:var(--space-4);">Kapcsolat →</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -94,40 +122,18 @@
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
         </a>
-        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>Cookie-mentes mérés · EU-szerver</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;">Üzleti stratégia és IT megvalósítás között.</p>
       </div>
-      <div>
-        <p class="footer-col-label-new">Megoldások</p>
-        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
-        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
-        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
-        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Szolgáltatások</p>
-        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
-        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
-        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
-        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Footbridge</p>
-        <a href="/munkaink" class="footer-link-new">Munkáink</a>
-        <a href="/insights" class="footer-link-new">Insights</a>
-        <a href="/rolunk" class="footer-link-new">Rólunk</a>
-        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
-        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
-        <a href="/aszf" class="footer-link-new">ÁSZF</a>
-      </div>
+      <div><p class="footer-col-label-new">Megoldások</p><a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a><a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a><a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a><a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a></div>
+      <div><p class="footer-col-label-new">Szolgáltatások</p><a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a><a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a><a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a><a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a></div>
+      <div><p class="footer-col-label-new">Footbridge</p><a href="/munkaink" class="footer-link-new">Munkáink</a><a href="/insights" class="footer-link-new">Insights</a><a href="/rolunk" class="footer-link-new">Rólunk</a><a href="/kapcsolat" class="footer-link-new">Kapcsolat</a></div>
     </div>
     <div class="footer-bottom-new">
-      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
-      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
 <script src="/scripts/main.js"></script>
-
 </body>
 </html>

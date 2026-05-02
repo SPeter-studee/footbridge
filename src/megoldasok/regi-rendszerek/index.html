@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Régi rendszerek — Footbridge</title>
-  <meta name="description" content="A Footbridge fokozatos modernizálási megközelítése régi rendszerekhez.">
+  <meta name="description" content="A 15 éves ERP még fut, de egyre nehezebben. A teljes újraírás ritkán a jó válasz — a fokozatos, moduláris modernizáció gyakran hatékonyabb.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .site-footer-new{background:#111;color:#fff;padding:var(--space-16) 0 var(--space-8)}
+    .footer-grid-new{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-12);margin-bottom:var(--space-12)}
+    @media(max-width:768px){.footer-grid-new{grid-template-columns:1fr;gap:var(--space-8)}}
+    .footer-link-new{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 150ms}
+    .footer-link-new:hover{color:#fff}
+    .footer-col-label-new{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+    .footer-bottom-new{padding-top:var(--space-8);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+  </style>
 </head>
 <body>
 <header class="site-header" role="banner">
@@ -18,12 +27,11 @@
       </a>
       <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
         <a href="/megoldasok" aria-current="page">Megoldások</a>
-        <a href="/eszkozok">Eszközök</a>
+        <a href="/szolgaltatasok">Szolgáltatások</a>
         <a href="/munkaink">Munkáink</a>
         <a href="/insights">Insights</a>
         <a href="/rolunk">Rólunk</a>
         <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
-        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
       </nav>
       <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
@@ -32,56 +40,75 @@
   </div>
 </header>
 <main id="main-content">
-  <section class="section" style="padding-top:var(--space-20);">
-    <div class="container" style="max-width:800px;">
-      <nav aria-label="Visszanavigáció" style="margin-bottom:var(--space-8);">
-        <a href="/megoldasok" class="btn btn-ghost" style="font-size:var(--text-sm);">← Összes megoldás</a>
-      </nav>
-      <p class="eyebrow" style="margin-bottom:var(--space-4);">03 — Megoldás</p>
-      <h1 style="margin-bottom:var(--space-4);">Régi rendszerek</h1>
-      <p class="lead" style="margin-bottom:var(--space-16);">Egy 15 éves ERP, ami még működik, de nehezen. A teljes újraírás ritkán a legjobb választás.</p>
 
-      <div style="display:flex;flex-direction:column;gap:var(--space-12);">
+  <!-- Hero sáv -->
+  <div style="background:var(--color-text);padding:var(--space-20) 0 var(--space-14);">
+    <div class="container" style="max-width:820px;">
+      <nav style="margin-bottom:var(--space-8);"><a href="/megoldasok" style="font-size:13px;color:rgba(250,248,243,0.5);text-decoration:none;">← Összes megoldás</a></nav>
+      <p style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.4);margin-bottom:var(--space-5);">03 — Megoldás</p>
+      <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Régi rendszerek</h1>
+      <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.6);max-width:56ch;line-height:1.65;">A 15 éves ERP még fut, de egyre nehezebben. A teljes újraírás ritkán a jó válasz — a fokozatos, moduláris modernizáció gyakran hatékonyabb.</p>
+    </div>
+  </div>
 
+  <section style="padding:var(--space-16) 0 var(--space-24);">
+    <div class="container" style="max-width:820px;">
+      <div style="display:flex;flex-direction:column;gap:var(--space-14);">
+
+        <!-- A probléma -->
         <div>
-          <h2 style="margin-bottom:var(--space-4);">A probléma</h2>
-          <p style="color:var(--color-muted);">A magyar középvállalatok 30-50%-a olyan core-rendszerrel dolgozik, ami 10-20 évvel ezelőtt készült. Ezek működnek — néha jól, néha rosszul, de a céget elviszik. A probléma akkor jön, amikor növekedés kezdődik, külső integráció lép be, vagy a fejlesztő-csapat lecserélődik.</p>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A probléma</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Egy régi rendszer nem azért probléma, mert régi. Azért probléma, mert <strong style="color:var(--color-text);">a szervezet kinőtte</strong> — de a rendszer nem nőtt vele. Az interfész nehézkes, az integrációs lehetőségek korlátozottak, a karbantartás évről évre drágább, a fejlesztők, akik értik, egyre kevesebben vannak.</p>
+    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;">De a régi rendszerben <strong style="color:var(--color-text);">évtizednyi üzleti logika van kódolva</strong> — olyan szabályok és kivételek, amelyeket senki sem dokumentált, de a rendszer ismeri. Ez az az érték, amit nem szabad elveszíteni a modernizáció során.</p>
         </div>
 
-        <div style="border-left:2px solid var(--color-border);padding-left:var(--space-6);">
-          <h2 style="margin-bottom:var(--space-4);">A tipikus tévút</h2>
-          <p style="color:var(--color-muted);">A leggyakoribb döntés: írjuk újra teljesen, modernebb stack-en. Ez a legdrágább opció, és ritkán a legjobb. Egy 15 éves ERP teljes újraírása 2-4 év, 100-500 millió Ft. A másik tévút: hagyjuk békén, és építsünk köré. Ez rövid távon olcsó, de a technikai adóssága évről évre nő.</p>
+        <!-- Tanács 1 -->
+        <div style="padding:var(--space-7);background:var(--color-surface);border-left:2px solid var(--color-green);">
+          <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-green);line-height:1.55;margin:0;">Ha a régi rendszer fejlesztője már nem elérhető, az első lépés nem az újraírás — hanem a dokumentáció: mi az, ami valóban él, és mi az, amit senki nem használ. Ez utóbbi legyen az első, amit kikapcsolunk.</p>
         </div>
 
+        <!-- A tipikus tévút -->
         <div>
-          <h2 style="margin-bottom:var(--space-4);">A Footbridge-megközelítés</h2>
-          <p style="color:var(--color-muted);">A Footbridge a kettő közé pozicionál: fokozatos modernizálás célzott pontokon. A Strangler Fig pattern: mellé építjük az új modulokat, amik fokozatosan átveszik a régi funkciókat. Előbb megnézzük, mely modulok valójában nem használtak (és ezeket lekapcsoljuk), aztán a maradékot fokozatosan váltjuk ki.</p>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A tipikus tévút</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">A tipikus reflex: <strong style="color:var(--color-text);">írjuk újra az egészet</strong>. Egy big-bang projekt, amely 12-24 hónapig tart, 40-120M Ft-ba kerül, és a végén egy új rendszer — amelyik az esetek nagy részében nem tartalmazza azokat a kivételkezeléseket és üzleti szabályokat, amelyeket a régi rendszer ismert, de senki nem dokumentált.</p>
+    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;">A másik tévút: <strong style="color:var(--color-text);">nem csinálunk semmit, mert 'még működik'</strong>. Ez addig jó, amíg működik — de a karbantartási költség évről évre nő, a fejlesztők egyre nehezebben találhatók, és egy komolyabb hiba esetén nincs B-terv.</p>
         </div>
 
-        <div class="card-surface">
-          <h2 style="margin-bottom:var(--space-4);">Várható eredmény</h2>
-          <p style="color:var(--color-muted);">A fokozatos modernizálás 12-24 hónap alatt működik teljes körben. De már 3 hónap után látszik első eredmény: az első új modul élesen, az első régi modul lekapcsolva. A teljes költség tipikusan a teljes újraírás 30-40%-a.</p>
-        </div>
-
+        <!-- A Footbridge-megközelítés -->
         <div>
-          <h2 style="margin-bottom:var(--space-6);">Anonim valódi példa</h2>
-          <div class="card" style="background:var(--color-surface);border:none;">
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Egy <strong>350 fős magyar logisztikai cég</strong> 12 éves saját fejlesztésű raktárkezelő rendszerét akarta cserélni. A diagnoszt után kiderült: a 47 modulból 28 modul havi 5-nél kevesebbszer volt használt. Az újraírás helyett: 15 modul új implementáció + 4 modul fokozatos áttranszformálás + 28 modul lekapcsolás.</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
-            <div><p class="eyebrow" style="margin-bottom:var(--space-1);">Megtakarítás</p><p style="font-size:var(--text-xl);font-weight:500;">74M Ft</p></div>
-            <div><p class="eyebrow" style="margin-bottom:var(--space-1);">Projekt-költség</p><p style="font-size:var(--text-xl);font-weight:500;">36M Ft</p></div>
-            <div><p class="eyebrow" style="margin-bottom:var(--space-1);">Karbantartás</p><p style="font-size:var(--text-xl);font-weight:500;">−65%</p></div>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">A Footbridge-megközelítés</h2>
+          <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">1. Megszüntethető?</strong> — Vannak-e a rendszer olyan moduljai, amelyeket senki nem használ? Egy 15 éves ERP-ben gyakran az aktív funkciók a teljes rendszer 30-50%-át teszik ki. A maradék "benne van, mert benne volt" — de senki nem nyúl hozzá. Ezek nem modernizálandók — ezek kikapcsolandók.</p>
+    <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-4);max-width:65ch;"><strong style="color:var(--color-text);">2. Áttervezhető?</strong> — Az aktív modulok közül melyek választhatók le önálló, modern szolgáltatásokként — anélkül, hogy az egész rendszert érintenénk? Ez a <strong style="color:var(--color-text);">Strangler Fig pattern</strong>: az új funkciók modern technológián épülnek, a régi rendszer fokozatosan zsugorodik, és egy ponton kikapcsolható.</p>
+    <p style="color:var(--color-muted);line-height:1.75;max-width:65ch;"><strong style="color:var(--color-text);">3. Automatizálható.</strong> — Az integráció a régi és az új rendszer között automatizálható — API-wrapper, adatmigráció, párhuzamos üzem. De mindig modulonként, nem egyszerre.</p>
+        </div>
+
+        <!-- Anonim valódi példa -->
+        <div>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-6);">Anonim valódi példa</h2>
+          <div style="padding:var(--space-8);background:var(--color-surface);">
+            <p style="color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-5);max-width:65ch;">Egy <strong style="color:var(--color-text);">150 fős magyar gyártó cég</strong> 12 éves ERP-jét modernizáltuk — nem egyben, hanem 3 modulban. Az első modul (raktárkészlet-kezelés) 3 hét alatt készült el, a második (számlázás) 4 hét. A régi rendszer a harmadik modulig párhuzamosan futott — aztán az utolsó modul migrációja után lekapcsoltuk.</p>
+    <p style="font-size:var(--text-sm);color:var(--color-muted);font-style:italic;line-height:1.65;">A teljes folyamat 5 hónap volt — nem 18. És minden fázisban volt működő rendszer, nem volt "élesítési rémálom".</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-6);">
+              <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Időtartam</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">5 hónap</p></div>
+    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Modulok</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">3 fázis</p></div>
+    <div><p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);margin-bottom:4px;">Leállás</p><p style="font-family:var(--font-display);font-size:var(--text-xl);">0 nap</p></div>
+            </div>
           </div>
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-top:var(--space-4);"><em>De: a 4 fokozatosan áttranszformált modul párhuzamos üzemet kíván még 6 hónapig — ez extra karbantartási teher. A fokozatos elv ára: átmeneti komplexitás, amit vállalni kell.</em></p>
-        </div>
         </div>
 
-      </div>
+        <!-- Tanács 2 -->
+        <div style="padding:var(--space-7);background:var(--color-surface);border-left:2px solid #7B4F2E;">
+          <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-base);color:#7B4F2E;line-height:1.65;margin:0;">Tanács: ha a régi rendszer 'még működik' de évente 3-5M Ft-ot költesz a karbantartására, számold ki: 3 éves karbantartási költség vs. fokozatos modernizáció ára. Gyakran az utóbbi olcsóbb — és a végén egy modern rendszered lesz.</p>
+        </div>
 
-      <div style="margin-top:var(--space-16);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);">
-        <h2 style="margin-bottom:var(--space-4);">Mi a következő lépés?</h2>
-        <a href="/eszkozok/5whys" class="btn btn-primary">5 Whys gyökérok-elemzés →</a>
-        <a href="/kapcsolat" class="btn btn-ghost" style="margin-left:var(--space-4);">Vagy beszéljünk róla →</a>
+        <!-- CTA -->
+        <div style="padding-top:var(--space-8);border-top:0.5px solid var(--color-border);">
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin-bottom:var(--space-4);">Mi a következő lépés?</h2>
+          <p style="color:var(--color-muted);margin-bottom:var(--space-6);">Próbáld ki az ingyenes eszközünket, vagy beszéljünk.</p>
+          <a href="/eszkozok/healthcheck" class="btn btn-primary">Projekt healthcheck →</a>
+          <a href="/kapcsolat" class="btn btn-ghost" style="margin-left:var(--space-4);">Kapcsolat →</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -94,40 +121,18 @@
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
         </a>
-        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>Cookie-mentes mérés · EU-szerver</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;">Üzleti stratégia és IT megvalósítás között.</p>
       </div>
-      <div>
-        <p class="footer-col-label-new">Megoldások</p>
-        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
-        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
-        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
-        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Szolgáltatások</p>
-        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
-        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
-        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
-        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Footbridge</p>
-        <a href="/munkaink" class="footer-link-new">Munkáink</a>
-        <a href="/insights" class="footer-link-new">Insights</a>
-        <a href="/rolunk" class="footer-link-new">Rólunk</a>
-        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
-        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
-        <a href="/aszf" class="footer-link-new">ÁSZF</a>
-      </div>
+      <div><p class="footer-col-label-new">Megoldások</p><a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a><a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a><a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a><a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a></div>
+      <div><p class="footer-col-label-new">Szolgáltatások</p><a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a><a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a><a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a><a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a></div>
+      <div><p class="footer-col-label-new">Footbridge</p><a href="/munkaink" class="footer-link-new">Munkáink</a><a href="/insights" class="footer-link-new">Insights</a><a href="/rolunk" class="footer-link-new">Rólunk</a><a href="/kapcsolat" class="footer-link-new">Kapcsolat</a></div>
     </div>
     <div class="footer-bottom-new">
-      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
-      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
 <script src="/scripts/main.js"></script>
-
 </body>
 </html>
