@@ -26,7 +26,7 @@
 
     .pain-point {
       display: flex; gap: var(--space-5); align-items: flex-start;
-      padding: var(--space-5) var(--space-6);
+      padding: var(--space-6) var(--space-8);
       border: 0.5px solid var(--color-border);
       text-decoration: none; color: inherit;
       background: var(--color-bg);
@@ -45,7 +45,7 @@
     }
     .pain-point.active { border-color: var(--color-green); }
     .pain-num {
-      font-family: var(--font-display); font-size: var(--text-2xl);
+      font-family: var(--font-display); font-size: 36px;
       color: var(--color-green); line-height: 1; flex-shrink: 0;
       transition: color 200ms;
     }
@@ -88,6 +88,26 @@
       display: flex; justify-content: space-between;
       align-items: center; flex-wrap: wrap; gap: var(--space-4);
     }
+
+    /* Bridge feliratok reszponzív */
+    .bridge-pillar-text { font-size: 15px; }
+    .bridge-title-text { font-size: 38px; }
+    .bridge-cursor { height: 36px; }
+
+    @media (max-width: 640px) {
+      .bridge-pillar-text { font-size: 10px !important; letter-spacing: 0.08em !important; }
+      .bridge-title-text { font-size: 24px !important; }
+      .bridge-cursor { height: 24px !important; }
+      #pillar-left { left: 16% !important; }
+      #pillar-right { right: 16% !important; }
+      #bridge-title { top: 20% !important; }
+    }
+
+    @media (min-width: 641px) and (max-width: 900px) {
+      .bridge-pillar-text { font-size: 12px !important; }
+      .bridge-title-text { font-size: 30px !important; }
+      .bridge-cursor { height: 30px !important; }
+    }
   </style>
 </head>
 <body>
@@ -125,9 +145,9 @@
 
       <!-- Bal oldal: szöveg + fájdalompontok -->
       <div class="hero-left">
-        <p class="eyebrow" style="margin-bottom:var(--space-6);color:#555;">Üzleti stratégia és IT megvalósítás között · 100–500 fős középvállalkozásoknak</p>
+        <p class="eyebrow" style="margin-bottom:var(--space-6);color:#1A1A1A;font-size:13px;">Üzleti stratégia és IT megvalósítás között · 100–500 fős középvállalkozásoknak</p>
 
-        <h1 id="hero-title" class="display" style="margin-bottom:var(--space-10);">
+        <h1 id="hero-title" class="display" style="margin-bottom:var(--space-10);font-size:clamp(42px,5.5vw,64px);">
           Ha valamelyik<br><em>ismerős hangzik.</em>
         </h1>
 
@@ -136,24 +156,24 @@
           <a href="/szolgaltatasok/it-projekt-csuszas" class="pain-point">
             <span class="pain-num">01</span>
             <div>
-              <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:#1A1A1A;margin:0 0 4px;">Az IT projekt drágább lett, mint ígérték — és senki nem tudja megmondani, miért.</p>
-              <span style="font-size:13px;color:var(--color-green);font-weight:600;">Projektmenedzsment és IT-transzparencia →</span>
+              <p style="font-size:18px;line-height:1.45;color:#1A1A1A;margin:0 0 4px;">Az IT projekt drágább lett, mint ígérték — és senki nem tudja megmondani, miért.</p>
+              <span style="font-size:15px;color:var(--color-green);font-weight:600;">Projektmenedzsment és IT-transzparencia →</span>
             </div>
           </a>
 
           <a href="/szolgaltatasok/digitalizacios-szakadek" class="pain-point">
             <span class="pain-num" style="color:var(--color-muted);">02</span>
             <div>
-              <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:#1A1A1A;margin:0 0 4px;">Minden szoftverre előfizettünk — mégis minden kézzel megy.</p>
-              <span style="font-size:13px;color:var(--color-green);font-weight:600;">Folyamat-diagnosztika és automatizáció →</span>
+              <p style="font-size:18px;line-height:1.45;color:#1A1A1A;margin:0 0 4px;">Minden szoftverre előfizettünk — mégis minden kézzel megy.</p>
+              <span style="font-size:15px;color:var(--color-green);font-weight:600;">Folyamat-diagnosztika és automatizáció →</span>
             </div>
           </a>
 
           <a href="/szolgaltatasok/it-forditas" class="pain-point">
             <span class="pain-num" style="color:var(--color-muted);">03</span>
             <div>
-              <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:#1A1A1A;margin:0 0 4px;">Tudom, mit akarok — de amit az IT árajánlatba írt, abból semmi sem érthető.</p>
-              <span style="font-size:13px;color:var(--color-green);font-weight:600;">Üzleti szándék lefordítása IT-re →</span>
+              <p style="font-size:18px;line-height:1.45;color:#1A1A1A;margin:0 0 4px;">Tudom, mit akarok — de amit az IT árajánlatba írt, abból semmi sem érthető.</p>
+              <span style="font-size:15px;color:var(--color-green);font-weight:600;">Üzleti szándék lefordítása IT-re →</span>
             </div>
           </a>
 
@@ -163,16 +183,16 @@
 
         <div class="stat-row" style="display:flex;gap:var(--space-10);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);flex-wrap:wrap;">
           <div>
-            <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;color:#1A1A1A;">12</p>
-            <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:#555;">Megépített híd</p>
+            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;">12</p>
+            <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#555;">Megépített híd</p>
           </div>
           <div>
-            <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;color:#1A1A1A;">3 hét</p>
-            <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:#555;">Átlagos első híd</p>
+            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;">3 hét</p>
+            <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#555;">Átlagos első híd</p>
           </div>
           <div>
-            <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;color:#1A1A1A;">94%</p>
-            <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:#555;">Élesbe ment projekt</p>
+            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;">94%</p>
+            <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#555;">Élesbe ment projekt</p>
           </div>
         </div>
       </div>
@@ -181,16 +201,16 @@
       <div class="hero-right" style="background:#000;position:relative;overflow:hidden;padding:0;">
         <canvas id="matrix-bridge" style="width:100%;height:100%;display:block;"></canvas>
 
-        <div id="pillar-left" style="position:absolute;bottom:18%;left:15%;transform:translateX(-50%);text-align:center;opacity:0;transition:opacity 1.2s ease;">
-          <p style="font-family:'Share Tech Mono',monospace;font-size:15px;letter-spacing:0.15em;color:rgba(255,255,255,0.95);margin:0;line-height:1.6;">ÜZLETI</p>
-          <p style="font-family:'Share Tech Mono',monospace;font-size:15px;letter-spacing:0.15em;color:rgba(255,255,255,0.95);margin:0;line-height:1.6;">STRATÉGIA</p>
+        <div id="pillar-left" style="position:absolute;bottom:16%;left:14%;transform:translateX(-50%);text-align:center;opacity:0;transition:opacity 1.2s ease;">
+          <p class="bridge-pillar-text" style="font-family:'Share Tech Mono',monospace;letter-spacing:0.12em;color:rgba(255,255,255,0.95);margin:0;line-height:1.5;">ÜZLETI</p>
+          <p class="bridge-pillar-text" style="font-family:'Share Tech Mono',monospace;letter-spacing:0.12em;color:rgba(255,255,255,0.95);margin:0;line-height:1.5;">STRATÉGIA</p>
         </div>
-        <div id="pillar-right" style="position:absolute;bottom:18%;right:15%;transform:translateX(50%);text-align:center;opacity:0;transition:opacity 1.2s ease;">
-          <p style="font-family:'Share Tech Mono',monospace;font-size:15px;letter-spacing:0.15em;color:rgba(255,255,255,0.95);margin:0;line-height:1.6;">IT</p>
-          <p style="font-family:'Share Tech Mono',monospace;font-size:15px;letter-spacing:0.15em;color:rgba(255,255,255,0.95);margin:0;line-height:1.6;">MEGVALÓSÍTÁS</p>
+        <div id="pillar-right" style="position:absolute;bottom:16%;right:14%;transform:translateX(50%);text-align:center;opacity:0;transition:opacity 1.2s ease;">
+          <p class="bridge-pillar-text" style="font-family:'Share Tech Mono',monospace;letter-spacing:0.12em;color:rgba(255,255,255,0.95);margin:0;line-height:1.5;">IT</p>
+          <p class="bridge-pillar-text" style="font-family:'Share Tech Mono',monospace;letter-spacing:0.12em;color:rgba(255,255,255,0.95);margin:0;line-height:1.5;">MEGVALÓSÍTÁS</p>
         </div>
-        <div id="bridge-title" style="position:absolute;top:27%;left:50%;transform:translateX(-50%);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:center;">
-          <p id="typewriter-out" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;color:rgba(160,255,200,0.97);margin:0;letter-spacing:0.04em;white-space:nowrap;"></p><span id="typewriter-cur" style="display:inline-block;width:2px;height:36px;background:rgba(160,255,200,0.9);margin-left:3px;"></span>
+        <div id="bridge-title" style="position:absolute;top:22%;left:50%;transform:translateX(-50%);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:center;">
+          <p id="typewriter-out" class="bridge-title-text" style="font-family:'Cormorant Garamond',serif;font-weight:500;color:rgba(160,255,200,0.97);margin:0;letter-spacing:0.04em;white-space:nowrap;"></p><span id="typewriter-cur" class="bridge-cursor" style="display:inline-block;width:2px;background:rgba(160,255,200,0.9);margin-left:3px;"></span>
         </div>
       </div>
 
@@ -362,7 +382,7 @@ for(var i=0;i<colCount;i++){
   streams.push(s);
 }
 
-var BLX=Math.round(W*.15), BRX=Math.round(W*.85);
+var mobilPad=W<500?0.18:0.15; var BLX=Math.round(W*mobilPad), BRX=Math.round(W*(1-mobilPad));
 var BLY=Math.round(H*.68), BCY=Math.round(H*.25);
 function arcY(x){
   var t=(x-BLX)/(BRX-BLX);
