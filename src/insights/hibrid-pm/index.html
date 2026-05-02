@@ -8,21 +8,32 @@
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
   <style>
-    .article-body h2 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; margin: var(--space-12) 0 var(--space-4); line-height: var(--leading-snug); }
-    .article-body h3 { font-size: var(--text-lg); font-weight: 500; margin: var(--space-8) 0 var(--space-3); }
-    .article-body p { margin-bottom: var(--space-5); color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 68ch; }
-    .article-body strong { color: var(--color-text); font-weight: 500; }
-    .article-body blockquote { border-left: 2px solid var(--color-green); padding-left: var(--space-6); margin: var(--space-8) 0; font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-green); line-height: var(--leading-relaxed); }
-    .article-body ul { margin: 0 0 var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); list-style: disc; }
-    .article-body ul li { color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 62ch; }
-    .article-body .callout { background: var(--color-surface); padding: var(--space-6); margin: var(--space-8) 0; border-left: 2px solid var(--color-green); }
-    .article-body .callout p { margin: 0; }
-    .article-body .number-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-8) 0; }
-    .article-body .number-card { padding: var(--space-5); background: var(--color-surface); }
-    .article-body .number-card .num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; color: var(--color-text); margin-bottom: 4px; }
-    .article-body .number-card .num-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); }
-    .progress-bar { position: fixed; top: 64px; left: 0; right: 0; height: 2px; background: var(--color-border); z-index: 99; }
-    .progress-fill { height: 100%; background: var(--color-green); width: 0%; transition: width 100ms linear; }
+    .site-footer-new{background:#111;color:#fff;padding:var(--space-16) 0 var(--space-8)}
+    .footer-grid-new{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-12);margin-bottom:var(--space-12)}
+    @media(max-width:768px){.footer-grid-new{grid-template-columns:1fr;gap:var(--space-8)}}
+    .footer-link-new{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 150ms}
+    .footer-link-new:hover{color:#fff}
+    .footer-col-label-new{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+    .footer-bottom-new{padding-top:var(--space-8);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+    .progress-bar{position:fixed;top:64px;left:0;right:0;height:2px;background:var(--color-border);z-index:99}
+    .progress-fill{height:100%;width:0%;transition:width 100ms linear}
+    .article-body h2{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin:var(--space-12) 0 var(--space-4);line-height:var(--leading-snug)}
+    .article-body h3{font-size:var(--text-lg);font-weight:500;margin:var(--space-8) 0 var(--space-3)}
+    .article-body p{margin-bottom:var(--space-5);color:var(--color-muted);line-height:var(--leading-relaxed);max-width:68ch}
+    .article-body strong{color:var(--color-text);font-weight:500}
+    .article-body blockquote{border-left:2px solid var(--color-green);padding-left:var(--space-6);margin:var(--space-8) 0;font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-green);line-height:var(--leading-relaxed)}
+    .article-body ul{margin:0 0 var(--space-5) var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);list-style:disc}
+    .article-body ul li{color:var(--color-muted);line-height:var(--leading-relaxed);max-width:62ch}
+    .article-body .callout{background:var(--color-surface);padding:var(--space-6);margin:var(--space-8) 0;border-left:2px solid var(--color-green)}
+    .article-body .callout p{margin:0}
+    .article-body .data-table{width:100%;border-collapse:collapse;margin:var(--space-8) 0}
+    .article-body .data-table th{background:var(--color-text);color:var(--color-bg);font-size:12px;font-weight:500;padding:10px 14px;text-align:left}
+    .article-body .data-table td{padding:10px 14px;border-bottom:0.5px solid var(--color-border);font-size:var(--text-sm);color:var(--color-muted)}
+    .article-body .data-table tr:hover td{background:var(--color-surface)}
+    .article-body .number-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin:var(--space-8) 0}
+    .article-body .number-card{padding:var(--space-5);background:var(--color-surface)}
+    .article-body .number-card .num{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;color:var(--color-text);margin-bottom:4px}
+    .article-body .number-card .num-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted)}
   </style>
 </head>
 <body>
@@ -30,40 +41,36 @@
   <div class="container">
     <div class="site-header-inner">
       <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
-        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
         <span>Footbridge</span>
       </a>
-      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
-        <a href="/megoldasok">Megoldások</a>
-        <a href="/eszkozok">Eszközök</a>
-        <a href="/munkaink">Munkáink</a>
-        <a href="/insights" aria-current="page">Insights</a>
-        <a href="/rolunk">Rólunk</a>
+      <nav class="site-nav" id="mobile-nav">
+        <a href="/megoldasok">Megoldások</a><a href="/szolgaltatasok">Szolgáltatások</a><a href="/munkaink">Munkáink</a><a href="/insights" aria-current="page">Insights</a><a href="/rolunk">Rólunk</a>
         <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
         <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
       </nav>
       <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
-        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
       </button>
     </div>
   </div>
 </header>
-<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+<div class="progress-bar"><div class="progress-fill" id="progress" style="background:#2D5A8E;"></div></div>
 <main id="main-content">
-  <article style="padding-top: var(--space-20); padding-bottom: var(--space-24);">
-    <div class="container" style="max-width: 740px;">
-
-      <nav aria-label="Visszanavigáció" style="margin-bottom: var(--space-8);">
-        <a href="/insights" class="btn btn-ghost" style="font-size: var(--text-sm);">← Insights</a>
+  <article style="padding-top:var(--space-20);padding-bottom:var(--space-24);">
+    <div class="container" style="max-width:740px;">
+      <nav style="margin-bottom:var(--space-8);">
+        <a href="/insights" class="btn btn-ghost" style="font-size:var(--text-sm);">← Insights</a>
       </nav>
-
-      <header style="margin-bottom: var(--space-12);">
-        <p class="eyebrow" style="margin-bottom: var(--space-4);">8 perc olvasás · AI-asszisztált, ember által szerkesztett</p>
-        <h1 style="margin-bottom: var(--space-6); font-size: clamp(var(--text-2xl), 4vw, 42px);">Hibrid PM: kis döntés, nagy különbség</h1>
-        <p style="font-size: var(--text-xl); line-height: 1.5; color: var(--color-muted); max-width: 60ch; margin-bottom: var(--space-8);">Az agilis-prediktív vita meddő. Egy projekt nem agilis vagy prediktív — egy projekt egyszerre lehet mindkettő, különböző részein. Az a kérdés, hogy mikor melyiket választjuk. És ez egy nagyon kis döntés, amelynek nagyon nagy következményei vannak.</p>
-        <div style="width: 48px; height: 1px; background: var(--color-green);"></div>
+      <header style="margin-bottom:var(--space-12);">
+        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border:1px solid #2D5A8E;color:#2D5A8E;border-radius:2px;">Projektmenedzsment</span>
+          <span style="font-size:11px;color:var(--color-muted);">9 perc olvasás</span>
+        </div>
+        <h1 style="font-family:var(--font-display);font-size:clamp(26px,4vw,42px);font-weight:400;line-height:1.2;margin-bottom:var(--space-6);">Hibrid PM: kis döntés, nagy különbség</h1>
+        <p style="font-size:var(--text-xl);line-height:1.55;color:var(--color-muted);max-width:60ch;margin-bottom:var(--space-8);">Az agilis-prediktív vita meddő. Egy projekt nem agilis vagy prediktív — egy projekt egyszerre lehet mindkettő, különböző részein. Az a kérdés, hogy mikor melyiket választjuk. És ez egy nagyon kis döntés, amelynek nagyon nagy következményei vannak.</p>
+        <div style="width:48px;height:2px;background:#2D5A8E;"></div>
       </header>
-
       <div class="article-body">
         
 <p>2019-ben egy 300 fős magyar pénzügyi szolgáltató ERP-bevezetésébe csöppentem bele félúton. A projekt 14 hónapja futott, és elakadt. A csapat agilis volt — sprintek, daily standup, backlog. Az infrastruktúra-csapat vízesés-módszertanban dolgozott — Gantt-chart, fáziskapuk, milestone-jelentések. A kettő között volt egy légüres tér, ahol senki nem tudta, mi az aktuális állapot.</p>
@@ -72,98 +79,91 @@
 
 <h2>A hamis dichotómia</h2>
 
-<p>Az agilis-prediktív vita az IT-projektmenedzsment egyik legmeddőbb vitája. Az egyik oldal szerint minden Scrum-ban van az igazság: rövid sprintek, folyamatos visszajelzés, alkalmazkodó tervezés. A másik oldal szerint a Gantt-chart, a fáziskapuk és a részletes projekt-terv az egyetlen profi megközelítés.</p>
-
-<p>Mindkét oldal részben igaza van. Mindkét oldal ugyanabban hibázik: azt gondolják, hogy <strong>egy egész projekt egyféle módszertant kíván</strong>.</p>
+<p>Az agilis-prediktív vita az IT-projektmenedzsment egyik legmeddőbb vitája. Mindkét oldal részben igaza van — és mindkettő ugyanabban hibázik: azt gondolják, hogy egy egész projekt egyféle módszertant kíván.</p>
 
 <p>A valóság más. Egy összetett projekt különböző részei különböző természetűek. Vannak kiszámítható részek és bizonytalan részek. Vannak részek, ahol a visszajelzés döntő, és vannak, ahol a tervtől való eltérés katasztrofális. Ezekre más módszertant kell alkalmazni.</p>
 
 <blockquote>Egy projekt nem agilis vagy prediktív. Egy projekt egyszerre lehet mindkettő — különböző részein, különböző időpontokban.</blockquote>
 
-<h2>A négy módszertan, amit valójában kombinálunk</h2>
+<h2>A négy életciklus-típus</h2>
 
-<p>A PMBOK 7. kiadása négy fő megközelítést különböztet meg. A gyakorlatban ezek nem versengenek egymással — kiegészítik egymást.</p>
+<p>A PMI PMBOK 7. kiadása négy fő megközelítést különböztet meg. A gyakorlatban ezek nem versengenek egymással — kiegészítik egymást.</p>
 
 <h3>Prediktív (vízesés)</h3>
 
 <p>Akkor hatékony, ha a követelmények stabilak és részletesen ismertek, a megoldás jól bevált, és a változás költséges vagy kockázatos. Klasszikus példa: adatmigráció, infrastruktúra-konfiguráció, GDPR-megfelelőségi audit, pénzügyi riportálási rendszer bevezetése.</p>
 
-<p>Ezeken a területeken a Scrum sprintek értelmetlen rugalmasságot visznek be. "Az adatbázis-szerver telepítési folyamatának sprint-visszatekintője" — ez nem agilitás, ez overhead.</p>
-
 <h3>Agile (iteratív-inkrementális)</h3>
 
-<p>Akkor hatékony, ha a követelmények bizonytalanok vagy változnak, a megoldás új és ismeretlen, és a korai visszajelzés értékes. Klasszikus példa: UX-tervezés, AI-prototípus fejlesztés, új ügyfél-folyamat kialakítása, mobilalkalmazás MVP-je.</p>
-
-<p>Ezeken a területeken a részletes projekt-terv hazugság. Senki nem tudja előre, hogy a harmadik sprint végén pontosan mi lesz a képernyőn. A tervtől való eltérés nem hiba — ez a folyamat lényege.</p>
+<p>Akkor hatékony, ha a követelmények bizonytalanok vagy változnak, a megoldás új és ismeretlen, és a korai visszajelzés értékes. Klasszikus példa: UX-tervezés, AI-prototípus fejlesztés, új ügyfél-folyamat kialakítása.</p>
 
 <h3>Iteratív</h3>
 
-<p>Akkor hatékony, ha a megoldás alapja ismert, de a részletek finomításra szorulnak valós használat alapján. Klasszikus példa: riport-rendszer kiépítése, belső adminisztrációs felület fejlesztése, folyamatos tréning-program finomítása.</p>
-
-<p>Az iteratív megközelítés fix scope-pal dolgozik, de a kivitelezés körökben finomodik. Ez nem agile — nincs önálló sprint backlog és product owner. Ez egy fokozatos közelítés a célhoz.</p>
+<p>Akkor hatékony, ha a megoldás alapja ismert, de a részletek finomításra szorulnak valós használat alapján. Klasszikus példa: riport-rendszer kiépítése, belső adminisztrációs felület fejlesztése.</p>
 
 <h3>Inkrementális</h3>
 
-<p>Akkor hatékony, ha a teljes rendszer egyszerre nem vezethető be, de a részek önállóan is értéket adnak. Klasszikus példa: legacy-rendszer modernizáció Strangler Fig pattern-nel, modul-onkénti ERP-bevezetés, fokozatos folyamat-átállás.</p>
+<p>Akkor hatékony, ha a teljes rendszer egyszerre nem vezethető be, de a részek önállóan is értéket adnak. Klasszikus példa: legacy-rendszer modernizáció Strangler Fig pattern-nel, modul-onkénti ERP-bevezetés.</p>
 
-<div class="callout">
-  <p><strong>A hibrid PM lényege</strong> nem az, hogy "rugalmasak vagyunk." A lényege, hogy minden projekt-résznél feltesszük: <em>ez a rész kiszámítható vagy bizonytalan?</em> — és a válasz alapján választunk módszertant.</p>
-</div>
+<h2>A RACI: ki dönt, ki csinál, ki tájékoztatandó?</h2>
 
-<h2>Egy konkrét projekt anatómiája</h2>
+<p>A hibrid PM egyik leggyakoribb csőpontja: nem tiszta, ki mit dönthet el. Az agilis rész gyorsan mozog, a prediktív rész lassabb — és a kettő között elvesznek a döntések. A RACI mátrix (Responsible, Accountable, Consulted, Informed) erre ad megoldást.</p>
 
-<p>Nézzük meg, hogyan nézett ki a fent említett pénzügyi ERP-projekt, miután a hibrid keretet bevezettük. 8 hónapos projekt, 12 stakeholder, 35 millió forint.</p>
+<ul>
+  <li><strong>Responsible (Felelős)</strong> — Ő végzi el a munkát. Egy feladathoz több felelős is lehet.</li>
+  <li><strong>Accountable (Elszámoltatható)</strong> — Ő vállalja a végső felelősséget az eredményért. Csak egy lehet.</li>
+  <li><strong>Consulted (Konzultálandó)</strong> — Véleménye szükséges a döntéshez, kétirányú kommunikáció.</li>
+  <li><strong>Informed (Tájékoztatandó)</strong> — Értesíteni kell az eredményről, egyirányú kommunikáció.</li>
+</ul>
 
-<p><strong>Infrastruktúra és adatmigráció → Prediktív.</strong> A szerver-konfiguráció, az adatbázis-migráció és az integrációs tesztelés fix tervvel, fix határidőkkel, fáziskapukkal. Minden változtatás formális change request-et igényelt. Ez nem merevség — ez felelősség. Ha az adatmigráció elcsúszik, az a teljes projekt-ütemtervet érinti.</p>
+<p>Hibrid projektekben a RACI különösen fontos, mert az agilis és prediktív rész eltérő döntési sebességgel dolgozik. Ha nem rögzítjük, melyik részben kinek van Accountable szerepe, a projekt közepén összecsúsznak a felelősségek.</p>
 
-<p><strong>Raktárvezető-felület UX-tervezése → Agile.</strong> Kéthetente prototípus a valódi raktárvezetőkkel. Az első sprint végén kiderült, hogy a mobilra tervezett felület az üzemcsarnok fényviszonyai között használhatatlan. Ez nem hiba volt — ez agile. A harmadik sprint végén volt egy olyan felület, amit a raktárvezetők valóban használni akartak.</p>
+<div class="callout"><p><strong>Gyakorlati tanács:</strong> Csak az Accountable szerepkört ne legyen kétszemélyes — minden más igen. Ha egy feladatnál két Accountable van, az azt jelenti, hogy ténylegesen nincs egyik sem.</p></div>
 
-<p><strong>Riport-rendszer → Iteratív.</strong> Az első riport-csomag az induló igényekre épült, majd két körben finomult a valós használat alapján. A scope nem változott — de a részletek igen. Ez nem agile volt, mert a product backlog és a sprint-struktúra overhead lett volna. Ez fokozatos közelítés volt a célhoz.</p>
+<h2>Planning Poker: mikor érdemes becslést kérni?</h2>
 
-<p><strong>Legacy-adatok migrációja → Inkrementális.</strong> A régi rendszer nem kapcsolt le egyik napról a másikra. Modul-onként vette át az új rendszer a funkciókat, párhuzamos üzemmel. A párhuzamos üzem extra terhet jelent — ez az inkrementális megközelítés ára. De a big-bang csere kockázata ennek sokszorosát tette volna ki.</p>
+<p>Az agilis részeken az egyik leggyakoribb hiba a túlbecslés és az alábecslés váltakozása. A Planning Poker — egy együttműködési becslési technika — ezt a problémát kezeli.</p>
 
-<div class="number-row">
-  <div class="number-card"><div class="num">4</div><div class="num-label">Módszertan egy projekten belül</div></div>
-  <div class="number-card"><div class="num">−11 hét</div><div class="num-label">Csúszás az újratervezés előtthez képest</div></div>
-  <div class="number-card"><div class="num">1</div><div class="num-label">Döntési pont, ami mindent megváltoztatott</div></div>
-</div>
+<p>A folyamat egyszerű: a product owner vagy PM leírja a feladatot, a csapattagok egyszerre mutatják meg a kártyájukat (Fibonacci-skálán: 1, 2, 3, 5, 8, 13, 20...), majd a legmagasabb és a legalacsonyabb becslést adó elmagyarázza az álláspontját. Ez az egyenetlen becslések mögötti feltételezéseket hozza felszínre — és ezek a feltételezések sokszor fontosabbak, mint maga a szám.</p>
 
-<h2>A "kis döntés" pillanata</h2>
+<p>A Planning Poker egyik valódi értéke nem a pontosabb szám — hanem az a beszélgetés, ami a különböző becslések mögött zajlik. Ha valaki 3-at mutat, valaki más 13-at, az azt jelenti, hogy nem ugyanabban a feladatban gondolkodnak. Ez a félreértés most kerül felszínre — nem a sprint közepén.</p>
 
-<p>A hibrid PM legnagyobb értéke nem az, hogy rugalmas — hanem az, hogy minden projekt-résznél van egy kis döntési pont: <em>ez a rész kiszámítható, vagy bizonytalan?</em></p>
+<p>Hibrid projektekben a Planning Poker az agilis részekre használható — a prediktív részekre a részletes munkabontás (WBS) és az erőforrás-alapú becslés a megfelelőbb eszköz.</p>
+
+<h2>T-Shaped szakemberek a hibrid csapatban</h2>
+
+<p>A hibrid módszertan igénye egy speciális csapatkompetenciát is megkövetel: olyan embereket, akik egyszerre értik az agilis és a prediktív gondolkodást. Ezt nevezik T-Shaped skilnek.</p>
+
+<p>A "T" két dimenziót jelöl: a függőleges szár a mélységet (egy területen szakértő szint), a vízszintes rész a szélességet (több területen alapszintű értés és együttműködési képesség).</p>
+
+<p>Egy T-Shaped PM az ERP-bevezetésnél egyszerre tud prediktív eszközökkel gondolkodni az infrastruktúra-részben és agilis retrospektíveket facilitálni az UX-részben — anélkül, hogy módszertani határokat kellene "magyarázni" a csapatnak.</p>
+
+<p>A hibrid PM legnagyobb kockázata nem a technikai komplexitás — hanem az, hogy a csapattagok nem értik, miért csinálják másképp az egyik részt, mint a másikat. A T-Shaped gondolkodás ezt az értési rést zárja be.</p>
+
+<h2>Konfliktuskezelés a hibrid projekt sajátos feszültségeivel</h2>
+
+<p>Hibrid projektekben a leggyakoribb konfliktus nem interperszonális — hanem módszertani. Az agilis csapat nem érti, miért lassú a prediktív rész. A prediktív csapat nem érti, miért változnak az agilis sprintben a prioritások. Ez egy szükségszerű feszültség — és ha nincs kezelve, beragad.</p>
+
+<p>A PMI szerint a konfliktus nem probléma — hanem "eltérő elvárások ütközése." Ez a definíció segít: a megoldás nem az, hogy az egyik fél "enged", hanem az, hogy az elvárások explicitté válnak, és mindenki érti a másik módszertan logikáját.</p>
+
+<p>Konkrét eszköz: a sprintek elején (agilis rész) és a fáziskapuknál (prediktív rész) tartsunk közös státusz-hívást, ahol mindkét oldal egy mondatban elmondja: "Mi most ott tartunk, hogy... A következő kockázat... Döntésre vár..." Ez a minimum szinkronizáció megakadályozza, hogy a két módszertan teljesen elszakadjon egymástól.</p>
+
+<h2>A döntési pillanat, ami mindent megváltoztat</h2>
+
+<p>A hibrid PM legnagyobb értéke nem az, hogy rugalmas — hanem az, hogy minden projekt-résznél van egy tudatos döntési pont: <em>ez a rész kiszámítható, vagy bizonytalan?</em></p>
 
 <p>Ha kiszámítható: prediktív. Ha bizonytalan: agile. Ha fokozatosan finomodik: iteratív. Ha modul-onként épül: inkrementális.</p>
 
-<p>Ez a döntés pillanata valójában nagyon egyszerű. De meghozni kell. A legtöbb projektnél senki nem hozza meg — az egész projekt egy módszertanra van kényszerítve, ami a részek felénél nem megfelelő.</p>
-
-<p>Az a PM, aki minden projektrésznél felteszi ezt a kérdést, és tudatosan választ, <strong>3-4 héttel csökkenti az átlagos projekt-csúszást</strong>. Nem jobb eszközökkel, nem több erőforrással — egyetlen, tudatos döntéssel.</p>
-
-<h2>Ami ebből a gyakorlatban következik</h2>
-
-<p>Ha most egy projekten dolgozol, tedd fel minden egyes munkacsomagnál: mi a természete? Kiszámítható-e, vagy bizonytalan? Van-e valós visszajelzési ciklus, vagy a terv önmagában elég?</p>
-
-<p>Ha nem tudsz válaszolni — ha "nem tudod, mennyire bizonytalan" — ez önmagában egy válasz. Az ismeretlen bizonytalanság agile-t kér. Kezdj el prototipizálni.</p>
-
-<p>Ha a projekt-tervedben minden munkacsomagnak ugyanolyan típusa van — mind prediktív vagy mind agile — ez figyelmeztető jel. A valós projektek ritkán homogének. Ha a tiéd az, valószínűleg nem a projektet látod, hanem azt a képet, amit az egyik módszertan-tábor mutat róla.</p>
-
-<h2>Egy záró megjegyzés az eszközökről</h2>
-
-<p>A Jira agile-t csinál. A Microsoft Project prediktívet. A Notion bármit. Az eszköz nem a módszertan — az eszköz csak eszköz.</p>
-
-<p>Az a PM, aki a Jirát használja, mert "agile vagyunk", de az összes sprint fixed-scope prediktív munkát tartalmaz, nem agilis. Az a PM, aki Microsoft Projectben vezet egy UX-tervezési projektet Gantt-charttal, nem rosszabb PM-et csinál a szoftvertől.</p>
-
-<p>A módszertan döntés. Az eszköz implementáció. A kettőt össze szokták keverni — és ez önmagában elvesz néhány hetet a projekt végéből.</p>
+<p>Az a PM, aki minden projektrésznél felteszi ezt a kérdést, és tudatosan választ, átlagosan 3-4 héttel csökkenti a projekt-csúszást. Nem jobb eszközökkel, nem több erőforrással — egyetlen, tudatos döntéssel.</p>
 
       </div>
-
-      <footer style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 0.5px solid var(--color-border);">
-        <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-8);">Ez a cikk AI-asszisztált eljárással készült: a vázlatot és az első változatot AI segítette, az ember szerkesztette és véglegesítette.</p>
-        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+      <footer style="margin-top:var(--space-16);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);">
+        <p style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-8);">AI-asszisztált eljárással készült, ember által szerkesztett és véglegesített.</p>
+        <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">
           <a href="/eszkozok" class="btn btn-primary">Próbáld ki az eszközöket →</a>
           <a href="/kapcsolat" class="btn btn-ghost">Vagy beszéljünk →</a>
         </div>
       </footer>
-
     </div>
   </article>
 </main>
@@ -175,50 +175,22 @@
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
         </a>
-        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>Cookie-mentes mérés · EU-szerver</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;">Üzleti stratégia és IT megvalósítás között.</p>
       </div>
-      <div>
-        <p class="footer-col-label-new">Megoldások</p>
-        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
-        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
-        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
-        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Szolgáltatások</p>
-        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
-        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
-        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
-        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Footbridge</p>
-        <a href="/munkaink" class="footer-link-new">Munkáink</a>
-        <a href="/insights" class="footer-link-new">Insights</a>
-        <a href="/rolunk" class="footer-link-new">Rólunk</a>
-        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
-        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
-        <a href="/aszf" class="footer-link-new">ÁSZF</a>
-      </div>
+      <div><p class="footer-col-label-new">Megoldások</p><a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a><a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a><a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a><a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a></div>
+      <div><p class="footer-col-label-new">Szolgáltatások</p><a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a><a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a><a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a><a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a></div>
+      <div><p class="footer-col-label-new">Footbridge</p><a href="/munkaink" class="footer-link-new">Munkáink</a><a href="/insights" class="footer-link-new">Insights</a><a href="/rolunk" class="footer-link-new">Rólunk</a><a href="/kapcsolat" class="footer-link-new">Kapcsolat</a></div>
     </div>
     <div class="footer-bottom-new">
-      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
       <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
-<script src="/scripts/main.js"></script>
 <script>
 const fill = document.getElementById('progress');
-if (fill) {
-  window.addEventListener('scroll', () => {
-    const doc = document.documentElement;
-    const scrolled = doc.scrollTop;
-    const total = doc.scrollHeight - doc.clientHeight;
-    fill.style.width = (scrolled / total * 100).toFixed(1) + '%';
-  }, { passive: true });
-}
+if(fill){window.addEventListener('scroll',()=>{const d=document.documentElement;fill.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100).toFixed(1)+'%';},{passive:true});}
 </script>
+<script src="/scripts/main.js"></script>
 </body>
 </html>

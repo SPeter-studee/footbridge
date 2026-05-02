@@ -31,6 +31,10 @@
       background: var(--color-bg);
       transition: border-color 200ms, background 200ms, box-shadow 200ms, transform 150ms;
       cursor: pointer;
+      position: relative;
+    }
+    .pain-point::after {
+      content: ""; position: absolute; inset: 0;
     }
     .pain-point:hover {
       border-color: var(--color-green);
@@ -265,15 +269,15 @@
       <h2 id="bridge-title" style="margin-bottom:var(--space-4);">Üzleti stratégia és IT megvalósítás között.</h2>
       <p style="color:var(--color-muted);max-width:58ch;margin-bottom:var(--space-12);">A legtöbb digitalizációs projekt nem azért csúszik el, mert rossz a technológia — hanem mert a két oldal nem érti egymást.</p>
       <div class="grid-2" style="gap:var(--space-4);">
-        <a href="/szolgaltatasok/it-projekt-csuszas" class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);text-decoration:none;color:inherit;">
+        <a href="/szolgaltatasok/it-projekt-csuszas" class="card-interactive topic-pm-card" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">01</span>
           <div><h3 style="margin-bottom:var(--space-2);">Az üzleti szándék lefordítása IT-re</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">Workshop, scope-dokumentum, első híd. Nem 200 oldalas stratégia — egy megvalósítható következő lépés, fix áron.</p></div>
         </a>
-        <a href="/szolgaltatasok/digitalizacios-szakadek" class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);text-decoration:none;color:inherit;">
+        <a href="/szolgaltatasok/digitalizacios-szakadek" class="card-interactive topic-process-card" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">02</span>
           <div><h3 style="margin-bottom:var(--space-2);">A projekt irányítása, amíg tart</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">Felelős PM, aki egyszerre érti az üzleti célt és az IT megvalósítást. Nem az egyik oldalon áll — a kettő között.</p></div>
         </a>
-        <a href="/szolgaltatasok/it-forditas" class="card-interactive card-featured" style="padding:var(--space-6);display:flex;gap:var(--space-5);text-decoration:none;color:inherit;">
+        <a href="/szolgaltatasok/it-forditas" class="card-interactive topic-translation-card" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">03</span>
           <div><h3 style="margin-bottom:var(--space-2);">A megvalósítás elindítása</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">EU-s pályázatírás, funkcionális specifikáció, tender-dokumentáció. Hogy a két oldal ugyanarról a papírról olvasson.</p></div>
         </a>
@@ -293,19 +297,19 @@
         <a href="/insights" class="btn btn-ghost">Az összes cikk →</a>
       </div>
       <div class="grid-3" style="gap:var(--space-6);">
-        <a href="/insights/mikor-ne-automatizalj" class="card-interactive" style="display:flex;flex-direction:column;padding:var(--space-6);text-decoration:none;color:inherit;">
+        <a href="/insights/mikor-ne-automatizalj" class="card-interactive topic-process-card" style="display:flex;flex-direction:column;padding:var(--space-6);">
           <p class="eyebrow" style="margin-bottom:var(--space-3);">7 perc olvasás</p>
           <h3 style="margin-bottom:var(--space-3);flex:1;">Mikor ne automatizálj</h3>
           <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Amikor egy 4 milliós projekt megspórol heti 2 órát — az nem rossz, de nem jó.</p>
           <span style="font-size:var(--text-sm);color:var(--color-green);font-weight:500;">Olvasd el →</span>
         </a>
-        <a href="/insights/hibrid-pm" class="card-interactive" style="display:flex;flex-direction:column;padding:var(--space-6);text-decoration:none;color:inherit;">
+        <a href="/insights/hibrid-pm" class="card-interactive topic-pm-card" style="display:flex;flex-direction:column;padding:var(--space-6);">
           <p class="eyebrow" style="margin-bottom:var(--space-3);">8 perc olvasás</p>
           <h3 style="margin-bottom:var(--space-3);flex:1;">Hibrid PM: kis döntés, nagy különbség</h3>
           <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Miért dolgozik a Footbridge agile + prediktív + iteratív együtt egy projekten belül.</p>
           <span style="font-size:var(--text-sm);color:var(--color-green);font-weight:500;">Olvasd el →</span>
         </a>
-        <a href="/insights/3-szuro" class="card-interactive" style="display:flex;flex-direction:column;padding:var(--space-6);text-decoration:none;color:inherit;">
+        <a href="/insights/3-szuro" class="card-interactive topic-strategy-card" style="display:flex;flex-direction:column;padding:var(--space-6);">
           <p class="eyebrow" style="margin-bottom:var(--space-3);">5 perc olvasás</p>
           <h3 style="margin-bottom:var(--space-3);flex:1;">A 3 szűrő, ami megspórol 6 hónapot</h3>
           <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Hogyan csökkenti az 1 napos workshop a 6 hónapos discovery-fázist.</p>

@@ -8,21 +8,32 @@
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
   <style>
-    .article-body h2 { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; margin: var(--space-12) 0 var(--space-4); line-height: var(--leading-snug); }
-    .article-body h3 { font-size: var(--text-lg); font-weight: 500; margin: var(--space-8) 0 var(--space-3); }
-    .article-body p { margin-bottom: var(--space-5); color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 68ch; }
-    .article-body strong { color: var(--color-text); font-weight: 500; }
-    .article-body blockquote { border-left: 2px solid var(--color-green); padding-left: var(--space-6); margin: var(--space-8) 0; font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-green); line-height: var(--leading-relaxed); }
-    .article-body ul { margin: 0 0 var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); list-style: disc; }
-    .article-body ul li { color: var(--color-muted); line-height: var(--leading-relaxed); max-width: 62ch; }
-    .article-body .callout { background: var(--color-surface); padding: var(--space-6); margin: var(--space-8) 0; border-left: 2px solid var(--color-green); }
-    .article-body .callout p { margin: 0; }
-    .article-body .number-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin: var(--space-8) 0; }
-    .article-body .number-card { padding: var(--space-5); background: var(--color-surface); }
-    .article-body .number-card .num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400; color: var(--color-text); margin-bottom: 4px; }
-    .article-body .number-card .num-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); }
-    .progress-bar { position: fixed; top: 64px; left: 0; right: 0; height: 2px; background: var(--color-border); z-index: 99; }
-    .progress-fill { height: 100%; background: var(--color-green); width: 0%; transition: width 100ms linear; }
+    .site-footer-new{background:#111;color:#fff;padding:var(--space-16) 0 var(--space-8)}
+    .footer-grid-new{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-12);margin-bottom:var(--space-12)}
+    @media(max-width:768px){.footer-grid-new{grid-template-columns:1fr;gap:var(--space-8)}}
+    .footer-link-new{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 150ms}
+    .footer-link-new:hover{color:#fff}
+    .footer-col-label-new{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+    .footer-bottom-new{padding-top:var(--space-8);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+    .progress-bar{position:fixed;top:64px;left:0;right:0;height:2px;background:var(--color-border);z-index:99}
+    .progress-fill{height:100%;width:0%;transition:width 100ms linear}
+    .article-body h2{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;margin:var(--space-12) 0 var(--space-4);line-height:var(--leading-snug)}
+    .article-body h3{font-size:var(--text-lg);font-weight:500;margin:var(--space-8) 0 var(--space-3)}
+    .article-body p{margin-bottom:var(--space-5);color:var(--color-muted);line-height:var(--leading-relaxed);max-width:68ch}
+    .article-body strong{color:var(--color-text);font-weight:500}
+    .article-body blockquote{border-left:2px solid var(--color-green);padding-left:var(--space-6);margin:var(--space-8) 0;font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-green);line-height:var(--leading-relaxed)}
+    .article-body ul{margin:0 0 var(--space-5) var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);list-style:disc}
+    .article-body ul li{color:var(--color-muted);line-height:var(--leading-relaxed);max-width:62ch}
+    .article-body .callout{background:var(--color-surface);padding:var(--space-6);margin:var(--space-8) 0;border-left:2px solid var(--color-green)}
+    .article-body .callout p{margin:0}
+    .article-body .data-table{width:100%;border-collapse:collapse;margin:var(--space-8) 0}
+    .article-body .data-table th{background:var(--color-text);color:var(--color-bg);font-size:12px;font-weight:500;padding:10px 14px;text-align:left}
+    .article-body .data-table td{padding:10px 14px;border-bottom:0.5px solid var(--color-border);font-size:var(--text-sm);color:var(--color-muted)}
+    .article-body .data-table tr:hover td{background:var(--color-surface)}
+    .article-body .number-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin:var(--space-8) 0}
+    .article-body .number-card{padding:var(--space-5);background:var(--color-surface)}
+    .article-body .number-card .num{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:400;color:var(--color-text);margin-bottom:4px}
+    .article-body .number-card .num-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted)}
   </style>
 </head>
 <body>
@@ -30,96 +41,77 @@
   <div class="container">
     <div class="site-header-inner">
       <a href="/" class="site-logo" aria-label="Footbridge - főoldal">
-        <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
         <span>Footbridge</span>
       </a>
-      <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
-        <a href="/megoldasok">Megoldások</a>
-        <a href="/eszkozok">Eszközök</a>
-        <a href="/munkaink">Munkáink</a>
-        <a href="/insights" aria-current="page">Insights</a>
-        <a href="/rolunk">Rólunk</a>
+      <nav class="site-nav" id="mobile-nav">
+        <a href="/megoldasok">Megoldások</a><a href="/szolgaltatasok">Szolgáltatások</a><a href="/munkaink">Munkáink</a><a href="/insights" aria-current="page">Insights</a><a href="/rolunk">Rólunk</a>
         <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
         <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
       </nav>
       <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
-        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
       </button>
     </div>
   </div>
 </header>
-<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+<div class="progress-bar"><div class="progress-fill" id="progress" style="background:#5B4E8C;"></div></div>
 <main id="main-content">
-  <article style="padding-top: var(--space-20); padding-bottom: var(--space-24);">
-    <div class="container" style="max-width: 740px;">
-
-      <nav aria-label="Visszanavigáció" style="margin-bottom: var(--space-8);">
-        <a href="/insights" class="btn btn-ghost" style="font-size: var(--text-sm);">← Insights</a>
+  <article style="padding-top:var(--space-20);padding-bottom:var(--space-24);">
+    <div class="container" style="max-width:740px;">
+      <nav style="margin-bottom:var(--space-8);">
+        <a href="/insights" class="btn btn-ghost" style="font-size:var(--text-sm);">← Insights</a>
       </nav>
-
-      <header style="margin-bottom: var(--space-12);">
-        <p class="eyebrow" style="margin-bottom: var(--space-4);">5 perc olvasás · AI-asszisztált, ember által szerkesztett</p>
-        <h1 style="margin-bottom: var(--space-6); font-size: clamp(var(--text-2xl), 4vw, 42px);">A 3 szűrő, ami megspórol 6 hónapot</h1>
-        <p style="font-size: var(--text-xl); line-height: 1.5; color: var(--color-muted); max-width: 60ch; margin-bottom: var(--space-8);">Nem a discovery-fázis a probléma. A probléma az, hogy a discovery-fázis az egyetlen módszer, amit ismerünk. Egy 1 napos workshop ugyanazokat a kérdéseket teszi fel, mint egy 6 hónapos elemzés — csak gyorsabban, és az ügyfél is benne van a teremben.</p>
-        <div style="width: 48px; height: 1px; background: var(--color-green);"></div>
+      <header style="margin-bottom:var(--space-12);">
+        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border:1px solid #5B4E8C;color:#5B4E8C;border-radius:2px;">Stratégia & Módszertan</span>
+          <span style="font-size:11px;color:var(--color-muted);">6 perc olvasás</span>
+        </div>
+        <h1 style="font-family:var(--font-display);font-size:clamp(26px,4vw,42px);font-weight:400;line-height:1.2;margin-bottom:var(--space-6);">A 3 szűrő, ami megspórol 6 hónapot</h1>
+        <p style="font-size:var(--text-xl);line-height:1.55;color:var(--color-muted);max-width:60ch;margin-bottom:var(--space-8);">Nem a discovery-fázis a probléma. A probléma az, hogy a discovery-fázis az egyetlen módszer, amit ismerünk. Egy 1 napos workshop ugyanazokat a kérdéseket teszi fel, mint egy 6 hónapos elemzés — csak gyorsabban, és az ügyfél is benne van a teremben.</p>
+        <div style="width:48px;height:2px;background:#5B4E8C;"></div>
       </header>
-
       <div class="article-body">
         
-<p>Egy tipikus digitalizációs projekt így indul: discovery. Interjúk a stakeholderekkel. Folyamat-feltérképezés. Jelenlegi állapot dokumentálása. Jövőkép-workshopok. Stratégiai értékelés. Hat hónap múlva: 200 oldalas dokumentum és egy ajánlás, aminek a megvalósítása 18 hónap és 80 millió forint.</p>
+<p>Egy tipikus digitalizációs projekt így indul: discovery. Interjúk a stakeholderekkel. Folyamat-feltérképezés. Jelenlegi állapot dokumentálása. Jövőkép-workshopok. Hat hónap múlva: 200 oldalas dokumentum és egy ajánlás, aminek a megvalósítása 18 hónap és 80 millió forint.</p>
 
-<p>Ezzel három probléma van.</p>
-
-<p>Első: hat hónap alatt a piac, a szervezet és a prioritások változnak. A dokumentum, amire a stratégia épül, mire elkészül, részben már elavult.</p>
-
-<p>Második: a 200 oldalból 20 oldal az, ami valóban döntést befolyásol. A többi kontextus, háttér, metodológiai leírás — amit senki nem olvas el.</p>
-
-<p>Harmadik: a discovery-fázis az ügyfelet kívülre helyezi. Megkérdezik, de nem gondolkodnak együtt. Az eredmény egy külső elemzés a saját szervezetükről — amit aztán el kell adni belülre.</p>
+<p>Ezzel három probléma van. Első: hat hónap alatt a piac, a szervezet és a prioritások változnak. Második: a 200 oldalból 20 oldal az, ami valóban döntést befolyásol. Harmadik: a discovery-fázis az ügyfelet kívülre helyezi — megkérdezik, de nem gondolkodnak együtt.</p>
 
 <h2>Mi az alternatíva?</h2>
 
-<p>A Footbridge 1 napos workshopja ugyanazokat a kérdéseket teszi fel, mint egy 6 hónapos discovery. De felgyorsítja a folyamatot azzal, hogy <strong>a legfontosabb döntési pontokra fókuszál</strong>, és az ügyfél is benne van a teremben, nem csak interjúalany.</p>
-
-<p>A workshop nem helyettesíti a mélyebb elemzést minden esetben. De a legtöbb esetben elegendő ahhoz, hogy megtudjuk: <strong>mi az, amit nem kellene megcsinálni</strong>.</p>
+<p>A Footbridge 1 napos workshopja ugyanazokat a kérdéseket teszi fel, mint egy 6 hónapos discovery. De felgyorsítja a folyamatot azzal, hogy a legfontosabb döntési pontokra fókuszál, és az ügyfél is benne van a teremben — nem csak interjúalany.</p>
 
 <blockquote>A legjobb discovery-fázis az, amelyik megmutatja, mire nincs szükség.</blockquote>
 
-<h2>A 3 szűrő logikája</h2>
+<h2>A stakeholderek azonosítása — mielőtt bármit döntünk</h2>
 
-<p>A workshop motorja a 3 szűrő. Minden folyamatra, minden problémára, minden "automatizáljuk" gondolatra ugyanaz a három kérdés — ebben a sorrendben.</p>
+<p>A PMI szerint stakeholder "mindenki, aki befolyásolhatja a projektet, vagy akit a projekt befolyásolhat." Ez tágabb, mint gondolnánk — a számlafeldolgozó rendszer bevezetésénél stakeholder az IT-csapat, a pénzügyes kollégák, de stakeholder a könyvvizsgáló cég is, amelyik ellenőrzi a számlákat, és stakeholder a CEO is, akinek nem kell bele nyúlnia a rendszerbe, de az ő elfogadása nélkül nincs projekt.</p>
+
+<p>A workshop előtt érdemes végigmenni a stakeholder-köröken. Kik érintettek közvetlenül (belső csapat)? Kik érintettek közvetve (más részlegek, külső partnerek)? Kik azok, akiknek nincs aktív szerepük, de érdekeltük van (döntéshozók, finanszírozók)?</p>
+
+<p>Miért fontos ez a 3 szűrő előtt? Mert egy folyamat "megszüntethetőségét" sokszor egy stakeholder dönti el, akire nem gondoltunk — például a jogi osztály, amely ragaszkodik a manuális jóváhagyáshoz. Ha ezt nem tudjuk előre, a workshop döntése megakad az implementációnál.</p>
+
+<h2>A 3 szűrő — sorrendben, és miért számít a sorrend</h2>
 
 <h3>1. szűrő: Megszüntethető?</h3>
 
-<p>Ez a legkellemetlenebb kérdés, mert a válasz sokszor igen. Folyamatok azért léteznek, mert valaha létrehozták őket — de az az ok, ami miatt létrehozták, már régen nem áll fenn. A folyamat él tovább, mert senki nem kérdőjelezte meg.</p>
+<p>Ez a legkellemetlenebb kérdés, mert a válasz sokszor igen. Néhány jellemző eset: jóváhagyási kör, ami soha nem hoz változtatást az elmúlt 24 hónapban — de mindenki kitölti, mert "ez a szabály." Heti riport, amit a befogadó saját bevallása szerint nem olvas el. Párhuzamos rendszerkarbantartás, ami azért maradt fenn, mert a migráció "folyamatban van" — öt éve.</p>
 
-<p>Néhány jellemző eset:</p>
-
-<ul>
-  <li>Jóváhagyási kör, ami soha nem módosított semmit az elmúlt 24 hónapban — de mindenki kitölti, mert "ez a szabály".</li>
-  <li>Heti riport, amit az egyetlen befogadó saját bevallása szerint nem olvas el, mert "úgyis megkérdezem, ha kell valamit".</li>
-  <li>Adatbekérés az ügyféltől, ami az esetek 90%-ában ugyanaz — de egyedi formban kérik be minden alkalommal.</li>
-  <li>Párhuzamos rendszerkarbantartás, ami azért maradt fenn, mert a migráció "folyamatban van" — öt éve.</li>
-</ul>
-
-<p>Ha egy folyamat megszüntethető, az nem technikai kérdés. Szervezeti döntés, amit a workshop napján meg lehet hozni — és meg kell hozni, mielőtt bármit automatizálnánk.</p>
+<p>Ha egy folyamat megszüntethető, az nem technikai kérdés. Szervezeti döntés, amit a workshop napján meg lehet hozni.</p>
 
 <h3>2. szűrő: Áttervezhető?</h3>
 
-<p>Ha nem szüntethető meg, lehet-e <strong>egyszerűsíteni anélkül, hogy automatizálnánk</strong>? Ez a szűrő a legkevésbé glamúros — nincs benne technológia, nincs AI, nincs Make-flow. De ez hozza a legtöbb eredményt a legkevesebb befektetéssel.</p>
+<p>Ha nem szüntethető meg, lehet-e egyszerűsíteni — automatizáció nélkül? Három klasszikus átszervezési minta:</p>
 
-<p>Három klasszikus átszervezési minta:</p>
-
-<p><strong>Párhuzamosítás.</strong> Soros folyamatoknál, ahol több ember egymás után lát rá ugyanarra a dokumentumra, az egyidejű hozzáférés felére csökkenti az átfutási időt. Ez nem automatizáció — ez Google Docs a SharePoint helyett, vagy egyszerűen egy e-mail több címzettel egy lánc helyett.</p>
-
-<p><strong>Egypontos adatbevitel.</strong> Ha ugyanazt az adatot három helyre viszik be kézzel, az nem háromszori munka — az háromszori hibalehetőség is. Az átszervezés itt nem az adatbevitel automatizálása, hanem annak eldöntése: <em>melyik rendszer az egyetlen forrás az igazságnak</em>? A többi automatikusan kapja, vagy egyáltalán nem kapja.</p>
-
-<p><strong>Kivétel-alapú kezelés.</strong> A legtöbb folyamatban az esetek 80-90%-a standard. A fennmaradó 10-20% kivétel. Ha a folyamatot az összes kivételre méretezik, a standard esetek is bonyolultabbak lesznek, mint kellene. Az átszervezés: külön vonal a standardnak, külön a kivételnek.</p>
+<ul>
+  <li><strong>Párhuzamosítás</strong> — Soros folyamatoknál az egyidejű hozzáférés felezi az átfutási időt. Ez nem automatizáció — ez Google Docs a SharePoint helyett, vagy egyszerűen egy e-mail több címzettel egy lánc helyett.</li>
+  <li><strong>Egypontos adatbevitel</strong> — Ha ugyanazt az adatot három helyre viszik be kézzel, az nem háromszori munka — az háromszori hibalehetőség is. Az átszervezés itt nem az adatbevitel automatizálása, hanem annak eldöntése: melyik rendszer az egyetlen forrás az igazságnak?</li>
+  <li><strong>Kivétel-alapú kezelés</strong> — A legtöbb folyamatban az esetek 80-90%-a standard. Ha a folyamatot az összes kivételre méretezik, a standard esetek is bonyolultabbak lesznek, mint kellene.</li>
+</ul>
 
 <h3>3. szűrő: Automatizálható?</h3>
 
 <p>Csak ami az első két szűrőn átment. De ekkor már egy sokkal kisebb, egyszerűbb, logikusabb folyamatra kerül az automatizáció. Az eredmény tartós lesz, mert a folyamat maga is helyes — nem csak gyorsabb.</p>
-
-<p>A három szűrő sorrendje nem véletlen. Ha a harmadikkal kezdünk — ami a reflex —, a gyors győzelmek gyorsan megérkeznek, de a mélyebb problémák megmaradnak. Hat hónap múlva a szervezet ugyanazokkal a kérdésekkel találja magát szemben, csak most egy automatizált rendszer körül.</p>
 
 <div class="number-row">
   <div class="number-card"><div class="num">1 nap</div><div class="num-label">Workshop időtartama</div></div>
@@ -127,48 +119,42 @@
   <div class="number-card"><div class="num">350–450 eFt</div><div class="num-label">Workshop ára + ÁFA</div></div>
 </div>
 
+<h2>A szerződéstípus megválasztása — mielőtt az automatizáció el is indul</h2>
+
+<p>A 3 szűrő elvégzése után, ha az automatizáció szükséges, a következő kérdés: milyen szerződéses keretben valósul meg? Ez a PMI contract management területe, és a legtöbb szervezetben reflexből születik a döntés — pedig az automatizáció sikerét alapvetően befolyásolja.</p>
+
+<p>Három alapvető szerződéstípus:</p>
+
+<ul>
+  <li><strong>Time and material (T&M)</strong> — A szállító az elvégzett munkáért kap díjazást, függetlenül az eredménytől. Rugalmas, de az ügyfél viseli a scope-bővülés kockázatát. Akkor megfelelő, ha a feladat pontos terjedelme nem ismert előre.</li>
+  <li><strong>Fixed price (fixáras)</strong> — Előre meghatározott scope-ra, előre meghatározott áron. Az ügyfél tudja, mire számíthat. Akkor megfelelő, ha a feladat jól körülhatárolt és a scope-creep kizárható.</li>
+  <li><strong>Outcome-based (eredményalapú)</strong> — A szállító az elért eredményért kap díjazást (pl. megspórolt órák, konverzió-növekedés). Ösztönzi a valódi megoldást, de nehéz az eredménymérés. Akkor megfelelő, ha az eredmény jól mérhető és mindkét fél bízik egymásban.</li>
+</ul>
+
+<p>A Footbridge első hídja fix áras modellben fut — mert a 3 szűrőn átment feladat már kellően körülhatárolt ahhoz, hogy előre lehessen árazni. Ez az ügyfélnek biztonságot ad, a Footbridge-nek pedig ösztönzőt arra, hogy hatékonyan dolgozzon.</p>
+
 <h2>Mi történik a workshop napján</h2>
 
 <p>A workshop nem prezentáció. Nem a Footbridge mutatja be, hogyan kellene csinálni. Közös munka — a folyamat tulajdonosai és a Footbridge együtt mennek végig a 3 szűrőn.</p>
 
-<p>A délelőtt a jelenlegi állapot feltérképezésével telik — de nem minden részlet rögzítésével. Az 5 Whys módszerrel a tünetek mögé nézünk: <em>miért van ez a folyamat? Mi történik, ha nem csináljuk meg? Ki döntötte el, hogy így kell?</em></p>
+<p>A délelőtt a jelenlegi állapot feltérképezésével telik — az 5 Whys módszerrel a tünetek mögé nézünk. A délután a 3 szűrő alkalmazásával: mit szüntetünk meg, mit tervezünk át, mit automatizálunk. A nap végén nem dokumentum születik — döntések születnek. Rögtön megvalósítható lépések, felelősökkel és határidőkkel.</p>
 
-<p>A délután a 3 szűrő alkalmazásával: mit szüntetünk meg, mit tervezünk át, mit automatizálunk. A nap végén nem dokumentum születik — döntések születnek. Rögtön megvalósítható lépések, felelősökkel és határidőkkel.</p>
-
-<p>Az egyik leggyakoribb visszajelzés: "Korábban el kellett volna jönni." Nem azért, mert a Footbridge okosabb. Azért, mert egy külső szem és egy strukturált kérdéssor olyan kérdéseket hoz be, amiket belülről nehéz feltenni. Nem politikailag, nem intellektuálisan — csak azért, mert aki benne van a folyamatban, azt természetesnek veszi.</p>
+<div class="callout"><p><strong>Az egyik leggyakoribb visszajelzés:</strong> "Korábban el kellett volna jönni." Nem azért, mert a Footbridge okosabb. Azért, mert egy külső szem és egy strukturált kérdéssor olyan kérdéseket hoz be, amiket belülről nehéz feltenni.</p></div>
 
 <h2>Mikor nem elég a workshop?</h2>
 
-<p>Vannak helyzetek, ahol az 1 napos workshop valóban csak az első lépés, és mélyebb elemzés szükséges. Például:</p>
+<p>Vannak helyzetek, ahol az 1 napos workshop valóban csak az első lépés. Például: ha a szervezet több tucat összekapcsolt folyamatát egyszerre kell megérteni — ERP-bevezetés, szervezeti átalakítás. Ha a szabályozói környezet külső dokumentációt igényel. Ha a projekt döntése politikailag érzékeny, és a belső konszenzushoz formálisabb elemzési folyamat szükséges.</p>
 
-<ul>
-  <li>Ha a szervezet több tucat összekapcsolt folyamatát egyszerre kell megérteni — ERP-bevezetés, szervezeti átalakítás.</li>
-  <li>Ha a szabályozói környezet (GDPR, NIS2, pénzügyi audit) külső dokumentációt igényel.</li>
-  <li>Ha a projekt döntése politikailag érzékeny, és a belső konszenzushoz formálisabb elemzési folyamat szükséges.</li>
-</ul>
-
-<p>Ezekben az esetekben a Footbridge nem azt mondja, hogy az 1 napos workshop elég. De azt sem mondja, hogy 6 hónap szükséges. A kérdés mindig: <em>mi a minimális elemzés, ami alapján biztonságos döntést lehet hozni?</em></p>
-
-<p>A legtöbb esetben ez jóval kevesebb, mint amit az iparági szokások előírnak.</p>
-
-<h2>Egy záró gondolat</h2>
-
-<p>A 6 hónapos discovery nem azért vált szabvánnyá, mert mindig szükséges. Azért vált szabvánnyá, mert kényelmes — az elemző számára és a megrendelő számára egyaránt. Az elemző időt és pénzt kap. A megrendelő érzetet kap, hogy "most komolyan foglalkozunk a kérdéssel".</p>
-
-<p>De az érzet és az eredmény nem ugyanaz. Az 1 napos workshop kényelmetlenebb — gyorsabb döntéseket kér, rögtön. Nincs hat hónap a döntés előkészítésére. Ez felelősséget tesz a teremben lévő emberekre.</p>
-
-<p>Pontosan ezért hatékonyabb.</p>
+<p>Ezekben az esetekben a Footbridge nem azt mondja, hogy az 1 napos workshop elég. De azt sem mondja, hogy 6 hónap szükséges. A kérdés mindig: mi a minimális elemzés, ami alapján biztonságos döntést lehet hozni? A legtöbb esetben ez jóval kevesebb, mint amit az iparági szokások előírnak.</p>
 
       </div>
-
-      <footer style="margin-top: var(--space-16); padding-top: var(--space-8); border-top: 0.5px solid var(--color-border);">
-        <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-8);">Ez a cikk AI-asszisztált eljárással készült: a vázlatot és az első változatot AI segítette, az ember szerkesztette és véglegesítette.</p>
-        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+      <footer style="margin-top:var(--space-16);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);">
+        <p style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-8);">AI-asszisztált eljárással készült, ember által szerkesztett és véglegesített.</p>
+        <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">
           <a href="/eszkozok" class="btn btn-primary">Próbáld ki az eszközöket →</a>
           <a href="/kapcsolat" class="btn btn-ghost">Vagy beszéljünk →</a>
         </div>
       </footer>
-
     </div>
   </article>
 </main>
@@ -180,50 +166,22 @@
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
         </a>
-        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>Cookie-mentes mérés · EU-szerver</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;">Üzleti stratégia és IT megvalósítás között.</p>
       </div>
-      <div>
-        <p class="footer-col-label-new">Megoldások</p>
-        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
-        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
-        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
-        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Szolgáltatások</p>
-        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
-        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
-        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
-        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Footbridge</p>
-        <a href="/munkaink" class="footer-link-new">Munkáink</a>
-        <a href="/insights" class="footer-link-new">Insights</a>
-        <a href="/rolunk" class="footer-link-new">Rólunk</a>
-        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
-        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
-        <a href="/aszf" class="footer-link-new">ÁSZF</a>
-      </div>
+      <div><p class="footer-col-label-new">Megoldások</p><a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a><a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a><a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a><a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a></div>
+      <div><p class="footer-col-label-new">Szolgáltatások</p><a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a><a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a><a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a><a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a></div>
+      <div><p class="footer-col-label-new">Footbridge</p><a href="/munkaink" class="footer-link-new">Munkáink</a><a href="/insights" class="footer-link-new">Insights</a><a href="/rolunk" class="footer-link-new">Rólunk</a><a href="/kapcsolat" class="footer-link-new">Kapcsolat</a></div>
     </div>
     <div class="footer-bottom-new">
-      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
       <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
-<script src="/scripts/main.js"></script>
 <script>
 const fill = document.getElementById('progress');
-if (fill) {
-  window.addEventListener('scroll', () => {
-    const doc = document.documentElement;
-    const scrolled = doc.scrollTop;
-    const total = doc.scrollHeight - doc.clientHeight;
-    fill.style.width = (scrolled / total * 100).toFixed(1) + '%';
-  }, { passive: true });
-}
+if(fill){window.addEventListener('scroll',()=>{const d=document.documentElement;fill.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100).toFixed(1)+'%';},{passive:true});}
 </script>
+<script src="/scripts/main.js"></script>
 </body>
 </html>

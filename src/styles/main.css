@@ -444,3 +444,43 @@ blockquote {
 .router-card-hover:hover { background: rgba(31,77,58,0.5) !important; }
 .router-card-hover-active { transition: background 180ms; }
 .router-card-hover-active:hover { background: rgba(31,77,58,0.5) !important; }
+
+/* ── Teljes kártya kattintható ─────────────────────────────── */
+.card-interactive {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.card-interactive * { pointer-events: none; }
+.card-interactive a { pointer-events: auto; }
+
+/* ── Téma-alapú állandó színek ─────────────────────────────── */
+/* PM / projektmenedzsment */
+:root {
+  --color-topic-pm: #2D5A8E;        /* kék */
+  --color-topic-pm-bg: rgba(45,90,142,0.05);
+  --color-topic-process: #1F4D3A;   /* zöld (alap) */
+  --color-topic-process-bg: rgba(31,77,58,0.05);
+  --color-topic-translation: #7B4F2E; /* terrakotta */
+  --color-topic-translation-bg: rgba(123,79,46,0.05);
+  --color-topic-strategy: #5B4E8C;  /* lila */
+  --color-topic-strategy-bg: rgba(91,78,140,0.05);
+}
+
+/* Topic badge-ek */
+.topic-pm { color: var(--color-topic-pm); }
+.topic-pm-card { border-color: var(--color-topic-pm) !important; background: var(--color-topic-pm-bg) !important; }
+.topic-pm-card:hover { box-shadow: 0 4px 16px rgba(45,90,142,0.12) !important; }
+
+.topic-process { color: var(--color-topic-process); }
+.topic-process-card { border-color: var(--color-topic-process) !important; background: var(--color-topic-process-bg) !important; }
+.topic-process-card:hover { box-shadow: 0 4px 16px rgba(31,77,58,0.12) !important; }
+
+.topic-translation { color: var(--color-topic-translation); }
+.topic-translation-card { border-color: var(--color-topic-translation) !important; background: var(--color-topic-translation-bg) !important; }
+.topic-translation-card:hover { box-shadow: 0 4px 16px rgba(123,79,46,0.12) !important; }
+
+.topic-strategy { color: var(--color-topic-strategy); }
+.topic-strategy-card { border-color: var(--color-topic-strategy) !important; background: var(--color-topic-strategy-bg) !important; }
+.topic-strategy-card:hover { box-shadow: 0 4px 16px rgba(91,78,140,0.12) !important; }
