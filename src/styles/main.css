@@ -381,3 +381,66 @@ blockquote {
   .site-nav.is-open { display: flex; }
   .site-nav .btn { align-self: flex-start; }
 }
+
+/* ============================================================
+   Kártya hover rendszer — egységes az összes aloldalon
+   ============================================================ */
+
+/* Alap interaktív kártya */
+.card-interactive {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-8);
+  border: 0.5px solid var(--color-border);
+  background: var(--color-bg);
+  transition: border-color 200ms var(--ease-footbridge),
+              box-shadow 200ms var(--ease-footbridge),
+              transform 150ms var(--ease-footbridge);
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  border-color: var(--color-green);
+  box-shadow: 0 4px 16px rgba(31, 77, 58, 0.08),
+              0 1px 4px rgba(31, 77, 58, 0.06);
+  transform: translateY(-1px);
+}
+
+.card-interactive:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 3px;
+}
+
+/* Korall variáns — akció kártyák */
+.card-interactive.card-action {
+  border-color: var(--color-border);
+}
+.card-interactive.card-action:hover {
+  border-color: var(--color-coral);
+  box-shadow: 0 4px 16px rgba(196, 98, 45, 0.08),
+              0 1px 4px rgba(196, 98, 45, 0.06);
+}
+
+/* Kiemelt kártya — zöld körvonal alapból */
+.card-featured {
+  border-color: var(--color-green);
+  background: rgba(31, 77, 58, 0.03);
+  box-shadow: 0 2px 8px rgba(31, 77, 58, 0.06);
+}
+.card-featured:hover {
+  box-shadow: 0 6px 20px rgba(31, 77, 58, 0.12),
+              0 2px 6px rgba(31, 77, 58, 0.08);
+}
+
+/* Séma táblázat sorok hover */
+.table-row-interactive:hover {
+  background: rgba(31, 77, 58, 0.03);
+}
+
+
+/* Router kártyák (sötét sáv) */
+.router-card-hover { transition: background 180ms; }
+.router-card-hover:hover { background: rgba(31,77,58,0.5) !important; }
+.router-card-hover-active { transition: background 180ms; }
+.router-card-hover-active:hover { background: rgba(31,77,58,0.5) !important; }

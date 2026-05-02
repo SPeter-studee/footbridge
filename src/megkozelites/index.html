@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Megközelítés — Footbridge</title>
-  <meta name="description" content="A Footbridge 3 szűrős módszertana és a footbridge-elv részletes bemutatása.">
+  <meta name="description" content="A Footbridge 3 szűrős módszertana — az üzleti szándéktól az IT megvalósításig.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
 </head>
@@ -18,7 +18,7 @@
       </a>
       <nav class="site-nav" id="mobile-nav" aria-label="Fő navigáció">
         <a href="/megoldasok" aria-current="page">Megoldások</a>
-        <a href="/eszkozok">Eszközök</a>
+        <a href="/szolgaltatasok">Szolgáltatások</a>
         <a href="/munkaink">Munkáink</a>
         <a href="/insights">Insights</a>
         <a href="/rolunk">Rólunk</a>
@@ -35,47 +35,49 @@
   <section class="section" style="padding-top:var(--space-20);">
     <div class="container" style="max-width:800px;">
       <p class="eyebrow" style="margin-bottom:var(--space-4);">Megközelítés</p>
-      <h1 style="margin-bottom:var(--space-4);">A Footbridge-elv</h1>
-      <p class="lead" style="margin-bottom:var(--space-16);">Nem monumentális hidat építünk — járható, emberi léptékű átkelőket. Három hét, egy folyamat, mérhető eredmény.</p>
+      <h1 style="margin-bottom:var(--space-4);">A Footbridge-módszertan</h1>
+      <p class="lead" style="margin-bottom:var(--space-16);">Nem azzal kezdünk, hogy hogyan valósítjuk meg — hanem azzal, hogy kell-e egyáltalán. Ez a 3 szűrő logikája.</p>
 
       <div style="display:flex;flex-direction:column;gap:var(--space-12);">
 
         <div>
-          <h2 style="margin-bottom:var(--space-4);">A 3 szűrő</h2>
-          <p style="color:var(--color-muted);margin-bottom:var(--space-8);">Minden manuális folyamatra három szűrő alkalmazható, ebben a sorrendben. Az első kérdés megválaszolása nélkül nem lépünk a másodikra.</p>
-          <div style="display:flex;flex-direction:column;gap:var(--space-6);">
-            <div style="padding:var(--space-6);border-left:3px solid var(--color-green);">
-              <p class="eyebrow" style="margin-bottom:var(--space-2);">1. szűrő</p>
-              <h3 style="margin-bottom:var(--space-3);">Megszüntethető?</h3>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">Lehet-e, hogy a folyamat fele felesleges? Egy 8 jóváhagyási kör 2-re szűkíthető anélkül, hogy automatizálni kellene. Az egyszerűsítés olcsóbb és tartósabb, mint az automatizáció.</p>
+          <h2 style="margin-bottom:var(--space-4);">Miért van szükség módszertanra?</h2>
+          <p style="color:var(--color-muted);">Az üzleti vezető és az IT csapat sokszor másképp látja ugyanazt a problémát. A vezető egy üzleti fájdalmat hoz — az IT egy technológiai megoldást javasol. A kettő között elvész a kontextus: miért, minek, mire, mennyiért.</p>
+          <p style="color:var(--color-muted);margin-top:var(--space-4);">A Footbridge-módszertan azt a fordítási réteg adja, ami ebből hiányzik. Nem eldöntjük a megoldást — megértjük a problémát. Aztán végigmegyünk a 3 szűrőn.</p>
+        </div>
+
+        <div>
+          <h2 style="margin-bottom:var(--space-8);">A 3 szűrő</h2>
+          <div style="display:flex;flex-direction:column;gap:var(--space-4);">
+            <div class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);align-items:flex-start;">
+              <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">1.</span>
+              <div>
+                <h3 style="margin-bottom:var(--space-2);">Megszüntethető?</h3>
+                <p style="font-size:var(--text-sm);color:var(--color-muted);">Mielőtt bármit automatizálunk, megkérdezzük: miért létezik ez a folyamat? Sok folyamat azért él tovább, mert senki nem kérdőjelezte meg. Ha megszüntethető — ez a legjobb megoldás. Olcsóbb és tartósabb, mint bármilyen automatizáció.</p>
+              </div>
             </div>
-            <div style="padding:var(--space-6);border-left:3px solid var(--color-border);">
-              <p class="eyebrow" style="margin-bottom:var(--space-2);">2. szűrő</p>
-              <h3 style="margin-bottom:var(--space-3);">Áttervezhető?</h3>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">Ha nem szüntethető meg, párhuzamosítható, egyszerűsíthető? A soros folyamat párhuzamossá tétele önmagában felére csökkenti az átfutási időt — automatizáció nélkül.</p>
+            <div class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);align-items:flex-start;">
+              <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">2.</span>
+              <div>
+                <h3 style="margin-bottom:var(--space-2);">Áttervezhető?</h3>
+                <p style="font-size:var(--text-sm);color:var(--color-muted);">Ha nem szüntethető meg, egyszerűsíthető-e? Párhuzamossá tehető? A soros folyamat párhuzamossá tétele önmagában felére csökkenti az átfutási időt — automatizáció nélkül, olcsón.</p>
+              </div>
             </div>
-            <div style="padding:var(--space-6);border-left:3px solid var(--color-border);">
-              <p class="eyebrow" style="margin-bottom:var(--space-2);">3. szűrő</p>
-              <h3 style="margin-bottom:var(--space-3);">Automatizálható?</h3>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">Csak ami az első két szűrőn átment, az kap automatizációt — Make, custom script, AI. De már egy értelmes, egyszerű folyamatra. Nem a régi tüneti rendszerre.</p>
+            <div class="card-interactive card-featured" style="padding:var(--space-6);display:flex;gap:var(--space-5);align-items:flex-start;">
+              <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">3.</span>
+              <div>
+                <h3 style="margin-bottom:var(--space-2);">Csak ami marad: automatizálható</h3>
+                <p style="font-size:var(--text-sm);color:var(--color-muted);">Ami az első két szűrőn átment, az kap automatizációt — Make, custom script, AI. De már egy értelmes, egyszerű folyamatra. Nem a régi, tüneti rendszerre.</p>
+              </div>
             </div>
           </div>
         </div>
 
         <div>
-          <h2 style="margin-bottom:var(--space-4);">A 4 automatizációs útvonal</h2>
-          <div class="grid-2" style="gap:var(--space-4);">
-            <div class="card-surface" style="padding:var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Low-code integráció</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Make, Zapier, Power Automate — meglévő rendszerek összekapcsolása, ismétlődő folyamatok.</p></div>
-            <div class="card-surface" style="padding:var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Custom backend script</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Python, Node.js — összetettebb logika, legacy-rendszerek, API-integrációk.</p></div>
-            <div class="card-surface" style="padding:var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">AI-asszisztált folyamat</p><p style="font-size:var(--text-sm);color:var(--color-muted);">LLM-integráció, dokumentum-feldolgozás, intelligens kategorizálás, döntés-támogatás.</p></div>
-            <div class="card-surface" style="padding:var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Egyedi belső alkalmazás</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Custom dashboard, belső tool — ha egyik sem elég, és a scope szükségessé teszi.</p></div>
-          </div>
-        </div>
-
-        <div style="text-align:center;padding:var(--space-10);border:0.5px solid var(--color-border);">
-          <h2 style="margin-bottom:var(--space-4);">Próbáld ki az eszközeinket</h2>
-          <p style="color:var(--color-muted);margin-bottom:var(--space-6);">A 3 szűrő elvét interaktív formában is kipróbálhatod — 30 másodperctől 20 percig.</p>
-          <a href="/eszkozok" class="btn btn-primary">Eszközök indítása →</a>
+          <h2 style="margin-bottom:var(--space-4);">Hogyan néz ki ez a gyakorlatban?</h2>
+          <p style="color:var(--color-muted);margin-bottom:var(--space-6);">Egy nap workshop alatt végigmegyünk a 3 szűrőn. Nem PowerPoint — közös munka, ahol a folyamat tulajdonosai és a Footbridge együtt hozzák meg a döntéseket. A nap végén nem egy dokumentum születik, hanem konkrét lépések felelősökkel és határidőkkel.</p>
+          <a href="/megoldasok" class="btn btn-primary">Megoldások →</a>
+          <a href="/eszkozok" class="btn btn-ghost" style="margin-left:var(--space-4);">Próbáld ki az eszközöket →</a>
         </div>
 
       </div>
@@ -86,16 +88,16 @@
   <div class="container">
     <div class="site-footer-grid">
       <div>
-        <a href="/" class="site-logo" style="margin-bottom:16px;display:inline-flex;" aria-label="Footbridge főoldal">
+        <a href="/" class="site-logo" style="margin-bottom:16px;display:inline-flex;">
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <span>Footbridge</span>
         </a>
-        <p style="font-size:13px;color:var(--color-muted);max-width:30ch;margin-top:8px;line-height:1.6;">Magyar B2B digitalizációs tanácsadás. 100-500 fős középvállalkozásoknak.</p>
+        <p style="font-size:13px;color:var(--color-muted);max-width:30ch;margin-top:8px;line-height:1.6;">Üzleti stratégia és IT megvalósítás között. 100-500 fős középvállalkozásoknak.</p>
         <div class="cookie-free-badge" style="margin-top:16px;"><span class="cookie-free-dot" aria-hidden="true"></span><span>Cookie-mentes mérés · EU-szerver</span></div>
       </div>
       <div>
         <p class="footer-col-label">Megoldások</p>
-        <nav class="footer-links" aria-label="Megoldások">
+        <nav class="footer-links">
           <a href="/megoldasok/manualis-folyamatok">Manuális folyamatok</a>
           <a href="/megoldasok/adatok-szettagoltsaga">Adatok széttagoltsága</a>
           <a href="/megoldasok/regi-rendszerek">Régi rendszerek</a>
@@ -103,21 +105,23 @@
         </nav>
       </div>
       <div>
+        <p class="footer-col-label">Szolgáltatások</p>
+        <nav class="footer-links">
+          <a href="/szolgaltatasok/projektmenedzsment">Projektmenedzsment</a>
+          <a href="/szolgaltatasok/palyazatiras">Pályázatírás</a>
+          <a href="/szolgaltatasok/muszaki-dokumentacio">Műszaki dokumentáció</a>
+          <a href="/eszkozok">Ingyenes eszközök</a>
+        </nav>
+      </div>
+      <div>
         <p class="footer-col-label">Footbridge</p>
-        <nav class="footer-links" aria-label="Footbridge oldalak">
-          <a href="/eszkozok">Eszközök</a>
+        <nav class="footer-links">
           <a href="/munkaink">Munkáink</a>
           <a href="/insights">Insights</a>
           <a href="/rolunk">Rólunk</a>
           <a href="/kapcsolat">Kapcsolat</a>
-        </nav>
-      </div>
-      <div>
-        <p class="footer-col-label">Jogi</p>
-        <nav class="footer-links" aria-label="Jogi oldalak">
           <a href="/adatvedelem">Adatvédelem</a>
           <a href="/aszf">ÁSZF</a>
-          <a href="/akadalymentesseg">Akadálymentesség</a>
         </nav>
       </div>
     </div>
