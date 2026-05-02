@@ -186,15 +186,15 @@
 
         <div class="stat-row" style="display:flex;gap:var(--space-10);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);flex-wrap:wrap;">
           <div>
-            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;">12</p>
+            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;" id="counter-bridges">0</p>
             <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#555;">Megépített híd</p>
           </div>
           <div>
-            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;">3 hét</p>
+            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;" id="counter-weeks">0 hét</p>
             <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#555;">Átlagos első híd</p>
           </div>
           <div>
-            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;">94%</p>
+            <p style="font-family:var(--font-display);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px;color:#1A1A1A;" id="counter-success">0%</p>
             <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#555;">Élesbe ment projekt</p>
           </div>
         </div>
@@ -511,6 +511,45 @@ function draw(){
 
 ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
 requestAnimationFrame(draw);
+})();
+</script>
+
+<script>
+(function(){
+  function animateCounter(el, target, suffix, duration) {
+    var start = 0;
+    var startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      // easeOutQuart
+      var ease = 1 - Math.pow(1 - progress, 4);
+      var current = Math.round(ease * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var started = false;
+  var statRow = document.querySelector('.stat-row');
+  if (!statRow) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        var b = document.getElementById('counter-bridges');
+        var w = document.getElementById('counter-weeks');
+        var s = document.getElementById('counter-success');
+        if (b) animateCounter(b, 12, '', 1800);
+        if (w) animateCounter(w, 3, ' hét', 1400);
+        if (s) animateCounter(s, 94, '%', 2200);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(statRow);
 })();
 </script>
 </body>
