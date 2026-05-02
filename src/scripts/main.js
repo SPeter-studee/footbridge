@@ -14,6 +14,15 @@ if (mobileToggle && siteNav) {
     mobileToggle.setAttribute('aria-label', isOpen ? 'Menü bezárása' : 'Menü megnyitása');
   });
 
+
+  // Nav linkre kattintva bezárjuk
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('is-open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   // Esc bezárja
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && siteNav.classList.contains('is-open')) {
