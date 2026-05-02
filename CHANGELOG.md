@@ -43,3 +43,4 @@ A repó `git log` alapján vezetett összefoglaló; a commit üzenetek szó szer
 - fix: célpiac 50-300 fős közép- és nagyvállalat
 - feat: harmadik router kártya korall háttér
 - docs: CHANGELOG.md indul
+- docs: CHANGELOG - teljes git előzmény
