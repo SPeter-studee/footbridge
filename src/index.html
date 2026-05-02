@@ -3,20 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Footbridge — Digitalizáció, 200 oldalas stratégiák nélkül</title>
-  <meta name="description" content="Magyar középvállalati digitalizációs tanácsadás. Pályázatírás, műszaki dokumentáció, 3 hetes hidak fix költséggel.">
+  <title>Footbridge — Üzleti stratégia és IT megvalósítás között</title>
+  <meta name="description" content="Ha az IT projekt drágább lett mint ígérték, minden szoftver megvan mégis kézzel megy, vagy az IT árajánlatból semmi sem érthető — a Footbridge erre épített.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
   <style>
-    @media (max-width: 768px) {
-      #router-grid { grid-template-columns: repeat(2,1fr) !important; }
+    .hero-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; }
+    @media (max-width: 900px) { .hero-split { grid-template-columns: 1fr; min-height: auto; } }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: var(--space-20) var(--space-12) var(--space-16) var(--space-12);
+      background: var(--color-bg);
     }
-    @media (max-width: 480px) {
-      #router-grid { grid-template-columns: 1fr !important; }
+    .hero-right {
+      background: var(--color-green);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: var(--space-12);
+      position: relative; overflow: hidden;
+    }
+
+    .pain-point {
+      display: flex; gap: var(--space-5); align-items: flex-start;
+      padding: var(--space-5) var(--space-6);
+      border: 0.5px solid var(--color-border);
+      text-decoration: none; color: inherit;
+      background: var(--color-bg);
+      transition: border-color 200ms, background 200ms, box-shadow 200ms, transform 150ms;
+      cursor: pointer;
+    }
+    .pain-point:hover {
+      border-color: var(--color-green);
+      background: rgba(31,77,58,0.03);
+      box-shadow: 0 4px 16px rgba(31,77,58,0.10);
+      transform: translateY(-1px);
+    }
+    .pain-point.active { border-color: var(--color-green); }
+    .pain-num {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      color: var(--color-green); line-height: 1; flex-shrink: 0;
+      transition: color 200ms;
+    }
+    .pain-point:hover .pain-num { color: var(--color-green); }
+
+    /* Hero jobb oldal dekoráció */
+    .hero-right-deco {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.06;
+    }
+    .hero-right-content { position: relative; z-index: 1; }
+
+    /* Lábléc újratervezve */
+    .site-footer-new {
+      background: #111;
+      color: #fff;
+      padding: var(--space-16) 0 var(--space-8);
+    }
+    .footer-grid-new {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12);
+      margin-bottom: var(--space-12);
+    }
+    @media (max-width: 768px) { .footer-grid-new { grid-template-columns: 1fr; gap: var(--space-8); } }
+    .footer-link-new {
+      display: block; font-size: 13px; color: rgba(255,255,255,0.6);
+      text-decoration: none; margin-bottom: 10px;
+      transition: color 150ms;
+    }
+    .footer-link-new:hover { color: #fff; }
+    .footer-col-label-new {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+    }
+    .footer-bottom-new {
+      padding-top: var(--space-8);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: var(--space-4);
     }
   </style>
 </head>
 <body>
+
 <header class="site-header" role="banner">
   <div class="container">
     <div class="site-header-inner">
@@ -39,70 +109,59 @@
     </div>
   </div>
 </header>
+
 <main id="main-content">
-  <!-- HERO — eredeti -->
-  <section class="section hero-section" aria-labelledby="hero-title" style="padding-top: var(--space-24); padding-bottom: var(--space-16); position: relative; overflow: hidden;">
-    <div class="container">
 
-      <div aria-hidden="true" style="position: absolute; top: 0; right: 0; width: 40%; opacity: 0.04; pointer-events: none; overflow: hidden;">
-        <svg viewBox="0 0 400 300" fill="none" style="width: 100%;">
-          <path d="M0 60 C0 20 400 20 400 60" stroke="#1A1A1A" stroke-width="0.5"/>
-          <path d="M0 90 C0 50 400 50 400 90" stroke="#1A1A1A" stroke-width="0.5"/>
-          <path d="M0 120 C0 80 400 80 400 120" stroke="#1A1A1A" stroke-width="0.5"/>
-          <path d="M0 150 C0 110 400 110 400 150" stroke="#1A1A1A" stroke-width="0.5"/>
-          <path d="M0 180 C0 140 400 140 400 180" stroke="#1A1A1A" stroke-width="0.5"/>
-        </svg>
-      </div>
+  <!-- ═══════════════════════════════════════════════════════
+       HERO — Split layout, erős tipográfia
+  ═══════════════════════════════════════════════════════ -->
+  <section aria-labelledby="hero-title">
+    <div class="hero-split">
 
-      <!-- Oldalsó híd animáció feliratozással -->
-      <div aria-hidden="false" style="position:absolute;right:0;top:0;bottom:0;width:45%;pointer-events:none;overflow:hidden;">
-        <canvas id="bridge-canvas" style="width:100%;height:100%;display:block;" aria-label="Footbridge — üzleti stratégia és IT megvalósítás között"></canvas>
-        <!-- feliratok a canvas-on belül rajzolódnak -->
-      </div>
+      <!-- Bal oldal: szöveg + fájdalompontok -->
+      <div class="hero-left">
+        <p class="eyebrow" style="margin-bottom:var(--space-6);">Üzleti stratégia és IT megvalósítás között · 100–500 fős középvállalkozásoknak</p>
 
-      <div style="max-width: 680px; position: relative;">
-        <p class="eyebrow" style="margin-bottom: var(--space-8);">Üzleti stratégia és IT megvalósítás között · 100–500 fős középvállalkozásoknak</p>
-
-        <h1 id="hero-title" class="display" style="margin-bottom: var(--space-10);">
-          Ha valamelyik<br>
-          <em>ismerős hangzik.</em>
+        <h1 id="hero-title" class="display" style="margin-bottom:var(--space-10);">
+          Ha valamelyik<br><em>ismerős hangzik.</em>
         </h1>
 
-        <!-- 3 felismerési pont -->
         <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-10);">
 
-          <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4) var(--space-5);border-left:2px solid var(--color-green);">
-            <span style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-green);line-height:1;flex-shrink:0;">01</span>
-            <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:var(--color-text);margin:0;max-width:100%;">Az IT projekt drágább lett, mint ígérték — és senki nem tudja megmondani, miért.</p>
-          </div>
+          <a href="/szolgaltatasok/it-projekt-csuszas" class="pain-point">
+            <span class="pain-num">01</span>
+            <div>
+              <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:var(--color-text);margin:0 0 4px;">Az IT projekt drágább lett, mint ígérték — és senki nem tudja megmondani, miért.</p>
+              <span style="font-size:11px;color:var(--color-green);font-weight:500;">Projektmenedzsment és IT-transzparencia →</span>
+            </div>
+          </a>
 
-          <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4) var(--space-5);border-left:2px solid var(--color-border);">
-            <span style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-muted);line-height:1;flex-shrink:0;">02</span>
-            <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:var(--color-text);margin:0;max-width:100%;">Minden szoftverre előfizettünk — mégis minden kézzel megy.</p>
-          </div>
+          <a href="/szolgaltatasok/digitalizacios-szakadek" class="pain-point">
+            <span class="pain-num" style="color:var(--color-muted);">02</span>
+            <div>
+              <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:var(--color-text);margin:0 0 4px;">Minden szoftverre előfizettünk — mégis minden kézzel megy.</p>
+              <span style="font-size:11px;color:var(--color-green);font-weight:500;">Folyamat-diagnosztika és automatizáció →</span>
+            </div>
+          </a>
 
-          <div style="display:flex;gap:var(--space-4);align-items:flex-start;padding:var(--space-4) var(--space-5);border-left:2px solid var(--color-border);">
-            <span style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-muted);line-height:1;flex-shrink:0;">03</span>
-            <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:var(--color-text);margin:0;max-width:100%;">Tudom, mit akarok — de amit az IT árajánlatba írt, abból semmi sem érthető.</p>
-          </div>
+          <a href="/szolgaltatasok/it-forditas" class="pain-point">
+            <span class="pain-num" style="color:var(--color-muted);">03</span>
+            <div>
+              <p style="font-size:var(--text-base);line-height:var(--leading-snug);color:var(--color-text);margin:0 0 4px;">Tudom, mit akarok — de amit az IT árajánlatba írt, abból semmi sem érthető.</p>
+              <span style="font-size:11px;color:var(--color-green);font-weight:500;">Üzleti szándék lefordítása IT-re →</span>
+            </div>
+          </a>
 
         </div>
 
-        <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-8);max-width:52ch;">Ha valamelyik ismerős — a Footbridge erre épített. Az üzleti szándék és az IT megvalósítás közé állunk.</p>
-
-        <div style="display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-12);">
-          <a href="/kapcsolat" class="btn btn-primary" style="font-size: var(--text-base); padding: var(--space-4) var(--space-8);">
-            Beszéljünk róla →
-          </a>
-          <a href="/eszkozok" class="btn btn-ghost">
-            Ingyenes eszközök →
-          </a>
+        <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-12);">
+          <a href="/kapcsolat" class="btn btn-primary" style="font-size:var(--text-base);padding:var(--space-4) var(--space-8);">Beszéljünk róla →</a>
+          <a href="/eszkozok" class="btn btn-ghost">Ingyenes eszközök →</a>
         </div>
 
-        <!-- Stat-sor -->
         <div style="display:flex;gap:var(--space-10);padding-top:var(--space-8);border-top:0.5px solid var(--color-border);flex-wrap:wrap;">
           <div>
-            <p id="stat-bridges" style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">12</p>
+            <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:400;line-height:1;margin-bottom:4px;">12</p>
             <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Megépített híd</p>
           </div>
           <div>
@@ -114,130 +173,144 @@
             <p style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-muted);">Élesbe ment projekt</p>
           </div>
         </div>
-
       </div>
+
+      <!-- Jobb oldal: sötétzöld, pozícionálás -->
+      <div class="hero-right">
+        <!-- Dekoratív háttér -->
+        <div class="hero-right-deco" aria-hidden="true">
+          <svg viewBox="0 0 600 800" fill="none" style="width:100%;height:100%;position:absolute;top:0;left:0;">
+            <circle cx="300" cy="400" r="280" stroke="white" stroke-width="0.5"/>
+            <circle cx="300" cy="400" r="200" stroke="white" stroke-width="0.5"/>
+            <circle cx="300" cy="400" r="120" stroke="white" stroke-width="0.5"/>
+            <line x1="0" y1="400" x2="600" y2="400" stroke="white" stroke-width="0.5"/>
+            <line x1="300" y1="0" x2="300" y2="800" stroke="white" stroke-width="0.5"/>
+            <path d="M20 400 C20 150 580 150 580 400" stroke="white" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <div class="hero-right-content">
+          <!-- Pillér-pozícionálás -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:var(--space-8);">
+            <div>
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,243,0.5);margin-bottom:6px;">Bal pillér</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-xl);color:#FAF8F3;line-height:1.2;">Üzleti<br>stratégia</p>
+            </div>
+            <div style="text-align:center;padding:0 var(--space-4);">
+              <svg width="60" height="32" viewBox="0 0 60 32" fill="none" aria-hidden="true">
+                <circle cx="3" cy="28" r="3" fill="rgba(250,248,243,0.6)"/>
+                <circle cx="57" cy="28" r="3" fill="rgba(250,248,243,0.6)"/>
+                <path d="M3 28 C3 6 57 6 57 28" stroke="rgba(250,248,243,0.6)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                <line x1="18" y1="15" x2="18" y2="28" stroke="rgba(250,248,243,0.3)" stroke-width="0.5" stroke-dasharray="2,2"/>
+                <line x1="30" y1="9" x2="30" y2="28" stroke="rgba(250,248,243,0.3)" stroke-width="0.5" stroke-dasharray="2,2"/>
+                <line x1="42" y1="15" x2="42" y2="28" stroke="rgba(250,248,243,0.3)" stroke-width="0.5" stroke-dasharray="2,2"/>
+              </svg>
+              <p style="font-family:var(--font-display);font-size:12px;font-style:italic;color:rgba(250,248,243,0.7);margin-top:4px;">Footbridge</p>
+            </div>
+            <div style="text-align:right;">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,243,0.5);margin-bottom:6px;">Jobb pillér</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-xl);color:#FAF8F3;line-height:1.2;">IT<br>megvalósítás</p>
+            </div>
+          </div>
+
+          <!-- A három fájdalom újra, más kontextusban -->
+          <div style="display:flex;flex-direction:column;gap:1px;background:rgba(250,248,243,0.1);">
+            <div style="padding:var(--space-5) var(--space-6);background:rgba(31,77,58,0.8);">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,243,0.5);margin-bottom:4px;">01 — Elcsúszott projekt</p>
+              <p style="font-size:13px;color:rgba(250,248,243,0.85);line-height:1.5;">A projekt fut, de az üzleti és IT oldal már nem beszél egymással.</p>
+            </div>
+            <div style="padding:var(--space-5) var(--space-6);background:rgba(31,77,58,0.6);">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,243,0.5);margin-bottom:4px;">02 — Digitalizációs látszat</p>
+              <p style="font-size:13px;color:rgba(250,248,243,0.85);line-height:1.5;">Szoftverek vannak, de a folyamat nem változott — csak digitalizálták a káoszt.</p>
+            </div>
+            <div style="padding:var(--space-5) var(--space-6);background:rgba(31,77,58,0.4);">
+              <p style="font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,243,0.5);margin-bottom:4px;">03 — Elveszett fordítás</p>
+              <p style="font-size:13px;color:rgba(250,248,243,0.85);line-height:1.5;">Az üzleti igény megvan — az IT-be bekerülve felismerhetetlen lesz.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ÚTVÁLASZTÓ SÁV — két pillér logikájával -->
-  <section aria-labelledby="router-heading" style="background: var(--color-text);">
-    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+  <!-- ÚTVÁLASZTÓ SÁV -->
+  <section aria-labelledby="router-heading" style="background:var(--color-text);">
+    <div class="container" style="padding-top:0;padding-bottom:0;">
       <p id="router-heading" class="sr-only">Hol tartasz most?</p>
-
-      <!-- Három szakadék — három kártya -->
       <div style="display:grid;grid-template-columns:repeat(3,1fr);">
-
-        <a href="/eszkozok/diagnoszt"
-          style="text-decoration:none;padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);border-right:1px solid rgba(250,248,243,0.08);transition:background 180ms;"
-          class="router-card-hover">
+        <a href="/eszkozok/diagnoszt" style="text-decoration:none;padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);border-right:1px solid rgba(250,248,243,0.08);transition:background 180ms;" onmouseover="this.style.background='rgba(31,77,58,0.5)'" onmouseout="this.style.background='transparent'">
           <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.38);">Üzleti szándék → IT fordítás</span>
           <span style="font-family:var(--font-display);font-size:20px;color:#FAF8F3;line-height:1.25;">Tudom mit akarok — az IT-vel nem tudunk közös nyelvet találni</span>
-          <span style="font-size:13px;color:rgba(250,248,243,0.5);line-height:1.55;flex:1;">Workshop, első híd, pályázatírás, műszaki dokumentáció.</span>
-          <span style="font-size:12px;font-weight:500;color:rgba(250,248,243,0.7);margin-top:var(--space-3);">Diagnoszt →</span>
+          <span style="font-size:12px;font-weight:500;color:rgba(250,248,243,0.7);margin-top:auto;">Diagnoszt →</span>
         </a>
-
-        <a href="/eszkozok/healthcheck"
-          style="text-decoration:none;padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);border-right:1px solid rgba(250,248,243,0.08);background:rgba(31,77,58,0.2);transition:background 180ms;"
-          class="router-card-hover-active">
+        <a href="/eszkozok/healthcheck" style="text-decoration:none;padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);border-right:1px solid rgba(250,248,243,0.08);background:rgba(31,77,58,0.2);transition:background 180ms;" onmouseover="this.style.background='rgba(31,77,58,0.5)'" onmouseout="this.style.background='rgba(31,77,58,0.2)'">
           <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.45);">Projekt elakadt · senki nem uralja</span>
           <span style="font-family:var(--font-display);font-size:20px;color:#FAF8F3;line-height:1.25;">A projekt fut — de az üzleti és IT oldal már nem beszél egymással</span>
-          <span style="font-size:13px;color:rgba(250,248,243,0.55);line-height:1.55;flex:1;">Felelős PM, PM-coach, PMO-felállítás.</span>
-          <span style="font-size:12px;font-weight:500;color:rgba(250,248,243,0.7);margin-top:var(--space-3);">Projekt healthcheck →</span>
+          <span style="font-size:12px;font-weight:500;color:rgba(250,248,243,0.7);margin-top:auto;">Projekt healthcheck →</span>
         </a>
-
-        <a href="/insights"
-          style="text-decoration:none;padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);transition:background 180ms;"
-          class="router-card-hover">
+        <a href="/insights" style="text-decoration:none;padding:var(--space-8) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);transition:background 180ms;" onmouseover="this.style.background='rgba(31,77,58,0.5)'" onmouseout="this.style.background='transparent'">
           <span style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,243,0.38);">Még nem tartunk itt</span>
           <span style="font-family:var(--font-display);font-size:20px;color:#FAF8F3;line-height:1.25;">Körülnézek — nem sürgős, de érdekel a téma</span>
-          <span style="font-size:13px;color:rgba(250,248,243,0.5);line-height:1.55;flex:1;">Cikkek, ingyenes eszközök, build-in-public naplók — regisztráció nélkül.</span>
-          <span style="font-size:12px;font-weight:500;color:rgba(250,248,243,0.7);margin-top:var(--space-3);">Insights &amp; eszközök →</span>
+          <span style="font-size:12px;font-weight:500;color:rgba(250,248,243,0.7);margin-top:auto;">Insights &amp; eszközök →</span>
         </a>
-
       </div>
     </div>
   </section>
 
-  <!-- MIT CSINÁLUNK MÁSKÉPP -->
-  <!-- A HÍD — két pillér és három tevékenység -->
+  <!-- A HÍD -->
   <section class="section section-alt" aria-labelledby="bridge-title">
     <div class="container">
-
-      <p class="eyebrow" style="margin-bottom:var(--space-4);">A híd</p>
+      <p class="eyebrow" style="margin-bottom:var(--space-4);">Három helyen állunk be</p>
       <h2 id="bridge-title" style="margin-bottom:var(--space-4);">Üzleti stratégia és IT megvalósítás között.</h2>
-      <p style="color:var(--color-muted);max-width:58ch;margin-bottom:var(--space-16);">A legtöbb digitalizációs projekt nem azért csúszik el, mert rossz a technológia — hanem mert a két oldal nem érti egymást. A Footbridge ebbe a résbe épít.</p>
-
-      <!-- Három tevékenység — három híd-szakasz -->
-      <p class="eyebrow" style="margin-bottom:var(--space-6);">Három helyen állunk be</p>
+      <p style="color:var(--color-muted);max-width:58ch;margin-bottom:var(--space-12);">A legtöbb digitalizációs projekt nem azért csúszik el, mert rossz a technológia — hanem mert a két oldal nem érti egymást.</p>
       <div class="grid-2" style="gap:var(--space-4);">
-
-        <article class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
+        <a href="/szolgaltatasok/it-projekt-csuszas" class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);text-decoration:none;color:inherit;">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">01</span>
-          <div>
-            <h3 style="margin-bottom:var(--space-2);">Az üzleti szándék lefordítása IT-re</h3>
-            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Workshop, scope-dokumentum, első híd. Nem 200 oldalas stratégia — egy konkrét, megvalósítható következő lépés, fix áron.</p>
-            <a href="/megoldasok" class="btn btn-ghost" style="font-size:var(--text-sm);">Megoldások →</a>
-          </div>
-        </article>
-
-        <article class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
+          <div><h3 style="margin-bottom:var(--space-2);">Az üzleti szándék lefordítása IT-re</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">Workshop, scope-dokumentum, első híd. Nem 200 oldalas stratégia — egy megvalósítható következő lépés, fix áron.</p></div>
+        </a>
+        <a href="/szolgaltatasok/digitalizacios-szakadek" class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);text-decoration:none;color:inherit;">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">02</span>
-          <div>
-            <h3 style="margin-bottom:var(--space-2);">A projekt irányítása, amíg tart</h3>
-            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Felelős PM, aki egyszerre érti az üzleti célt és az IT megvalósítást. Nem az egyik oldalon áll — a kettő között.</p>
-            <a href="/szolgaltatasok/projektmenedzsment" class="btn btn-ghost" style="font-size:var(--text-sm);">PM szolgáltatás →</a>
-          </div>
-        </article>
-
-        <article class="card-interactive card-featured" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
+          <div><h3 style="margin-bottom:var(--space-2);">A projekt irányítása, amíg tart</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">Felelős PM, aki egyszerre érti az üzleti célt és az IT megvalósítást. Nem az egyik oldalon áll — a kettő között.</p></div>
+        </a>
+        <a href="/szolgaltatasok/it-forditas" class="card-interactive card-featured" style="padding:var(--space-6);display:flex;gap:var(--space-5);text-decoration:none;color:inherit;">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-green);line-height:1;flex-shrink:0;">03</span>
-          <div>
-            <h3 style="margin-bottom:var(--space-2);">A megvalósítás elindítása — finanszírozás és dokumentáció</h3>
-            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">EU-s pályázatírás, funkcionális specifikáció, tender-dokumentáció. Hogy a projekt el is tudjon indulni — és a két oldal ugyanarról a papírról olvasson.</p>
-            <a href="/szolgaltatasok/palyazatiras" class="btn btn-ghost" style="font-size:var(--text-sm);">Pályázatírás és dokumentáció →</a>
-          </div>
-        </article>
-
-        <article class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
+          <div><h3 style="margin-bottom:var(--space-2);">A megvalósítás elindítása</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">EU-s pályázatírás, funkcionális specifikáció, tender-dokumentáció. Hogy a két oldal ugyanarról a papírról olvasson.</p></div>
+        </a>
+        <div class="card-interactive" style="padding:var(--space-6);display:flex;gap:var(--space-5);">
           <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-muted);line-height:1;flex-shrink:0;">∞</span>
-          <div>
-            <h3 style="margin-bottom:var(--space-2);">Fix ár. Átadható kód. Nincs lock-in.</h3>
-            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Minden híd végén a kód az ügyfélé — dokumentációval, runbook-kal. A projekt nem teremt függőséget. Ez az alapelv, nem egy ígéret.</p>
-            <a href="/rolunk" class="btn btn-ghost" style="font-size:var(--text-sm);">Rólunk →</a>
-          </div>
-        </article>
-
+          <div><h3 style="margin-bottom:var(--space-2);">Fix ár. Átadható kód. Nincs lock-in.</h3><p style="font-size:var(--text-sm);color:var(--color-muted);">Amit átadunk, az a tiéd — dokumentációval, runbook-kal. Nem teremtünk függőséget.</p></div>
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- INSIGHTS TEASER -->
-  <section class="section section-alt" aria-labelledby="insights-title">
+  <section class="section" aria-labelledby="insights-title">
     <div class="container">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:var(--space-10);flex-wrap:wrap;gap:var(--space-4);">
         <div><p class="eyebrow" style="margin-bottom:var(--space-3);">Friss gondolatok</p><h2 id="insights-title">Insights</h2></div>
         <a href="/insights" class="btn btn-ghost">Az összes cikk →</a>
       </div>
       <div class="grid-3" style="gap:var(--space-6);">
-        <article class="card" style="display:flex;flex-direction:column;">
+        <a href="/insights/mikor-ne-automatizalj" class="card-interactive" style="display:flex;flex-direction:column;padding:var(--space-6);text-decoration:none;color:inherit;">
           <p class="eyebrow" style="margin-bottom:var(--space-3);">7 perc olvasás</p>
           <h3 style="margin-bottom:var(--space-3);flex:1;">Mikor ne automatizálj</h3>
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-6);">Amikor egy 4 milliós projekt megspórol heti 2 órát — az nem rossz, de nem jó.</p>
-          <a href="/insights/mikor-ne-automatizalj" class="btn btn-ghost">Olvasd el →</a>
-        </article>
-        <article class="card" style="display:flex;flex-direction:column;">
+          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Amikor egy 4 milliós projekt megspórol heti 2 órát — az nem rossz, de nem jó.</p>
+          <span style="font-size:var(--text-sm);color:var(--color-green);font-weight:500;">Olvasd el →</span>
+        </a>
+        <a href="/insights/hibrid-pm" class="card-interactive" style="display:flex;flex-direction:column;padding:var(--space-6);text-decoration:none;color:inherit;">
           <p class="eyebrow" style="margin-bottom:var(--space-3);">8 perc olvasás</p>
           <h3 style="margin-bottom:var(--space-3);flex:1;">Hibrid PM: kis döntés, nagy különbség</h3>
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-6);">Miért dolgozik a Footbridge agile + prediktív + iteratív együtt egy projekten belül.</p>
-          <a href="/insights/hibrid-pm" class="btn btn-ghost">Olvasd el →</a>
-        </article>
-        <article class="card" style="display:flex;flex-direction:column;">
+          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Miért dolgozik a Footbridge agile + prediktív + iteratív együtt egy projekten belül.</p>
+          <span style="font-size:var(--text-sm);color:var(--color-green);font-weight:500;">Olvasd el →</span>
+        </a>
+        <a href="/insights/3-szuro" class="card-interactive" style="display:flex;flex-direction:column;padding:var(--space-6);text-decoration:none;color:inherit;">
           <p class="eyebrow" style="margin-bottom:var(--space-3);">5 perc olvasás</p>
           <h3 style="margin-bottom:var(--space-3);flex:1;">A 3 szűrő, ami megspórol 6 hónapot</h3>
-          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-6);">Hogyan csökkenti az 1 napos workshop a 6 hónapos discovery-fázist.</p>
-          <a href="/insights/3-szuro" class="btn btn-ghost">Olvasd el →</a>
-        </article>
+          <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Hogyan csökkenti az 1 napos workshop a 6 hónapos discovery-fázist.</p>
+          <span style="font-size:var(--text-sm);color:var(--color-green);font-weight:500;">Olvasd el →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -251,198 +324,55 @@
       <a href="/kapcsolat" class="btn btn-primary" style="font-size:var(--text-base);padding:var(--space-4) var(--space-10);">Kapcsolat →</a>
     </div>
   </section>
+
 </main>
-<footer class="site-footer" role="contentinfo">
+
+<!-- ÚJ LÁBLÉC -->
+<footer class="site-footer-new" role="contentinfo">
   <div class="container">
-    <div class="site-footer-grid">
+    <div class="footer-grid-new">
       <div>
-        <a href="/" class="site-logo" style="margin-bottom:16px;display:inline-flex;">
-          <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#1F4D3A"/><circle cx="29" cy="10" r="2.5" fill="#1F4D3A"/><path d="M3 10 C3 3 29 3 29 10" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-          <span>Footbridge</span>
+        <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:20px;">
+          <svg width="32" height="20" viewBox="0 0 32 20" fill="none" aria-hidden="true"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
         </a>
-        <p style="font-size:13px;color:var(--color-muted);max-width:30ch;margin-top:8px;line-height:1.6;">Magyar B2B digitalizációs tanácsadás. 100-500 fős középvállalkozásoknak.</p>
-        <div class="cookie-free-badge" style="margin-top:16px;"><span class="cookie-free-dot" aria-hidden="true"></span><span>Cookie-mentes mérés · EU-szerver</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között. Magyar középvállalkozásoknak.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;">
+          <span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>
+          Cookie-mentes mérés · EU-szerver
+        </p>
       </div>
       <div>
-        <p class="footer-col-label">Megoldások</p>
-        <nav class="footer-links">
-          <a href="/megoldasok/manualis-folyamatok">Manuális folyamatok</a>
-          <a href="/megoldasok/adatok-szettagoltsaga">Adatok széttagoltsága</a>
-          <a href="/megoldasok/regi-rendszerek">Régi rendszerek</a>
-          <a href="/megoldasok/egyedi-szoftver">Egyedi szoftver</a>
-        </nav>
+        <p class="footer-col-label-new">Megoldások</p>
+        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
+        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
+        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
+        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
       </div>
       <div>
-        <p class="footer-col-label">Szolgáltatások</p>
-        <nav class="footer-links">
-          <a href="/szolgaltatasok/projektmenedzsment">Projektmenedzsment</a>
-          <a href="/szolgaltatasok/palyazatiras">Pályázatírás</a>
-          <a href="/szolgaltatasok/muszaki-dokumentacio">Műszaki dokumentáció</a>
-          <a href="/eszkozok">Ingyenes eszközök</a>
-        </nav>
+        <p class="footer-col-label-new">Szolgáltatások</p>
+        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
+        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
+        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
+        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
       </div>
       <div>
-        <p class="footer-col-label">Footbridge</p>
-        <nav class="footer-links">
-          <a href="/munkaink">Munkáink</a>
-          <a href="/insights">Insights</a>
-          <a href="/rolunk">Rólunk</a>
-          <a href="/kapcsolat">Kapcsolat</a>
-          <a href="/adatvedelem">Adatvédelem</a>
-          <a href="/aszf">ÁSZF</a>
-        </nav>
+        <p class="footer-col-label-new">Footbridge</p>
+        <a href="/munkaink" class="footer-link-new">Munkáink</a>
+        <a href="/insights" class="footer-link-new">Insights</a>
+        <a href="/rolunk" class="footer-link-new">Rólunk</a>
+        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
+        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
+        <a href="/aszf" class="footer-link-new">ÁSZF</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-coffee">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk. Egy kávéra pedig bármikor a vendégünk vagy. Még ha nem is leszel partnerünk.</p>
-      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
+    <div class="footer-bottom-new">
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk. Egy kávéra bármikor a vendégünk vagy.</p>
+      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 150ms;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
 
-<script>
-(function() {
-  const canvas = document.getElementById('bridge-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const wrap = canvas.parentElement;
-  let dpr = window.devicePixelRatio || 1;
-
-  function resizeMain() {
-    canvas.width = wrap.offsetWidth * dpr;
-    canvas.height = wrap.offsetHeight * dpr;
-    ctx.setTransform(1,0,0,1,0,0);
-    ctx.scale(dpr, dpr);
-  }
-
-  function bezier(t, lx, ly, cx, cy, rx, ry) {
-    const mt = 1 - t;
-    return { x: mt*mt*lx + 2*mt*t*cx + t*t*rx, y: mt*mt*ly + 2*mt*t*cy + t*t*ry };
-  }
-
-  function drawMain(p) {
-    const w = canvas.width / dpr;
-    const h = canvas.height / dpr;
-    ctx.clearRect(0, 0, w, h);
-    if (p <= 0) return;
-
-    const lx = w * 0.08, ly = h * 0.82;
-    const rx = w * 0.92, ry = h * 0.82;
-    const cx = w * 0.5,  cy = h * 0.08;
-    const steps = 140;
-    const drawSteps = Math.floor(steps * p);
-    if (drawSteps < 2) return;
-
-    // Halvány árnyék-ív
-    if (p > 0.2) {
-      const sp = Math.min(1, (p - 0.2) / 0.8);
-      const ss = Math.floor(drawSteps * sp);
-      ctx.beginPath();
-      let started = false;
-      for (let i = 0; i <= ss; i++) {
-        const t = i / steps;
-        const pt = bezier(t, lx, ly, cx, cy, rx, ry);
-        const pt2 = bezier(Math.min(t + 0.01, 1), lx, ly, cx, cy, rx, ry);
-        const dx = pt2.x - pt.x, dy = pt2.y - pt.y;
-        const len = Math.sqrt(dx*dx + dy*dy) || 1;
-        const nx = -dy/len, ny = dx/len;
-        if (!started) { ctx.moveTo(pt.x + nx*10, pt.y + ny*10); started = true; }
-        else ctx.lineTo(pt.x + nx*10, pt.y + ny*10);
-      }
-      ctx.strokeStyle = 'rgba(31,77,58,' + (0.08 * sp) + ')';
-      ctx.lineWidth = 10;
-      ctx.stroke();
-    }
-
-    // Bal parti pont
-    ctx.beginPath();
-    ctx.arc(lx, ly, 4, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(31,77,58,' + Math.min(1, p * 4) + ')';
-    ctx.fill();
-
-    // Jobb parti pont — csak ha az ív majdnem kész
-    const ra = Math.min(1, Math.max(0, (p - 0.85) * 6.7));
-    ctx.beginPath();
-    ctx.arc(rx, ry, 4, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(31,77,58,' + ra + ')';
-    ctx.fill();
-
-    // Fő ív
-    ctx.beginPath();
-    ctx.moveTo(lx, ly);
-    for (let i = 1; i <= drawSteps; i++) {
-      const pt = bezier(i / steps, lx, ly, cx, cy, rx, ry);
-      ctx.lineTo(pt.x, pt.y);
-    }
-    ctx.strokeStyle = '#1F4D3A';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // Tartóoszlopok
-    if (p > 0.5) {
-      const pp = Math.min(1, (p - 0.5) / 0.5);
-      [0.25, 0.5, 0.75].forEach((t, i) => {
-        const pt = bezier(t, lx, ly, cx, cy, rx, ry);
-        const pa = Math.min(1, pp * 1.5 - i * 0.1);
-        if (pa <= 0) return;
-        ctx.beginPath();
-        ctx.moveTo(pt.x, pt.y);
-        ctx.lineTo(pt.x, pt.y + (ly - pt.y) * pp);
-        ctx.strokeStyle = 'rgba(31,77,58,' + (0.18 * pa) + ')';
-        ctx.lineWidth = 0.5;
-        ctx.setLineDash([2, 3]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      });
-    }
-
-    // Alap vonal
-    if (p > 0.9) {
-      const bp = Math.min(1, (p - 0.9) / 0.1);
-      ctx.beginPath();
-      ctx.moveTo(lx, ly);
-      ctx.lineTo(lx + (rx - lx) * bp, ly);
-      ctx.strokeStyle = 'rgba(31,77,58,' + (0.1 * bp) + ')';
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
-    }
-
-    // Feliratok a pontok alatt — canvas-on rajzolva
-    if (p > 0.88) {
-      const la = Math.min(1, (p - 0.88) / 0.12);
-      ctx.save();
-      ctx.globalAlpha = la;
-      // Pillér feliratok — pontok alatt, két sorban, nagyobb
-      ctx.font = '500 11px Inter, Arial, sans-serif';
-      ctx.fillStyle = '#888781';
-      ctx.textAlign = 'center';
-      ctx.fillText('ÜZLETI', lx, ly + 22);
-      ctx.fillText('STRATÉGIA', lx, ly + 36);
-      ctx.fillText('IT', rx, ly + 22);
-      ctx.fillText('MEGVALÓSÍTÁS', rx, ly + 36);
-      // Footbridge — ív csúcsa felett, középen
-      ctx.font = 'italic 20px Georgia, serif';
-      ctx.fillStyle = '#1F4D3A';
-      ctx.textAlign = 'center';
-      ctx.fillText('Footbridge', cx, cy - 10);
-      ctx.restore();
-    }
-  }
-
-  // ── Animáció indítása ──────────────────────────────────────
-  resizeMain();
-  let current = 0, target = 0;
-  setTimeout(() => { target = 1; }, 600);
-
-  function loop() {
-    current += (target - current) * 0.032;
-    drawMain(current);
-    requestAnimationFrame(loop);
-  }
-  loop();
-  window.addEventListener('resize', () => { resizeMain(); drawMain(current); });
-})();
-</script>
 <script src="/scripts/main.js"></script>
 </body>
 </html>
