@@ -41,7 +41,7 @@
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:var(--space-16);align-items:start;">
         <div>
           <h2 style="font-size:var(--text-xl);margin-bottom:var(--space-2);">Structured enquiry</h2>
-          <p style="color:var(--color-muted);font-size:var(--text-sm);margin-bottom:var(--space-8);">We'll respond personally within one business day — not with an automated reply.</p>
+          <p style="color:#333;font-size:var(--text-sm);margin-bottom:var(--space-8);">We'll respond personally within one business day — not with an automated reply.</p>
 
           <div id="en-form-success" class="form-success" style="display:none;" role="alert" aria-live="polite">
             <h3>Got it.</h3>
@@ -92,7 +92,7 @@
         <div style="display:flex;flex-direction:column;gap:var(--space-8);">
           <div class="card-surface" style="padding:var(--space-6);">
             <h3 style="margin-bottom:var(--space-3);">Or simply email us</h3>
-            <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">No intake form, no Calendly. A direct email gets a personal reply.</p>
+            <p style="font-size:var(--text-sm);color:#2A2A2A;margin-bottom:var(--space-4);">No intake form, no Calendly. A direct email gets a personal reply.</p>
             <a href="mailto:hello@footbridge.hu" class="btn btn-ghost">hello@footbridge.hu <span class="arrow" aria-hidden="true">→</span></a>
           </div>
           <div style="padding:var(--space-6) 0;border-top:0.5px solid var(--color-border);">
@@ -103,14 +103,44 @@
     </div>
   </section>
 </main>
-<footer class="site-footer" role="contentinfo">
+<footer class="site-footer-new" role="contentinfo">
   <div class="container">
-    <div class="footer-bottom">
-      <p class="footer-coffee">Your time is valuable. So is ours — we keep that in mind. Coffee is on us, whether or not you become a client.</p>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-        <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:var(--color-muted);text-decoration:none;">hello@footbridge.hu</a>
-        <a href="/" style="font-size:13px;color:var(--color-muted);text-decoration:none;">Magyar →</a>
+    <div class="footer-grid-new">
+      <div>
+        <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:20px;">
+          <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
+        </a>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>Cookie-mentes mérés · EU-szerver</p>
       </div>
+      <div>
+        <p class="footer-col-label-new">Megoldások</p>
+        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
+        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
+        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
+        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
+      </div>
+      <div>
+        <p class="footer-col-label-new">Szolgáltatások</p>
+        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
+        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
+        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
+        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
+      </div>
+      <div>
+        <p class="footer-col-label-new">Footbridge</p>
+        <a href="/munkaink" class="footer-link-new">Munkáink</a>
+        <a href="/insights" class="footer-link-new">Insights</a>
+        <a href="/rolunk" class="footer-link-new">Rólunk</a>
+        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
+        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
+        <a href="/aszf" class="footer-link-new">ÁSZF</a>
+      </div>
+    </div>
+    <div class="footer-bottom-new">
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
