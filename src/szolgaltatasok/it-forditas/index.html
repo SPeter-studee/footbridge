@@ -10,7 +10,7 @@
   
   <style>
     .site-footer-new { background:#111; color:#fff; padding:var(--space-16) 0 var(--space-8); }
-    .footer-grid-new { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:var(--space-12); margin-bottom:var(--space-12); }
+    .footer-grid-new { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:var(--space-14); margin-bottom:var(--space-12); }
     @media(max-width:768px){ .footer-grid-new{ grid-template-columns:1fr; gap:var(--space-8); } }
     .footer-link-new { display:block; font-size:13px; color:rgba(255,255,255,0.6); text-decoration:none; margin-bottom:10px; transition:color 150ms; }
     .footer-link-new:hover { color:#fff; }
@@ -44,22 +44,20 @@
 <main id="main-content">
   <article>
     <div class="page-hero">
-      <div class="container" style="max-width:900px;">
-        
-        <p class="page-hero-eyebrow">03 — Elveszett fordítás</p>
+      <div class="container" style="max-width:900px;padding-top:var(--space-16);padding-bottom:var(--space-24);">
         <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Tudom, mit akarok — de amit az IT árajánlatba írt, abból semmi sem érthető.</h1>
-        <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.65);max-width:56ch;line-height:1.65;">Ha az IT-től kapott ajánlatból nem derül ki, miért kerül annyiba — vagy ha a projekt scope-ját le sem tudod írni egyértelműen —, ez nem technológiai probléma. Ez fordítási probléma.</p>
+        <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.75);max-width:56ch;line-height:1.65;">Ha az IT-től kapott ajánlatból nem derül ki, miért kerül annyiba — vagy ha a projekt scope-ját le sem tudod írni egyértelműen —, ez nem technológiai probléma. Ez fordítási probléma.</p>
       </div>
     </div>
 
-    <div class="container" class="page-content" style="max-width:900px;">
-      <div style="display:flex;flex-direction:column;gap:var(--space-12);">
+    <div class="container" style="max-width:900px;padding-top:var(--space-16);padding-bottom:var(--space-24);">
+      <div style="display:flex;flex-direction:column;gap:var(--space-14);">
 
         <div>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-5);">A fordítási réteg, ami hiányzik</h2>
-          <p style="color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">A vezető üzleti gondolkodásban él — célokban, megtérülésben, folyamatokban. Az IT technológiai gondolkodásban él — architektúrában, integrációkban, fejlesztési időben. A kettő között van egy réteg, ami a legtöbb szervezetből hiányzik: valaki, aki mindkettőt érti, és fordítani tud.</p>
-          <p style="color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Ez a hiány a legkorábban az ajánlatok olvasásakor mutatkozik meg. Az IT árajánlat tele van technikai terminológiával — API-integráció, adatbázis-migráció, infrastruktúra-konfiguráció — de nem mondja meg, pontosan mi valósul meg az üzleti célból, és miért kerül annyiba. Az ügyfél nem tudja összehasonlítani az ajánlatokat, mert nem tudja eldönteni, melyik mit tartalmaz valójában.</p>
-          <p style="color:var(--color-muted);line-height:var(--leading-relaxed);">Ugyanez a probléma jelenik meg a pályázatok műszaki részeinél, a közbeszerzési tenderek specifikációjánál, és minden olyan dokumentumnál, ahol az üzleti igényt IT-nyelven kell leírni. Ha nincs fordító, a dokumentum vagy túl általános, vagy érthetetlen — és a projekt eleve rossz alapokról indul.</p>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-6);">A fordítási réteg, ami hiányzik</h2>
+          <p style="color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">A vezető üzleti gondolkodásban él — célokban, megtérülésben, folyamatokban. Az IT technológiai gondolkodásban él — architektúrában, integrációkban, fejlesztési időben. A kettő között van egy réteg, ami a legtöbb szervezetből hiányzik: valaki, aki mindkettőt érti, és fordítani tud.</p>
+          <p style="color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Ez a hiány a legkorábban az ajánlatok olvasásakor mutatkozik meg. Az IT árajánlat tele van technikai terminológiával — API-integráció, adatbázis-migráció, infrastruktúra-konfiguráció — de nem mondja meg, pontosan mi valósul meg az üzleti célból, és miért kerül annyiba. Az ügyfél nem tudja összehasonlítani az ajánlatokat, mert nem tudja eldönteni, melyik mit tartalmaz valójában.</p>
+          <p style="color:#2A2A2A;line-height:var(--leading-relaxed);">Ugyanez a probléma jelenik meg a pályázatok műszaki részeinél, a közbeszerzési tenderek specifikációjánál, és minden olyan dokumentumnál, ahol az üzleti igényt IT-nyelven kell leírni. Ha nincs fordító, a dokumentum vagy túl általános, vagy érthetetlen — és a projekt eleve rossz alapokról indul.</p>
         </div>
 
         <div style="padding:var(--space-8);background:var(--color-surface);border-left:3px solid var(--color-green);">
@@ -71,40 +69,40 @@
           <div style="display:flex;flex-direction:column;gap:var(--space-4);">
             <div class="card" style="padding:var(--space-7);">
               <h3 style="margin-bottom:var(--space-3);">Funkcionális specifikáció és scope-dokumentum</h3>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Mielőtt az IT fejlesztésnek nekiállunk, pontosan le kell írni, mi épüljön meg. Nem PowerPoint-vázlat — precíz, fejlesztői szinten is érthető dokumentum, amely ugyanakkor üzleti döntéshozók számára is olvasható. Ez a scope-dokumentum a projekt alfája és omegája: ha jól van megírva, az ajánlatok összehasonlíthatók, a fejlesztők értik a feladatot, és a scope-creep elkerülhető.</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);">A Footbridge scope-dokumentum tartalmaz: use case-eket és felhasználói sztorijkat, adatmodell-vázlatot, integrációs pontokat és API-követelményeket, elfogadási kritériumokat, és nem-funkcionális követelményeket (teljesítmény, biztonság, skálázhatóság).</p>
+              <p style="font-size:var(--text-sm);color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Mielőtt az IT fejlesztésnek nekiállunk, pontosan le kell írni, mi épüljön meg. Nem PowerPoint-vázlat — precíz, fejlesztői szinten is érthető dokumentum, amely ugyanakkor üzleti döntéshozók számára is olvasható. Ez a scope-dokumentum a projekt alfája és omegája: ha jól van megírva, az ajánlatok összehasonlíthatók, a fejlesztők értik a feladatot, és a scope-creep elkerülhető.</p>
+              <p style="font-size:var(--text-sm);color:#2A2A2A;line-height:var(--leading-relaxed);">A Footbridge scope-dokumentum tartalmaz: use case-eket és felhasználói sztorijkat, adatmodell-vázlatot, integrációs pontokat és API-követelményeket, elfogadási kritériumokat, és nem-funkcionális követelményeket (teljesítmény, biztonság, skálázhatóság).</p>
             </div>
             <div class="card" style="padding:var(--space-7);">
               <h3 style="margin-bottom:var(--space-3);">EU-s pályázatok műszaki fejezete</h3>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Az EU-s pályázatok — GINOP-PLUSZ, RRF, NTP — megkövetelik a digitalizációs fejlesztések részletes műszaki leírását. Ez az a rész, ahol a legtöbb pályázat elvérzik: vagy túl általános, nem tudja meggyőzni a bírálót; vagy technikai zsargonban van írva, ami nem illeszkedik a pályázat üzleti narratívájába.</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);">A Footbridge ismeri a projektet — ha korábban workshopot vagy első hidat csináltunk, a műszaki tartalmat nem kell kitalálni, csak jó formába önteni. Ha önálló pályázati megbízásról van szó, egy rövid discovery-szeszszel megismerjük a projektet, és ez beépül az árba.</p>
+              <p style="font-size:var(--text-sm);color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Az EU-s pályázatok — GINOP-PLUSZ, RRF, NTP — megkövetelik a digitalizációs fejlesztések részletes műszaki leírását. Ez az a rész, ahol a legtöbb pályázat elvérzik: vagy túl általános, nem tudja meggyőzni a bírálót; vagy technikai zsargonban van írva, ami nem illeszkedik a pályázat üzleti narratívájába.</p>
+              <p style="font-size:var(--text-sm);color:#2A2A2A;line-height:var(--leading-relaxed);">A Footbridge ismeri a projektet — ha korábban workshopot vagy első hidat csináltunk, a műszaki tartalmat nem kell kitalálni, csak jó formába önteni. Ha önálló pályázati megbízásról van szó, egy rövid discovery-szeszszel megismerjük a projektet, és ez beépül az árba.</p>
             </div>
             <div class="card-interactive card-featured" style="padding:var(--space-7);">
               <h3 style="margin-bottom:var(--space-3);">Tender-dokumentáció és közbeszerzési MKL</h3>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Ha az IT-fejlesztést közbeszerzésen keresztül kell beszerezni, a Műszaki Követelmény-leírás (MKL) minősége meghatározza az ajánlatok minőségét. Egy rosszul megírt MKL pontatlan ajánlatokat vonz, amelyekbe a szállítók kockázati pótlékot építenek be — ez emeli az árat és csökkenti a pontosságot.</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);line-height:var(--leading-relaxed);">A Footbridge tender-dokumentáció tartalmaz: részletes műszaki követelményeket, értékelési szempontrendszert, teljesítési feltételeket, SLA-követelményeket és kötbér-struktúrát. Olyan dokumentumot írunk, amit a szállítók értelmezni tudnak — és ami alapján összehasonlítható ajánlatokat lehet kapni.</p>
+              <p style="font-size:var(--text-sm);color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Ha az IT-fejlesztést közbeszerzésen keresztül kell beszerezni, a Műszaki Követelmény-leírás (MKL) minősége meghatározza az ajánlatok minőségét. Egy rosszul megírt MKL pontatlan ajánlatokat vonz, amelyekbe a szállítók kockázati pótlékot építenek be — ez emeli az árat és csökkenti a pontosságot.</p>
+              <p style="font-size:var(--text-sm);color:#2A2A2A;line-height:var(--leading-relaxed);">A Footbridge tender-dokumentáció tartalmaz: részletes műszaki követelményeket, értékelési szempontrendszert, teljesítési feltételeket, SLA-követelményeket és kötbér-struktúrát. Olyan dokumentumot írunk, amit a szállítók értelmezni tudnak — és ami alapján összehasonlítható ajánlatokat lehet kapni.</p>
             </div>
           </div>
         </div>
 
         <div>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-5);">Miért érdemes kiszervezni a fordítást?</h2>
-          <p style="color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">A legtöbb szervezetben a műszaki dokumentációt vagy a fejlesztő csapat írja — akinek nincs ideje, és nem ez a szakterülete —, vagy a projektmenedzser, akinek nincs elég technikai mélysége. Az eredmény általában egy dokumentum, ami kielégíti a formai követelményeket, de nem ad elegendő iránymutatást a fejlesztőknek.</p>
-          <p style="color:var(--color-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Egy jó scope-dokumentum a fejlesztési idő 20-30%-át spórolja meg, mert a kérdések a dokumentumból megválaszolhatók. Egy jó pályázati műszaki fejezet megnöveli a nyerési esélyt, mert a bírálók pontosan értik, mi valósul meg. Egy jó tender-dokumentum pontosabb ajánlatokat vonz, mert a szállítók nem kénytelenek kockázati pótlékkal beárazni az ismeretleneket.</p>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-6);">Miért érdemes kiszervezni a fordítást?</h2>
+          <p style="color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">A legtöbb szervezetben a műszaki dokumentációt vagy a fejlesztő csapat írja — akinek nincs ideje, és nem ez a szakterülete —, vagy a projektmenedzser, akinek nincs elég technikai mélysége. Az eredmény általában egy dokumentum, ami kielégíti a formai követelményeket, de nem ad elegendő iránymutatást a fejlesztőknek.</p>
+          <p style="color:#2A2A2A;line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">Egy jó scope-dokumentum a fejlesztési idő 20-30%-át spórolja meg, mert a kérdések a dokumentumból megválaszolhatók. Egy jó pályázati műszaki fejezet megnöveli a nyerési esélyt, mert a bírálók pontosan értik, mi valósul meg. Egy jó tender-dokumentum pontosabb ajánlatokat vonz, mert a szállítók nem kénytelenek kockázati pótlékkal beárazni az ismeretleneket.</p>
         </div>
 
         <div>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-5);">Árazás</h2>
+          <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-6);">Árazás</h2>
           <div style="display:flex;flex-direction:column;gap:var(--space-3);">
-            <div class="price-row" style="border:2px solid #C8C3B8;">
+            <div class="price-row" style="border:2px solid #2D5A8E;background:rgba(45,90,142,0.04);">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">Funkcionális specifikáció</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Scope-dokumentum, use case-ek, adatmodell-vázlat, elfogadási kritériumok.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);white-space:nowrap;">450 eFt–2M Ft</p>
             </div>
-            <div class="price-row">
+            <div class="price-row" style="border:2px solid #5B4E8C;background:rgba(91,78,140,0.04);">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">EU-s pályázat műszaki fejezete</p><p style="font-size:var(--text-sm);color:var(--color-muted);">GINOP, RRF, NTP. Meglévő Footbridge-ügyfélnek kedvezményes.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);white-space:nowrap;">350 eFt–1,8M Ft</p>
             </div>
-            <div class="price-row price-featured" style="border:2px solid #1F4D3A;background:rgba(31,77,58,0.04);">
+            <div class="price-row" style="border:2px solid #7B4F2E;background:rgba(123,79,46,0.04);">
               <div><p style="font-weight:500;margin-bottom:var(--space-1);">Tender-dokumentáció (MKL)</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Közbeszerzési műszaki leírás, értékelési szempontrendszer, SLA-struktúra.</p></div>
               <p style="font-family:var(--font-display);font-size:var(--text-xl);white-space:nowrap;">600 eFt–2,5M Ft</p>
             </div>
@@ -112,9 +110,9 @@
           <p style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-4);">Az árak nettó értékek. Pontos ajánlat a projekt rövid bemutatása után, 2 munkanapon belül.</p>
         </div>
 
-        <div style="padding:var(--space-10);border:0.5px solid var(--color-border);text-align:center;">
+        <div style="padding:var(--space-10);border:2px solid #C8C3B8;text-align:center;">
           <h2 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-4);">Van egy konkrét projekted?</h2>
-          <p style="color:var(--color-muted);margin-bottom:var(--space-6);max-width:50ch;margin-left:auto;margin-right:auto;">Írj nekünk röviden a projektről és arról, milyen dokumentációra van szükséged — 2 munkanapon belül visszajelzünk árajánlattal.</p>
+          <p style="color:#2A2A2A;margin-bottom:var(--space-6);max-width:50ch;margin-left:auto;margin-right:auto;">Írj nekünk röviden a projektről és arról, milyen dokumentációra van szükséged — 2 munkanapon belül visszajelzünk árajánlattal.</p>
           <a href="/kapcsolat" class="btn btn-primary">Írj nekünk →</a>
         </div>
 

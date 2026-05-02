@@ -7,6 +7,15 @@
   <meta name="description" content="Klasszikus PM-keretrendszer + saját pragmatikus kiegészítések. Hibrid metodológiával, trust-alapú szerződéssel.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .site-footer-new{background:#111;color:#fff;padding:var(--space-16) 0 var(--space-8)}
+    .footer-grid-new{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-12);margin-bottom:var(--space-12)}
+    @media(max-width:768px){.footer-grid-new{grid-template-columns:1fr;gap:var(--space-8)}}
+    .footer-link-new{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 150ms}
+    .footer-link-new:hover{color:#fff}
+    .footer-col-label-new{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+    .footer-bottom-new{padding-top:var(--space-8);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+  </style>
 </head>
 <body>
 <header class="site-header" role="banner">
@@ -43,21 +52,21 @@
         <div>
           <h2 style="margin-bottom:var(--space-6);">Három szerep</h2>
           <div style="display:flex;flex-direction:column;gap:var(--space-4);">
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);">
+            <div style="padding:var(--space-6);border:2px solid #C8C3B8;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-3);">
                 <h3>Felelős PM</h3>
                 <span style="font-size:var(--text-sm);color:var(--color-muted);">1,8–3,6M Ft / hó · heti 20-40 óra</span>
               </div>
               <p style="font-size:var(--text-sm);color:var(--color-muted);">Külső projektvezetőként a teljes felelősséget átvesszük. Standolás, sprint-vezetés, eszkaláció, stakeholder-kommunikáció, dokumentáció. <em>Akkor jó</em>: ha nincs belső PM, vagy a meglévő terhelése túl nagy.</p>
             </div>
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);">
+            <div style="padding:var(--space-6);border:2px solid #C8C3B8;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-3);">
                 <h3>PM-coach</h3>
                 <span style="font-size:var(--text-sm);color:var(--color-muted);">450–900 eFt / hó · heti 4-8 óra</span>
               </div>
               <p style="font-size:var(--text-sm);color:var(--color-muted);">A saját PM-eitek mentora. Heti 1 strukturált call + ad-hoc Slack + havi retrospektív. <em>Akkor jó</em>: ha megbízható PM-jeitek vannak, de új területbe lépnek.</p>
             </div>
-            <div style="padding:var(--space-6);border:0.5px solid var(--color-border);">
+            <div style="padding:var(--space-6);border:2px solid #C8C3B8;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-3);">
                 <h3>PMO-felállítás</h3>
                 <span style="font-size:var(--text-sm);color:var(--color-muted);">8,5–18M Ft · 3-6 hónap</span>
@@ -70,7 +79,7 @@
 
         <div>
           <h2 style="margin-bottom:var(--space-4);">Hibrid metodológia, nem ideológia</h2>
-          <p style="color:var(--color-muted);margin-bottom:var(--space-6);">Nem agilis-fanatikusok vagyunk, nem prediktív-konzervatívak. Egy projekten belül mind a négy előfordulhat — a kontextus dönt, nem az ideológia.</p>
+          <p style="color:#2A2A2A;margin-bottom:var(--space-6);">Nem agilis-fanatikusok vagyunk, nem prediktív-konzervatívak. Egy projekten belül mind a négy előfordulhat — a kontextus dönt, nem az ideológia.</p>
           <div class="grid-2" style="gap:var(--space-4);">
             <div class="card-surface" style="padding:var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Prediktív</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Stabil, előre látható részek: ERP-infrastruktúra, GDPR-audit, szerződéses folyamat.</p></div>
             <div class="card-surface" style="padding:var(--space-5);"><p style="font-weight:500;margin-bottom:var(--space-2);">Agile</p><p style="font-size:var(--text-sm);color:var(--color-muted);">Innovatív, bizonytalan részek: AI-prototípus, új ügyfél-élmény, piaci tesztelés.</p></div>

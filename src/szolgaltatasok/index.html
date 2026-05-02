@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Szolgáltatások — Footbridge</title>
-  <meta name="description" content="Digitalizáció, pályázatírás, műszaki dokumentáció és projektmenedzsment közép- és nagyvállalatoknak.">
+  <meta name="description" content="IT projekt csúszás, digitalizációs szakadék, IT fordítás, projektmenedzsment, pályázatírás, műszaki dokumentáció — 50-300 fős közép- és nagyvállalatoknak.">
   <link rel="icon" href="/assets/logos/footbridge_favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .site-footer-new{background:#111;color:#fff;padding:var(--space-16) 0 var(--space-8)}
+    .footer-grid-new{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-14);margin-bottom:var(--space-12)}
+    @media(max-width:768px){.footer-grid-new{grid-template-columns:1fr;gap:var(--space-8)}}
+    .footer-link-new{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 150ms}
+    .footer-link-new:hover{color:#fff}
+    .footer-col-label-new{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+    .footer-bottom-new{padding-top:var(--space-8);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4)}
+  </style>
 </head>
 <body>
 <header class="site-header" role="banner">
@@ -23,7 +32,6 @@
         <a href="/insights">Insights</a>
         <a href="/rolunk">Rólunk</a>
         <a href="/kapcsolat" class="btn btn-primary">Beszéljünk</a>
-        <button class="reading-mode-btn" id="reading-mode-toggle" aria-pressed="false" aria-label="Olvasási mód be/ki">Aa</button>
       </nav>
       <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü megnyitása">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="6.25" width="18" height="1.5" rx="0.75" fill="currentColor"/><rect y="12.5" width="18" height="1.5" rx="0.75" fill="currentColor"/></svg>
@@ -31,81 +39,91 @@
     </div>
   </div>
 </header>
+
 <main id="main-content">
-  <section class="section" style="padding-top:var(--space-20);">
-    <div class="container">
-      <p class="eyebrow" style="margin-bottom:var(--space-4);">Szolgáltatások</p>
-      <h1 style="margin-bottom:var(--space-4);">Három területen tudunk segíteni</h1>
-      <p class="lead" style="margin-bottom:var(--space-16);">Digitalizáció, finanszírozás, projektmenedzsment — és a három között sok átfedés van.</p>
 
-      <div style="display:flex;flex-direction:column;gap:var(--space-4);">
+  <!-- Hero -->
+  <div style="background:var(--color-text);padding:var(--space-20) 0 var(--space-20);">
+    <div class="container" style="max-width:900px;">
+      <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:400;color:#FAF8F3;line-height:1.15;margin-bottom:var(--space-6);">Szolgáltatások</h1>
+      <p style="font-size:var(--text-lg);color:rgba(250,248,243,0.75);max-width:56ch;line-height:1.65;">Az üzleti stratégia és az IT megvalósítás között állunk. Három fájdalompontra adunk választ — és hat szolgáltatással segítünk megoldani.</p>
+    </div>
+  </div>
 
-        <div class="table-row-interactive" style="display:grid;grid-template-columns:200px 1fr;gap:0;border:0.5px solid var(--color-border);">
-          <div style="padding:var(--space-8);border-right:0.5px solid var(--color-border);background:var(--color-surface);">
-            <p class="eyebrow" style="margin-bottom:var(--space-2);">Digitalizáció</p>
-          </div>
-          <div style="padding:var(--space-8);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
-            <a href="/megoldasok" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">Workshop</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">350–450 eFt + ÁFA · 1 nap</p>
-            </a>
-            <a href="/megoldasok" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">Első híd</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">2,5–4,5M Ft + ÁFA · 3 hét</p>
-            </a>
-            <a href="/megoldasok/egyedi-szoftver" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">Egyedi fejlesztés</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">Árajánlat alapján</p>
-            </a>
-          </div>
-        </div>
+  <!-- 3 fájdalompont — a hero aloldalai -->
+  <section style="padding:var(--space-16) 0 var(--space-12);">
+    <div class="container" style="max-width:900px;">
+      <p style="font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#555;margin-bottom:var(--space-8);">Ha valamelyik ismerős</p>
 
-        <div class="table-row-interactive" style="display:grid;grid-template-columns:200px 1fr;gap:0;border:0.5px solid var(--color-border);">
-          <div style="padding:var(--space-8);border-right:0.5px solid var(--color-border);background:var(--color-surface);">
-            <p class="eyebrow" style="margin-bottom:var(--space-2);">Finanszírozás</p>
-          </div>
-          <div style="padding:var(--space-8);display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);">
-            <a href="/szolgaltatasok/palyazatiras" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">EU-s pályázatírás</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">GINOP, RRF, NTP · Árajánlat alapján</p>
-            </a>
-            <a href="/szolgaltatasok/muszaki-dokumentacio" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">Műszaki dokumentáció</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">Funkcionális spec, tender-doc · Árajánlat alapján</p>
-            </a>
-          </div>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5);">
 
-        <div class="table-row-interactive" style="display:grid;grid-template-columns:200px 1fr;gap:0;border:0.5px solid var(--color-border);">
-          <div style="padding:var(--space-8);border-right:0.5px solid var(--color-border);background:var(--color-surface);">
-            <p class="eyebrow" style="margin-bottom:var(--space-2);">Projektmenedzsment</p>
-          </div>
-          <div style="padding:var(--space-8);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
-            <a href="/szolgaltatasok/projektmenedzsment" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">Felelős PM</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">1,8–3,6M Ft / hó</p>
-            </a>
-            <a href="/szolgaltatasok/projektmenedzsment" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">PM-coach</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">450–900 eFt / hó</p>
-            </a>
-            <a href="/szolgaltatasok/projektmenedzsment" style="text-decoration:none;">
-              <p style="font-weight:500;margin-bottom:var(--space-2);color:var(--color-text);">PMO-felállítás</p>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);">8,5–18M Ft</p>
-            </a>
-          </div>
-        </div>
+        <a href="/szolgaltatasok/it-projekt-csuszas" class="card-interactive" style="padding:var(--space-8);display:flex;flex-direction:column;border-left:3px solid #2D5A8E;border-color:#C8C3B8;border-left-color:#2D5A8E;border-radius:0;">
+          <span style="font-family:var(--font-display);font-size:40px;color:#2D5A8E;line-height:1;margin-bottom:var(--space-4);">01</span>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-4);line-height:1.35;">Az IT projekt drágább lett, mint ígérték</h2>
+          <p style="color:#333;font-size:var(--text-sm);line-height:1.65;flex:1;margin-bottom:var(--space-6);">Senki nem tudja megmondani, miért. <strong>Projektmenedzsment, scope-kontroll, transzparens kommunikáció.</strong></p>
+          <span style="font-size:var(--text-sm);color:#2D5A8E;font-weight:500;">Tovább →</span>
+        </a>
 
-      </div>
+        <a href="/szolgaltatasok/digitalizacios-szakadek" class="card-interactive" style="padding:var(--space-8);display:flex;flex-direction:column;border-left:3px solid #1F4D3A;border-color:#C8C3B8;border-left-color:#1F4D3A;border-radius:0;">
+          <span style="font-family:var(--font-display);font-size:40px;color:#1F4D3A;line-height:1;margin-bottom:var(--space-4);">02</span>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-4);line-height:1.35;">Minden szoftverre előfizettünk — mégis minden kézzel megy</h2>
+          <p style="color:#333;font-size:var(--text-sm);line-height:1.65;flex:1;margin-bottom:var(--space-6);">A 3 szűrő módszertan. <strong>Folyamat-diagnosztika, workshop, első híd.</strong></p>
+          <span style="font-size:var(--text-sm);color:#1F4D3A;font-weight:500;">Tovább →</span>
+        </a>
 
-      <div style="margin-top:var(--space-12);padding:var(--space-8);background:var(--color-surface);">
-        <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4);">Nem tudod, melyik illik hozzád? A 30 másodperces diagnoszt megmutatja.</p>
-        <a href="/eszkozok/diagnoszt" class="btn btn-primary">Diagnoszt indítása →</a>
-        <a href="/kapcsolat" class="btn btn-ghost" style="margin-left:var(--space-4);">Vagy kérdezz direktben →</a>
+        <a href="/szolgaltatasok/it-forditas" class="card-interactive" style="padding:var(--space-8);display:flex;flex-direction:column;border-left:3px solid #7B4F2E;border-color:#C8C3B8;border-left-color:#7B4F2E;border-radius:0;">
+          <span style="font-family:var(--font-display);font-size:40px;color:#7B4F2E;line-height:1;margin-bottom:var(--space-4);">03</span>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-4);line-height:1.35;">Tudom, mit akarok — de az IT árajánlatból semmi sem érthető</h2>
+          <p style="color:#333;font-size:var(--text-sm);line-height:1.65;flex:1;margin-bottom:var(--space-6);">Üzleti szándék lefordítása IT-re. <strong>Funkcionális spec, pályázat műszaki fejezete, tender-dok.</strong></p>
+          <span style="font-size:var(--text-sm);color:#7B4F2E;font-weight:500;">Tovább →</span>
+        </a>
+
       </div>
     </div>
   </section>
+
+  <!-- Szolgáltatások áttekintő -->
+  <section style="padding:var(--space-8) 0 var(--space-20);border-top:1px solid var(--color-border);">
+    <div class="container" style="max-width:900px;">
+      <p style="font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#555;margin-bottom:var(--space-8);">Szolgáltatásaink</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
+
+        <a href="/szolgaltatasok/projektmenedzsment" class="card-interactive" style="padding:var(--space-6);display:flex;flex-direction:column;border-color:#2D5A8E;">
+          <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#2D5A8E;margin-bottom:var(--space-3);">Projektmenedzsment</p>
+          <h3 style="margin-bottom:var(--space-3);flex:1;">Felelős PM, PM-coach, PMO</h3>
+          <p style="font-size:var(--text-sm);color:#333;margin-bottom:var(--space-4);">Havi 450 eFt-tól · 3 hónapos elköteleződés</p>
+          <span style="font-size:var(--text-sm);color:#2D5A8E;font-weight:500;">Részletek →</span>
+        </a>
+
+        <a href="/szolgaltatasok/palyazatiras" class="card-interactive" style="padding:var(--space-6);display:flex;flex-direction:column;border-color:#5B4E8C;">
+          <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#5B4E8C;margin-bottom:var(--space-3);">Finanszírozás</p>
+          <h3 style="margin-bottom:var(--space-3);flex:1;">EU-s pályázatírás</h3>
+          <p style="font-size:var(--text-sm);color:#333;margin-bottom:var(--space-4);">GINOP, RRF, NTP · Árajánlat alapján</p>
+          <span style="font-size:var(--text-sm);color:#5B4E8C;font-weight:500;">Részletek →</span>
+        </a>
+
+        <a href="/szolgaltatasok/muszaki-dokumentacio" class="card-interactive" style="padding:var(--space-6);display:flex;flex-direction:column;border-color:#7B4F2E;">
+          <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#7B4F2E;margin-bottom:var(--space-3);">Dokumentáció</p>
+          <h3 style="margin-bottom:var(--space-3);flex:1;">Műszaki dokumentáció</h3>
+          <p style="font-size:var(--text-sm);color:#333;margin-bottom:var(--space-4);">Funkc. spec, tender-doc · Árajánlat alapján</p>
+          <span style="font-size:var(--text-sm);color:#7B4F2E;font-weight:500;">Részletek →</span>
+        </a>
+
+      </div>
+
+      <div style="margin-top:var(--space-12);padding:var(--space-8);background:var(--color-surface);border-left:2px solid var(--color-green);">
+        <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-green);line-height:1.55;margin-bottom:var(--space-4);">Nem tudod, melyik illik hozzád?</p>
+        <p style="color:#333;font-size:var(--text-sm);margin-bottom:var(--space-6);">A 30 másodperces diagnoszt megmutatja, melyik területen érdemes elkezdeni.</p>
+        <a href="/eszkozok/diagnoszt" class="btn btn-primary">Diagnoszt indítása →</a>
+        <a href="/kapcsolat" class="btn btn-ghost" style="margin-left:var(--space-4);">Kapcsolat →</a>
+      </div>
+
+    </div>
+  </section>
+
 </main>
+
 <footer class="site-footer-new" role="contentinfo">
   <div class="container">
     <div class="footer-grid-new">
@@ -114,40 +132,18 @@
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none"><circle cx="3" cy="10" r="2.5" fill="#FAF8F3"/><circle cx="29" cy="10" r="2.5" fill="#FAF8F3"/><path d="M3 10 C3 3 29 3 29 10" stroke="#FAF8F3" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
           <span style="font-family:var(--font-display);font-size:18px;color:#FAF8F3;">Footbridge</span>
         </a>
-        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;margin-bottom:16px;">Üzleti stratégia és IT megvalósítás között.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;"></span>Cookie-mentes mérés · EU-szerver</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);max-width:28ch;line-height:1.7;">Üzleti stratégia és IT megvalósítás között.</p>
       </div>
-      <div>
-        <p class="footer-col-label-new">Megoldások</p>
-        <a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a>
-        <a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a>
-        <a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a>
-        <a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Szolgáltatások</p>
-        <a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a>
-        <a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a>
-        <a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a>
-        <a href="/eszkozok" class="footer-link-new">Ingyenes eszközök</a>
-      </div>
-      <div>
-        <p class="footer-col-label-new">Footbridge</p>
-        <a href="/munkaink" class="footer-link-new">Munkáink</a>
-        <a href="/insights" class="footer-link-new">Insights</a>
-        <a href="/rolunk" class="footer-link-new">Rólunk</a>
-        <a href="/kapcsolat" class="footer-link-new">Kapcsolat</a>
-        <a href="/adatvedelem" class="footer-link-new">Adatvédelem</a>
-        <a href="/aszf" class="footer-link-new">ÁSZF</a>
-      </div>
+      <div><p class="footer-col-label-new">Megoldások</p><a href="/megoldasok/manualis-folyamatok" class="footer-link-new">Manuális folyamatok</a><a href="/megoldasok/adatok-szettagoltsaga" class="footer-link-new">Adatok széttagoltsága</a><a href="/megoldasok/regi-rendszerek" class="footer-link-new">Régi rendszerek</a><a href="/megoldasok/egyedi-szoftver" class="footer-link-new">Egyedi szoftver</a></div>
+      <div><p class="footer-col-label-new">Szolgáltatások</p><a href="/szolgaltatasok/it-projekt-csuszas" class="footer-link-new">IT projekt csúszás</a><a href="/szolgaltatasok/digitalizacios-szakadek" class="footer-link-new">Digitalizációs szakadék</a><a href="/szolgaltatasok/it-forditas" class="footer-link-new">IT fordítás</a><a href="/szolgaltatasok/projektmenedzsment" class="footer-link-new">Projektmenedzsment</a><a href="/szolgaltatasok/palyazatiras" class="footer-link-new">Pályázatírás</a><a href="/szolgaltatasok/muszaki-dokumentacio" class="footer-link-new">Műszaki dokumentáció</a></div>
+      <div><p class="footer-col-label-new">Footbridge</p><a href="/munkaink" class="footer-link-new">Munkáink</a><a href="/insights" class="footer-link-new">Insights</a><a href="/rolunk" class="footer-link-new">Rólunk</a><a href="/kapcsolat" class="footer-link-new">Kapcsolat</a></div>
     </div>
     <div class="footer-bottom-new">
-      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);max-width:55ch;">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
-      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@footbridge.hu</a>
+      <p style="font-family:var(--font-display);font-style:italic;font-size:13px;color:rgba(255,255,255,0.4);">Ahogy a Te időd, a mi időnk is drága — ezt észben tartjuk.</p>
+      <a href="mailto:hello@footbridge.hu" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">hello@footbridge.hu</a>
     </div>
   </div>
 </footer>
 <script src="/scripts/main.js"></script>
-
 </body>
 </html>
