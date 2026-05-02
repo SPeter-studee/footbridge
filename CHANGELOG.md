@@ -44,3 +44,4 @@ A repó `git log` alapján vezetett összefoglaló; a commit üzenetek szó szer
 - feat: harmadik router kártya korall háttér
 - docs: CHANGELOG.md indul
 - docs: CHANGELOG - teljes git előzmény
+- docs: CHANGELOG kiegészítve (összes commit)
