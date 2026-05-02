@@ -1,6 +1,6 @@
 # Changelog
 
-A repó `git log` alapján vezetett összefoglaló; a commit üzenetek szó szerinti visszaadása.
+A repó `git log --reverse` alapján; a commit üzenetek változtatás nélkül.
 
 ## 2026-04-30
 
@@ -22,10 +22,10 @@ A repó `git log` alapján vezetett összefoglaló; a commit üzenetek szó szer
 - fix: oldalsó animáció visszaállítva, két pillér felirat az ív zárulásakor
 - fix: pillér feliratok a pontok alá kerültek, canvas-on rajzolva
 - fix: ív szűkebb, Footbridge nagyobb, pillér fejléc eltávolítva
-- fix: ív beljebb, feliratok nagyobb és lejjebb
 
 ## 2026-05-02
 
+- fix: ív beljebb, feliratok nagyobb és lejjebb
 - feat: kártya hover rendszer + tartalom szinkron - két pillér narratíva
 - feat: hero split layout, 3 pain-point aloldal, új lábléc, rólunk újraírva
 - feat: témaszínek, kártya-fix, cikkek PMI technikákkal bővítve
@@ -45,3 +45,17 @@ A repó `git log` alapján vezetett összefoglaló; a commit üzenetek szó szer
 - docs: CHANGELOG.md indul
 - docs: CHANGELOG - teljes git előzmény
 - docs: CHANGELOG kiegészítve (összes commit)
+- docs: CHANGELOG - utolsó docs commit a listában
+- fix: router sáv térköz felül-alul
+- fix: kártya körvonalak 1.5px - erősebb mindenhol
+- fix: kártya border 2px, mobil CTA fehér, animáció felülre mobilon
+- feat: stat számláló pörgetés animáció
+- feat: pain-point kártyák brandszínekkel - kék, zöld, terrakotta
+- fix: szolgáltatás aloldalak - hero, árazás, CTA mobilra rendezve
+- fix: szolgáltatás aloldalak - eyebrow törölve, hero térköz javítva
+- fix: hero sáv alul nagyobb térköz (space-20)
+- feat: árazás kártyák brandszínekkel - kék, lila, terrakotta
+- feat: szolgáltatások landing - 3 pain-point + 3 szolgáltatás kártya
+- feat: teljes szinkron - hero térköz, kontraszt, border, eyebrow cleanup minden oldalon
+- feat: megoldások 2x2 grid kártyák + sötét CTA box
+- fix: térközök szinkron - bevezető/kártyák gap, szekciók szellősebbek
